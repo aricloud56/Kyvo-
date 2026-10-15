@@ -1,17 +1,1043 @@
 {
-  "_readme": "Hand-picked exercise demonstrations. Key = KYVO exercise id. Each angle is either a video (sources + poster) or an image. Replace the sample files in public/media/demos/ with licensed 3D renders, keep the same shape, and set sample to false. A licensed pack imported with scripts/media/import-pack.mjs fills in every exercise not listed here.",
+  "_readme": "Hand-picked exercise demonstrations. Key = KYVO exercise id. Each angle is either a video (sources + poster) or an image. Everkinetic entries (source: everkinetic) are rebuilt by scripts/media/build-everkinetic.mjs. To use licensed 3D renders for an exercise, add or replace its entry here with the same shape. A licensed pack imported with scripts/media/import-pack.mjs fills in every exercise not listed here.",
   "exercises": {
-    "lat-pulldown": {
+    "barbell-bench-press": {
+      "source": "everkinetic",
       "angles": [
         {
           "label": "Side",
           "video": [
-            { "src": "media/demos/lat-pulldown-side.webm", "type": "video/webm" },
-            { "src": "media/demos/lat-pulldown-side.mp4", "type": "video/mp4" }
+            {
+              "src": "media/demos/ek/barbell-bench-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/barbell-bench-press.mp4",
+              "type": "video/mp4"
+            }
           ],
-          "poster": "media/demos/lat-pulldown-side.jpg",
-          "credit": "KYVO placeholder animation, rendered from the KYVO movement illustration to test playback. Swap in a licensed 3D anatomy video.",
-          "sample": true
+          "poster": "media/demos/ek/barbell-bench-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Bench Press: Barbell."
+        }
+      ]
+    },
+    "incline-barbell-bench-press": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/incline-barbell-bench-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/incline-barbell-bench-press.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/incline-barbell-bench-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Bench Press: Barbell (Incline)."
+        }
+      ]
+    },
+    "dumbbell-bench-press": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/dumbbell-bench-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/dumbbell-bench-press.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/dumbbell-bench-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Bench Press: Dumbbell."
+        }
+      ]
+    },
+    "incline-dumbbell-press": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/incline-dumbbell-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/incline-dumbbell-press.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/incline-dumbbell-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Incline Dumbbell Press."
+        }
+      ]
+    },
+    "dumbbell-fly": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/dumbbell-fly.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/dumbbell-fly.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/dumbbell-fly.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Dumbbell Flys."
+        }
+      ]
+    },
+    "cable-fly": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/cable-fly.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/cable-fly.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/cable-fly.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Cable Crossover."
+        }
+      ]
+    },
+    "high-to-low-cable-fly": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/high-to-low-cable-fly.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/high-to-low-cable-fly.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/high-to-low-cable-fly.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Cable Crossover."
+        }
+      ]
+    },
+    "machine-chest-press": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/machine-chest-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/machine-chest-press.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/machine-chest-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Bench Press: Machine."
+        }
+      ]
+    },
+    "smith-machine-bench-press": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/smith-machine-bench-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/smith-machine-bench-press.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/smith-machine-bench-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Bench Press: Smith Machine."
+        }
+      ]
+    },
+    "chest-dip": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/chest-dip.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/chest-dip.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/chest-dip.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Chest Dips."
+        }
+      ]
+    },
+    "pull-up": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/pull-up.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/pull-up.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/pull-up.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Pull Ups."
+        }
+      ]
+    },
+    "underhand-lat-pulldown": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/underhand-lat-pulldown.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/underhand-lat-pulldown.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/underhand-lat-pulldown.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Pull Down: Underhand."
+        }
+      ]
+    },
+    "seated-cable-row": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/seated-cable-row.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/seated-cable-row.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/seated-cable-row.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Seated Cable Rows."
+        }
+      ]
+    },
+    "t-bar-row": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/t-bar-row.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/t-bar-row.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/t-bar-row.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: T-Bar Rows."
+        }
+      ]
+    },
+    "straight-arm-pulldown": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/straight-arm-pulldown.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/straight-arm-pulldown.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/straight-arm-pulldown.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Straight Arm Push Down."
+        }
+      ]
+    },
+    "back-extension": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/back-extension.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/back-extension.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/back-extension.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Hyperextensions."
+        }
+      ]
+    },
+    "inverted-row": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/inverted-row.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/inverted-row.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/inverted-row.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Body Row."
+        }
+      ]
+    },
+    "dumbbell-lateral-raise": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/dumbbell-lateral-raise.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/dumbbell-lateral-raise.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/dumbbell-lateral-raise.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lateral Dumbbell Raises."
+        }
+      ]
+    },
+    "front-raise": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/front-raise.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/front-raise.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/front-raise.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Front Dumbbell Raise."
+        }
+      ]
+    },
+    "barbell-shrug": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/barbell-shrug.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/barbell-shrug.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/barbell-shrug.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Barbell Shrugs."
+        }
+      ]
+    },
+    "ez-bar-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/ez-bar-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/ez-bar-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/ez-bar-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: EZ Bar Curl with Barbell."
+        }
+      ]
+    },
+    "alternating-dumbbell-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/alternating-dumbbell-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/alternating-dumbbell-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/alternating-dumbbell-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Alternating Bicep Curl with Dumbbell."
+        }
+      ]
+    },
+    "hammer-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/hammer-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/hammer-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/hammer-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Alternating Hammer Curl with Dumbbell."
+        }
+      ]
+    },
+    "machine-preacher-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/machine-preacher-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/machine-preacher-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/machine-preacher-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Preacher Curl: Machine."
+        }
+      ]
+    },
+    "concentration-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/concentration-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/concentration-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/concentration-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Concentration Curls with Dumbbell."
+        }
+      ]
+    },
+    "cable-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/cable-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/cable-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/cable-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Standing Biceps Curl with Cable."
+        }
+      ]
+    },
+    "zottman-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/zottman-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/zottman-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/zottman-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Zottman Curl with Dumbbells."
+        }
+      ]
+    },
+    "standing-calf-raise": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/standing-calf-raise.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/standing-calf-raise.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/standing-calf-raise.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Standing Calf Raises using Machine."
+        }
+      ]
+    },
+    "seated-calf-raise": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/seated-calf-raise.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/seated-calf-raise.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/seated-calf-raise.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Seated Calf Raise using Machine."
+        }
+      ]
+    },
+    "leg-press-calf-raise": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/leg-press-calf-raise.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/leg-press-calf-raise.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/leg-press-calf-raise.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Calves Press on Leg Machine."
+        }
+      ]
+    },
+    "donkey-calf-raise": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/donkey-calf-raise.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/donkey-calf-raise.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/donkey-calf-raise.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Donkey Calf Raises."
+        }
+      ]
+    },
+    "rope-triceps-pushdown": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/rope-triceps-pushdown.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/rope-triceps-pushdown.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/rope-triceps-pushdown.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Triceps Pushdown: Cable (Rope)."
+        }
+      ]
+    },
+    "straight-bar-triceps-pushdown": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/straight-bar-triceps-pushdown.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/straight-bar-triceps-pushdown.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/straight-bar-triceps-pushdown.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Triceps Pushdown: Cable."
+        }
+      ]
+    },
+    "jm-press": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/jm-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/jm-press.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/jm-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: JM Press."
+        }
+      ]
+    },
+    "assisted-triceps-dip": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/assisted-triceps-dip.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/assisted-triceps-dip.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/assisted-triceps-dip.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Triceps Dips: Machine."
+        }
+      ]
+    },
+    "bench-dip": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/bench-dip.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/bench-dip.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/bench-dip.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Bench Dips."
+        }
+      ]
+    },
+    "dumbbell-kickback": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/dumbbell-kickback.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/dumbbell-kickback.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/dumbbell-kickback.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Triceps Kickback with Dumbbell."
+        }
+      ]
+    },
+    "barbell-back-squat": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/barbell-back-squat.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/barbell-back-squat.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/barbell-back-squat.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Barbell Squat."
+        }
+      ]
+    },
+    "front-squat": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/front-squat.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/front-squat.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/front-squat.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Front Squat with Barbell."
+        }
+      ]
+    },
+    "smith-machine-squat": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/smith-machine-squat.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/smith-machine-squat.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/smith-machine-squat.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Squats: Smith Machine."
+        }
+      ]
+    },
+    "leg-press": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/leg-press.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/leg-press.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/leg-press.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Leg Press."
+        }
+      ]
+    },
+    "hack-squat": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/hack-squat.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/hack-squat.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/hack-squat.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Hack Squat: Machine."
+        }
+      ]
+    },
+    "walking-lunge": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/walking-lunge.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/walking-lunge.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/walking-lunge.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lunges: Dumbbell (Walking)."
+        }
+      ]
+    },
+    "reverse-lunge": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/reverse-lunge.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/reverse-lunge.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/reverse-lunge.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lunges: Dumbbell (Rear)."
+        }
+      ]
+    },
+    "forward-lunge": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/forward-lunge.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/forward-lunge.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/forward-lunge.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lunges: Dumbbell."
+        }
+      ]
+    },
+    "leg-extension": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/leg-extension.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/leg-extension.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/leg-extension.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Leg Extensions."
+        }
+      ]
+    },
+    "seated-leg-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/seated-leg-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/seated-leg-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/seated-leg-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Seated Leg Curl."
+        }
+      ]
+    },
+    "lying-leg-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/lying-leg-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/lying-leg-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/lying-leg-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lying Leg Curl Machine."
+        }
+      ]
+    },
+    "standing-leg-curl": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/standing-leg-curl.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/standing-leg-curl.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/standing-leg-curl.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Standing Leg Curls."
+        }
+      ]
+    },
+    "good-morning": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/good-morning.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/good-morning.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/good-morning.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Good Mornings: Barbell."
+        }
+      ]
+    },
+    "side-plank": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/side-plank.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/side-plank.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/side-plank.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Side Plank."
+        }
+      ]
+    },
+    "weighted-decline-crunch": {
+      "source": "everkinetic",
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            {
+              "src": "media/demos/ek/weighted-decline-crunch.webm",
+              "type": "video/webm"
+            },
+            {
+              "src": "media/demos/ek/weighted-decline-crunch.mp4",
+              "type": "video/mp4"
+            }
+          ],
+          "poster": "media/demos/ek/weighted-decline-crunch.jpg",
+          "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Decline Crunch."
         }
       ]
     }
