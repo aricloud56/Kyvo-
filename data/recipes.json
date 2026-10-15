@@ -1,0 +1,2291 @@
+[
+ {
+  "id": "chicken-rice-bowl",
+  "name": "Chicken, rice & broccoli meal-prep bowls",
+  "desc": "Soy-glazed chicken with capsicum, broccoli and basmati rice, portioned for the week.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 25,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "chicken-breast-raw",
+    800
+   ],
+   [
+    "basmati-dry",
+    300
+   ],
+   [
+    "broccoli",
+    600
+   ],
+   [
+    "olive-oil",
+    20
+   ],
+   [
+    "soy-sauce",
+    30
+   ],
+   [
+    "capsicum",
+    300
+   ]
+  ],
+  "steps": [
+   "Rinse the rice and cook it with 600 ml water, covered, on low heat for 12-15 minutes, then rest 5 minutes.",
+   "Cut the chicken into bite-size pieces and season with salt, pepper, garlic and paprika.",
+   "Heat the oil in a large pan over medium-high heat and cook the chicken for 7-9 minutes until no pink remains and the thickest piece reaches 74 °C.",
+   "Add the sliced capsicum and broccoli florets with a splash of water, cover and steam for 4 minutes.",
+   "Stir through the soy sauce and divide the chicken, vegetables and rice evenly between four containers."
+  ],
+  "storage": "Cool within 1 hour and refrigerate in sealed containers for up to 3-4 days, or freeze for up to 2 months. Reheat until piping hot throughout.",
+  "subs": [
+   "Use tamari for a gluten-free version.",
+   "Swap chicken for firm tofu (same weight) for a vegetarian bowl.",
+   "Use cauliflower rice to lower the carbohydrate count.",
+   "Use halal-certified chicken.",
+   "Choose a soy sauce or tamari with no added alcohol if you follow a strict halal diet."
+  ]
+ },
+ {
+  "id": "beef-chilli",
+  "name": "Lean beef & bean chilli",
+  "desc": "A rich, smoky chilli of lean beef mince, kidney beans and tomatoes served with rice.",
+  "servings": 5,
+  "prep": 15,
+  "cook": 40,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "beef-mince-5-raw",
+    750
+   ],
+   [
+    "kidney-beans-cooked",
+    480
+   ],
+   [
+    "tomatoes-canned",
+    800
+   ],
+   [
+    "onion",
+    220
+   ],
+   [
+    "capsicum",
+    300
+   ],
+   [
+    "olive-oil",
+    10
+   ],
+   [
+    "tikka-spice-mix",
+    12
+   ],
+   [
+    "white-rice-cooked",
+    750
+   ]
+  ],
+  "steps": [
+   "Dice the onion and capsicum.",
+   "Brown the mince in the oil over high heat for 5-6 minutes, breaking it up; drain excess fat if needed.",
+   "Add the onion and capsicum and cook for 5 minutes, then stir in the spices (chilli, cumin, paprika) for 1 minute.",
+   "Add the tomatoes and drained beans, simmer uncovered for 25-30 minutes until thick.",
+   "Serve each portion with 150 g cooked rice."
+  ],
+  "storage": "Keeps 4 days refrigerated or 3 months frozen. Freeze the chilli and rice separately for best texture.",
+  "subs": [
+   "Use halal-certified beef mince.",
+   "Turkey mince works for a leaner option.",
+   "Replace the mince with extra beans and lentils for a vegetarian chilli."
+  ]
+ },
+ {
+  "id": "overnight-oats",
+  "name": "High-protein overnight oats",
+  "desc": "Creamy no-cook oats soaked overnight with yoghurt, milk, protein powder, chia and berries.",
+  "servings": 1,
+  "prep": 5,
+  "cook": 0,
+  "meal": [
+   "breakfast"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "meal-prep",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "oats",
+    50
+   ],
+   [
+    "greek-yoghurt-0",
+    150
+   ],
+   [
+    "milk-skim",
+    100
+   ],
+   [
+    "whey-generic",
+    15
+   ],
+   [
+    "berries-mixed",
+    80
+   ],
+   [
+    "chia-seeds",
+    8
+   ]
+  ],
+  "steps": [
+   "Stir the oats, protein powder and chia seeds together in a jar.",
+   "Mix in the yoghurt and milk until smooth.",
+   "Top with the berries, cover and refrigerate overnight (at least 6 hours)."
+  ],
+  "storage": "Keeps 2 days in the fridge. Make three jars at once for the week.",
+  "subs": [
+   "Leave out the whey and use 250 g yoghurt instead.",
+   "Use soy yoghurt and soy milk for a dairy-free version.",
+   "Choose a halal-certified protein powder if required."
+  ]
+ },
+ {
+  "id": "egg-white-omelette",
+  "name": "Spinach & feta egg-white omelette",
+  "desc": "A light, fluffy egg-white omelette filled with spinach, feta and tomato, with wholemeal toast.",
+  "servings": 1,
+  "prep": 5,
+  "cook": 8,
+  "meal": [
+   "breakfast"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "vegetarian",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "egg-white",
+    200
+   ],
+   [
+    "egg-whole",
+    50
+   ],
+   [
+    "spinach",
+    40
+   ],
+   [
+    "feta",
+    25
+   ],
+   [
+    "tomato",
+    80
+   ],
+   [
+    "olive-oil",
+    5
+   ],
+   [
+    "bread-wholemeal",
+    72
+   ]
+  ],
+  "steps": [
+   "Whisk the egg whites and whole egg with a pinch of salt and pepper.",
+   "Wilt the spinach in the oil in a non-stick pan over medium heat.",
+   "Pour in the eggs, cook for 2-3 minutes, lifting the edges, until almost set.",
+   "Crumble over the feta, add the diced tomato, fold and cook 1 more minute.",
+   "Serve with two slices of toast."
+  ],
+  "storage": "Best eaten fresh. Cooked omelette keeps 1 day in the fridge.",
+  "subs": [
+   "Swap feta for cottage cheese for more protein and less fat."
+  ]
+ },
+ {
+  "id": "salmon-sweet-potato",
+  "name": "Baked salmon, sweet potato & greens",
+  "desc": "Oven-baked salmon fillets with roasted sweet potato and green beans.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 30,
+  "meal": [
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "salmon-raw",
+    260
+   ],
+   [
+    "sweet-potato-baked",
+    400
+   ],
+   [
+    "green-beans",
+    250
+   ],
+   [
+    "olive-oil",
+    10
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 200 °C. Cube the sweet potato, toss with half the oil and roast for 25-30 minutes.",
+   "After 12 minutes, add the salmon fillets to the tray, season and roast for 12-15 minutes until the fish flakes.",
+   "Steam or boil the green beans for 4-5 minutes.",
+   "Plate with a squeeze of lemon."
+  ],
+  "storage": "Keeps 2 days refrigerated. Reheat salmon gently or eat cold in a salad.",
+  "subs": [
+   "Use cod or barramundi for a leaner fish.",
+   "Swap sweet potato for 150 g cooked rice per serving."
+  ]
+ },
+ {
+  "id": "chicken-tikka-wraps",
+  "name": "Chicken tikka wraps with yoghurt sauce",
+  "desc": "Yoghurt-marinated tikka chicken in wholemeal wraps with a cool cucumber sauce.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 15,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "chicken-breast-raw",
+    600
+   ],
+   [
+    "greek-yoghurt-0",
+    250
+   ],
+   [
+    "tikka-spice-mix",
+    15
+   ],
+   [
+    "wrap-wholemeal",
+    248
+   ],
+   [
+    "cucumber",
+    150
+   ],
+   [
+    "spinach",
+    60
+   ],
+   [
+    "onion",
+    110
+   ]
+  ],
+  "steps": [
+   "Mix 100 g of the yoghurt with the spice mix, salt and lemon juice; coat the sliced chicken and marinate 10 minutes (or overnight).",
+   "Cook the chicken in a hot pan or under the grill for 8-10 minutes, turning, until cooked through (74 °C).",
+   "Grate the cucumber into the remaining yoghurt with salt and mint.",
+   "Fill each wrap with spinach, sliced onion, chicken and sauce."
+  ],
+  "storage": "Store chicken and sauce separately for up to 3 days; assemble wraps fresh.",
+  "subs": [
+   "Use halal-certified chicken.",
+   "Use a gluten-free wrap if needed.",
+   "Use dairy-free yoghurt for the sauce."
+  ]
+ },
+ {
+  "id": "turkey-bolognese",
+  "name": "Turkey bolognese with pasta",
+  "desc": "A lean turkey and vegetable bolognese tossed through pasta.",
+  "servings": 4,
+  "prep": 10,
+  "cook": 30,
+  "meal": [
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "turkey-mince-raw",
+    500
+   ],
+   [
+    "pasta-dry",
+    320
+   ],
+   [
+    "tomatoes-canned",
+    800
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "carrot",
+    120
+   ],
+   [
+    "mushrooms",
+    150
+   ],
+   [
+    "olive-oil",
+    10
+   ]
+  ],
+  "steps": [
+   "Finely chop the onion, carrot and mushrooms.",
+   "Soften the vegetables in the oil for 5 minutes, then add the mince and cook, breaking it up, until browned with no pink remaining (74 °C).",
+   "Add the tomatoes and dried herbs, simmer 20 minutes.",
+   "Cook the pasta in salted water as per the packet, drain and combine."
+  ],
+  "storage": "Keeps 4 days refrigerated; sauce freezes well for 3 months.",
+  "subs": [
+   "Use halal-certified turkey or beef mince.",
+   "Use lentils instead of mince for a vegan version.",
+   "Use gluten-free pasta if needed."
+  ]
+ },
+ {
+  "id": "tofu-stir-fry",
+  "name": "Crispy tofu & vegetable stir-fry",
+  "desc": "Golden pan-fried tofu with mixed vegetables and edamame over rice.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 15,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "vegetarian",
+   "vegan",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "tofu-firm",
+    300
+   ],
+   [
+    "mixed-veg-frozen",
+    300
+   ],
+   [
+    "white-rice-cooked",
+    300
+   ],
+   [
+    "soy-sauce",
+    30
+   ],
+   [
+    "olive-oil",
+    15
+   ],
+   [
+    "edamame",
+    100
+   ]
+  ],
+  "steps": [
+   "Press the tofu with a towel for 10 minutes, then cube it.",
+   "Fry the tofu in the oil over medium-high heat for 8 minutes, turning, until golden.",
+   "Add the vegetables and edamame and stir-fry for 4 minutes.",
+   "Add the soy sauce, toss and serve over the rice."
+  ],
+  "storage": "Keeps 3 days refrigerated. Tofu softens on reheating but stays tasty.",
+  "subs": [
+   "Use tamari for gluten-free.",
+   "Use halal-certified chicken breast instead of tofu for a meat version (cook to 74 °C).",
+   "Choose a soy sauce or tamari with no added alcohol if you follow a strict halal diet."
+  ]
+ },
+ {
+  "id": "tuna-chickpea-salad",
+  "name": "Tuna & chickpea protein salad",
+  "desc": "A filling salad of tuna, chickpeas, crunchy vegetables and feta with a lemon dressing.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 0,
+  "meal": [
+   "lunch"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "tuna-canned-water",
+    190
+   ],
+   [
+    "chickpeas-cooked",
+    240
+   ],
+   [
+    "cucumber",
+    150
+   ],
+   [
+    "tomato",
+    160
+   ],
+   [
+    "spinach",
+    60
+   ],
+   [
+    "olive-oil",
+    10
+   ],
+   [
+    "feta",
+    40
+   ]
+  ],
+  "steps": [
+   "Drain the tuna and chickpeas.",
+   "Chop the cucumber and tomato.",
+   "Toss everything with the oil, lemon juice, salt and pepper; crumble over the feta."
+  ],
+  "storage": "Keeps 2 days in the fridge in a sealed container; dress just before eating if possible.",
+  "subs": [
+   "Leave out the feta for dairy-free.",
+   "Swap tuna for shredded cooked halal-certified chicken."
+  ]
+ },
+ {
+  "id": "cottage-cheese-bowl",
+  "name": "Cottage cheese, berries & almond snack bowl",
+  "desc": "Creamy cottage cheese topped with berries, almonds and a drizzle of honey.",
+  "servings": 1,
+  "prep": 3,
+  "cook": 0,
+  "meal": [
+   "snack"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "cottage-cheese",
+    200
+   ],
+   [
+    "berries-mixed",
+    100
+   ],
+   [
+    "almonds",
+    15
+   ],
+   [
+    "honey",
+    7
+   ]
+  ],
+  "steps": [
+   "Spoon the cottage cheese into a bowl.",
+   "Roughly chop the almonds.",
+   "Top with the berries and almonds and drizzle with the honey."
+  ],
+  "storage": "Best fresh; keeps 1 day covered in the fridge.",
+  "subs": [
+   "Use Greek yoghurt instead of cottage cheese.",
+   "Use seeds instead of almonds for a nut-free version."
+  ]
+ },
+ {
+  "id": "lentil-dal",
+  "name": "Red lentil & spinach dal",
+  "desc": "A gently spiced red lentil, tomato and coconut dal with spinach and basmati rice.",
+  "servings": 4,
+  "prep": 10,
+  "cook": 30,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "meal-prep",
+   "vegetarian",
+   "vegan",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "lentils-cooked",
+    800
+   ],
+   [
+    "tomatoes-canned",
+    400
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "spinach",
+    120
+   ],
+   [
+    "coconut-milk-light",
+    200
+   ],
+   [
+    "olive-oil",
+    10
+   ],
+   [
+    "tikka-spice-mix",
+    10
+   ],
+   [
+    "basmati-dry",
+    240
+   ]
+  ],
+  "steps": [
+   "Soften the chopped onion in the oil with garlic and ginger for 5 minutes.",
+   "Add the spices for 1 minute, then the tomatoes, lentils and coconut milk.",
+   "Simmer 15 minutes, stir in the spinach until wilted.",
+   "Cook the rice and serve with the dal."
+  ],
+  "storage": "Keeps 4 days refrigerated or 3 months frozen.",
+  "subs": [
+   "Stir in 150 g Greek yoghurt per 2 servings at the end for extra protein (not vegan).",
+   "Add cooked halal-certified chicken for a higher-protein version."
+  ]
+ },
+ {
+  "id": "protein-pancakes",
+  "name": "Banana protein pancakes",
+  "desc": "Fluffy banana-oat pancakes boosted with eggs and whey, topped with yoghurt and berries.",
+  "servings": 2,
+  "prep": 5,
+  "cook": 10,
+  "meal": [
+   "breakfast"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "meal-prep",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "oats",
+    80
+   ],
+   [
+    "banana",
+    120
+   ],
+   [
+    "egg-whole",
+    100
+   ],
+   [
+    "egg-white",
+    100
+   ],
+   [
+    "whey-generic",
+    30
+   ],
+   [
+    "greek-yoghurt-0",
+    100
+   ],
+   [
+    "berries-mixed",
+    100
+   ]
+  ],
+  "steps": [
+   "Blend the oats, banana, eggs, egg whites and protein powder into a batter.",
+   "Cook ladlefuls in a lightly oiled non-stick pan over medium heat, 2 minutes per side.",
+   "Serve topped with yoghurt and berries."
+  ],
+  "storage": "Cooked pancakes keep 2 days in the fridge or 1 month frozen; reheat in a toaster.",
+  "subs": [
+   "Use gluten-free oats if needed.",
+   "Leave out whey and add 1 extra egg white.",
+   "Choose a halal-certified protein powder if required."
+  ]
+ },
+ {
+  "id": "lamb-kofta",
+  "name": "Lamb kofta with couscous & salad",
+  "desc": "Spiced lamb koftas with couscous, fresh salad and garlic-mint yoghurt.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 15,
+  "meal": [
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "lamb-mince-raw",
+    500
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "couscous-cooked",
+    640
+   ],
+   [
+    "cucumber",
+    200
+   ],
+   [
+    "tomato",
+    240
+   ],
+   [
+    "greek-yoghurt-0",
+    200
+   ]
+  ],
+  "steps": [
+   "Grate the onion and mix with the mince, cumin, coriander, salt and chopped parsley.",
+   "Shape into 12 sausages and grill or pan-fry for 10-12 minutes, turning, until cooked through (71 °C).",
+   "Prepare the couscous and chop the salad.",
+   "Serve with yoghurt mixed with garlic and mint."
+  ],
+  "storage": "Keeps 3 days refrigerated; freeze raw koftas for up to 3 months.",
+  "subs": [
+   "Use halal-certified lamb.",
+   "Use 5% beef mince to reduce fat."
+  ]
+ },
+ {
+  "id": "prawn-noodle-stirfry",
+  "name": "Garlic prawn & vegetable rice bowl",
+  "desc": "Garlicky prawns stir-fried with broccoli and capsicum over rice.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 10,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "prawns-cooked",
+    250
+   ],
+   [
+    "white-rice-cooked",
+    320
+   ],
+   [
+    "broccoli",
+    200
+   ],
+   [
+    "capsicum",
+    150
+   ],
+   [
+    "soy-sauce",
+    20
+   ],
+   [
+    "olive-oil",
+    10
+   ]
+  ],
+  "steps": [
+   "Stir-fry sliced garlic, broccoli and capsicum in the oil for 4 minutes.",
+   "Add the prawns and soy sauce and heat through for 2 minutes.",
+   "Serve over the rice."
+  ],
+  "storage": "Eat within 2 days; reheat only once until piping hot.",
+  "subs": [
+   "Shellfish allergy: use chicken or tofu instead.",
+   "Choose a soy sauce or tamari with no added alcohol if you follow a strict halal diet."
+  ]
+ },
+ {
+  "id": "scrambled-egg-avo-toast",
+  "name": "Scrambled eggs & smashed avocado on toast",
+  "desc": "Fluffy high-protein scrambled eggs on wholemeal toast with lemony smashed avocado and tomato.",
+  "servings": 1,
+  "prep": 5,
+  "cook": 5,
+  "meal": [
+   "breakfast"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "vegetarian",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "egg-whole",
+    150
+   ],
+   [
+    "egg-white",
+    100
+   ],
+   [
+    "bread-wholemeal",
+    72
+   ],
+   [
+    "avocado",
+    50
+   ],
+   [
+    "tomato",
+    80
+   ],
+   [
+    "lemon-juice",
+    5
+   ]
+  ],
+  "steps": [
+   "Whisk the eggs and egg whites with a pinch of salt and pepper.",
+   "Mash the avocado with the lemon juice, a pinch of salt and chilli flakes.",
+   "Cook the eggs in a non-stick pan over low-medium heat, stirring gently, for 2-3 minutes until just set with no runny egg left.",
+   "Toast the bread, spread with the avocado and top with the eggs and sliced tomato."
+  ],
+  "storage": "Best eaten fresh. Cooked eggs keep 1 day in the fridge; reheat until steaming hot.",
+  "subs": [
+   "Use gluten-free bread if needed.",
+   "Stir 50 g cottage cheese into the eggs for extra protein."
+  ]
+ },
+ {
+  "id": "breakfast-burritos",
+  "name": "Freezer-friendly breakfast burritos",
+  "desc": "Egg, black bean and cheddar burritos you can batch-cook and freeze for grab-and-go breakfasts.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 15,
+  "meal": [
+   "breakfast",
+   "lunch"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "vegetarian",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "egg-whole",
+    400
+   ],
+   [
+    "egg-white",
+    200
+   ],
+   [
+    "black-beans-cooked",
+    240
+   ],
+   [
+    "capsicum",
+    150
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "cheddar",
+    60
+   ],
+   [
+    "wrap-wholemeal",
+    248
+   ],
+   [
+    "olive-oil",
+    10
+   ]
+  ],
+  "steps": [
+   "Dice the onion and capsicum and soften in the oil in a large non-stick pan over medium heat for 5 minutes.",
+   "Whisk the eggs and egg whites with salt, pepper and 1 tsp smoked paprika, pour into the pan and stir gently for 3-4 minutes until fully set.",
+   "Stir through the drained, rinsed black beans and heat for 1 minute.",
+   "Divide the filling between the wraps, sprinkle with grated cheddar, fold in the sides and roll up tightly.",
+   "Eat straight away, or cool quickly, wrap each burrito in baking paper and foil and refrigerate or freeze."
+  ],
+  "storage": "Keeps 3 days refrigerated or 2 months frozen. Remove the foil and microwave from frozen for 2-3 minutes, turning once, until piping hot in the centre.",
+  "subs": [
+   "Use gluten-free wraps if needed.",
+   "Swap the cheddar for light mozzarella to trim the fat.",
+   "Add salsa or hot sauce when serving."
+  ]
+ },
+ {
+  "id": "greek-yoghurt-parfait",
+  "name": "Greek yoghurt, berry & granola parfait",
+  "desc": "Thick, protein-rich Greek yoghurt layered with berries and crunchy granola.",
+  "servings": 1,
+  "prep": 5,
+  "cook": 0,
+  "meal": [
+   "snack"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "greek-yoghurt-0",
+    200
+   ],
+   [
+    "berries-mixed",
+    100
+   ],
+   [
+    "granola",
+    30
+   ]
+  ],
+  "steps": [
+   "Use fresh berries, or thaw frozen berries in the fridge overnight or for 1 minute in the microwave.",
+   "Layer half the yoghurt, half the berries and half the granola in a glass or jar.",
+   "Repeat the layers and eat straight away so the granola stays crunchy."
+  ],
+  "storage": "Keep the yoghurt and berries in a sealed jar in the fridge for up to 2 days and add the granola just before eating.",
+  "subs": [
+   "Many granolas contain nuts; choose a nut-free granola or toasted oats if needed.",
+   "Use soy yoghurt for dairy-free (protein will be lower)."
+  ]
+ },
+ {
+  "id": "tofu-scramble",
+  "name": "Turmeric tofu scramble on toast",
+  "desc": "A plant-based take on scrambled eggs with golden turmeric tofu, mushrooms and spinach.",
+  "servings": 2,
+  "prep": 5,
+  "cook": 10,
+  "meal": [
+   "breakfast",
+   "lunch"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "vegetarian",
+   "vegan",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "tofu-firm",
+    300
+   ],
+   [
+    "spinach",
+    60
+   ],
+   [
+    "mushrooms",
+    140
+   ],
+   [
+    "tomato",
+    120
+   ],
+   [
+    "bread-wholemeal",
+    144
+   ],
+   [
+    "olive-oil",
+    10
+   ]
+  ],
+  "steps": [
+   "Pat the tofu dry with paper towel and crumble it into small pieces with your hands.",
+   "Cook the sliced mushrooms in the oil in a non-stick pan over medium-high heat for 4 minutes until golden.",
+   "Add the tofu, 1/2 tsp ground turmeric, 1/2 tsp garlic powder, salt and pepper and cook for 4 minutes, stirring, until hot.",
+   "Stir through the spinach and diced tomato until the spinach wilts.",
+   "Toast the bread and pile the scramble on top."
+  ],
+  "storage": "Keeps 2 days in a sealed container in the fridge; reheat until steaming hot.",
+  "subs": [
+   "Use gluten-free bread if needed.",
+   "Add a pinch of black salt (kala namak) for an eggy flavour."
+  ]
+ },
+ {
+  "id": "greek-chicken-wraps",
+  "name": "Greek chicken wraps with tzatziki",
+  "desc": "Lemon-oregano chicken, crisp salad, feta and garlicky tzatziki rolled in a wholemeal wrap.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 0,
+  "meal": [
+   "lunch"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "halal-friendly"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "chicken-breast-cooked",
+    300
+   ],
+   [
+    "wrap-wholemeal",
+    124
+   ],
+   [
+    "lettuce-cos",
+    60
+   ],
+   [
+    "tomato",
+    120
+   ],
+   [
+    "cucumber",
+    100
+   ],
+   [
+    "feta",
+    30
+   ],
+   [
+    "greek-yoghurt-0",
+    80
+   ],
+   [
+    "garlic",
+    3
+   ],
+   [
+    "lemon-juice",
+    10
+   ]
+  ],
+  "steps": [
+   "Grate 40 g of the cucumber, squeeze out the liquid and mix with the yoghurt, crushed garlic, half the lemon juice, salt and dried mint to make tzatziki.",
+   "Slice the cooked chicken and toss with the remaining lemon juice and 1 tsp dried oregano.",
+   "Slice the rest of the cucumber, the tomato and the lettuce.",
+   "Spread each wrap with tzatziki, add the lettuce, chicken, tomato and cucumber, crumble over the feta and roll up tightly."
+  ],
+  "storage": "Use cooked chicken within 3 days of cooking. Keep the tzatziki separate and assemble just before eating; packed wraps should stay chilled below 5 °C and be eaten the same day.",
+  "subs": [
+   "Use halal-certified chicken (leftover grilled breast works well); if cooking it fresh, cook to 74 °C.",
+   "Swap the chicken for 240 g drained chickpeas for a vegetarian wrap.",
+   "Use gluten-free wraps if needed."
+  ]
+ },
+ {
+  "id": "tuna-rice-bowl",
+  "name": "Tuna, avocado & edamame rice bowl",
+  "desc": "A poke-style bowl of tuna, avocado, edamame and corn over rice with a soy-lemon drizzle.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 5,
+  "meal": [
+   "lunch"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "tuna-canned-water",
+    190
+   ],
+   [
+    "white-rice-cooked",
+    300
+   ],
+   [
+    "avocado",
+    75
+   ],
+   [
+    "cucumber",
+    100
+   ],
+   [
+    "corn-kernels",
+    80
+   ],
+   [
+    "edamame",
+    80
+   ],
+   [
+    "soy-sauce",
+    15
+   ],
+   [
+    "lemon-juice",
+    10
+   ]
+  ],
+  "steps": [
+   "Heat the rice (a microwave pouch, or leftover rice reheated until steaming hot) and divide between two bowls.",
+   "Cover the frozen edamame and corn with boiling water for 2 minutes, then drain.",
+   "Drain and flake the tuna; slice the avocado and cucumber.",
+   "Arrange everything over the rice and drizzle with the soy sauce and lemon juice."
+  ],
+  "storage": "Best eaten fresh. Only use leftover rice that was refrigerated within 1 hour of cooking, and reheat it once only.",
+  "subs": [
+   "Use tamari for gluten-free.",
+   "Choose a soy sauce or tamari with no added alcohol if you follow a strict halal diet.",
+   "Swap the tuna for 150 g firm tofu for a vegetarian bowl."
+  ]
+ },
+ {
+  "id": "med-quinoa-salad",
+  "name": "Mediterranean chickpea & quinoa salad",
+  "desc": "A zesty lunchbox salad of quinoa, chickpeas, crunchy vegetables and feta.",
+  "servings": 4,
+  "prep": 10,
+  "cook": 15,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "meal-prep",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "quinoa-cooked",
+    740
+   ],
+   [
+    "chickpeas-cooked",
+    480
+   ],
+   [
+    "cucumber",
+    300
+   ],
+   [
+    "tomato",
+    320
+   ],
+   [
+    "capsicum",
+    200
+   ],
+   [
+    "feta",
+    120
+   ],
+   [
+    "olive-oil",
+    30
+   ],
+   [
+    "lemon-juice",
+    60
+   ]
+  ],
+  "steps": [
+   "Rinse 240 g dry quinoa and simmer in 480 ml water, covered, for 12-15 minutes until the water is absorbed; spread out to cool.",
+   "Chop the cucumber, tomato and capsicum into small pieces.",
+   "Whisk the oil, lemon juice, 1 tsp dried oregano, salt and pepper.",
+   "Toss the quinoa, drained chickpeas, vegetables and dressing together and crumble over the feta.",
+   "Divide into four containers."
+  ],
+  "storage": "Keeps 3 days in sealed containers in the fridge.",
+  "subs": [
+   "Leave out the feta for a vegan, dairy-free salad.",
+   "Add 100 g grilled halal-certified chicken per serve for extra protein."
+  ]
+ },
+ {
+  "id": "bean-quesadillas",
+  "name": "Black bean & corn quesadillas",
+  "desc": "Crisp wholemeal quesadillas filled with spiced black beans, corn, capsicum and melted cheddar.",
+  "servings": 4,
+  "prep": 10,
+  "cook": 12,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "vegetarian",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "wrap-wholemeal",
+    248
+   ],
+   [
+    "black-beans-cooked",
+    360
+   ],
+   [
+    "corn-kernels",
+    120
+   ],
+   [
+    "capsicum",
+    150
+   ],
+   [
+    "cheddar",
+    80
+   ],
+   [
+    "greek-yoghurt-0",
+    100
+   ]
+  ],
+  "steps": [
+   "Mash half the drained beans with 1 tsp ground cumin, 1 tsp smoked paprika and salt, then stir in the remaining beans, the corn and the diced capsicum.",
+   "Spread the filling over one half of each wrap, sprinkle with the grated cheddar and fold over.",
+   "Cook in a dry non-stick pan over medium heat for 2-3 minutes per side until golden and the cheese has melted.",
+   "Cut into wedges and serve with the yoghurt in place of sour cream."
+  ],
+  "storage": "The filling keeps 3 days in the fridge. Cooked quesadillas keep 2 days; reheat in a dry pan until hot through.",
+  "subs": [
+   "Use gluten-free wraps if needed.",
+   "Use dairy-free cheese and yoghurt for a vegan version."
+  ]
+ },
+ {
+  "id": "chicken-burrito-bowls",
+  "name": "Chicken thigh burrito bowls",
+  "desc": "Smoky paprika chicken thighs with brown rice, beans, corn and fresh tomato salsa.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 20,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "chicken-thigh-raw",
+    700
+   ],
+   [
+    "brown-rice-cooked",
+    600
+   ],
+   [
+    "black-beans-cooked",
+    360
+   ],
+   [
+    "corn-kernels",
+    200
+   ],
+   [
+    "capsicum",
+    300
+   ],
+   [
+    "tomato",
+    200
+   ],
+   [
+    "greek-yoghurt-0",
+    150
+   ],
+   [
+    "olive-oil",
+    15
+   ],
+   [
+    "lemon-juice",
+    20
+   ]
+  ],
+  "steps": [
+   "Toss the chicken with half the oil, 2 tsp smoked paprika, 2 tsp ground cumin and salt.",
+   "Cook in a hot pan or on a grill for 5-6 minutes per side until the thickest part reaches 74 °C; rest 5 minutes, then slice.",
+   "Cook the sliced capsicum in the remaining oil for 4-5 minutes, and warm the drained beans and corn.",
+   "Dice the tomato and mix with the lemon juice and a pinch of salt for a quick salsa.",
+   "Divide the rice, chicken, beans, corn and capsicum between four containers; add the salsa and yoghurt when serving."
+  ],
+  "storage": "Cool within 1 hour and refrigerate for up to 3 days, keeping the salsa and yoghurt separate. Reheat until piping hot throughout.",
+  "subs": [
+   "Use halal-certified chicken.",
+   "Swap the chicken for 600 g firm tofu for a vegetarian bowl.",
+   "Use quinoa instead of brown rice."
+  ]
+ },
+ {
+  "id": "beef-broccoli-stirfry",
+  "name": "Beef & broccoli stir-fry",
+  "desc": "Tender strips of lean beef tossed with broccoli and capsicum in a garlic-ginger soy sauce.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 15,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "beef-lean-raw",
+    600
+   ],
+   [
+    "broccoli",
+    400
+   ],
+   [
+    "capsicum",
+    150
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "garlic",
+    10
+   ],
+   [
+    "soy-sauce",
+    45
+   ],
+   [
+    "olive-oil",
+    15
+   ],
+   [
+    "brown-rice-cooked",
+    600
+   ]
+  ],
+  "steps": [
+   "Slice the beef thinly across the grain and toss with 1 tbsp of the soy sauce.",
+   "Heat half the oil in a wok over high heat and stir-fry the beef in two batches for 1-2 minutes until browned; set aside.",
+   "Add the remaining oil, sliced onion, broccoli, capsicum and 2 tbsp water and stir-fry for 4 minutes until tender-crisp, adding the garlic and 1 tsp grated ginger for the last 30 seconds.",
+   "Return the beef with the remaining soy sauce and toss for 1 minute until everything is hot.",
+   "Serve over the rice or divide into containers."
+  ],
+  "storage": "Cool within 1 hour and refrigerate for up to 3 days. Reheat until piping hot throughout.",
+  "subs": [
+   "Use halal-certified beef.",
+   "Choose a soy sauce or tamari with no added alcohol if you follow a strict halal diet.",
+   "Use tamari for gluten-free.",
+   "Swap the beef for sliced chicken breast (cook to 74 °C)."
+  ]
+ },
+ {
+  "id": "chicken-pumpkin-curry",
+  "name": "Chicken, pumpkin & spinach curry",
+  "desc": "A mild coconut-tomato curry with tender chicken, sweet pumpkin and spinach, served with basmati rice.",
+  "servings": 5,
+  "prep": 15,
+  "cook": 30,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "chicken-breast-raw",
+    700
+   ],
+   [
+    "pumpkin-butternut",
+    500
+   ],
+   [
+    "spinach",
+    100
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "garlic",
+    10
+   ],
+   [
+    "coconut-milk-light",
+    400
+   ],
+   [
+    "tomatoes-canned",
+    400
+   ],
+   [
+    "tikka-spice-mix",
+    15
+   ],
+   [
+    "olive-oil",
+    10
+   ],
+   [
+    "basmati-dry",
+    300
+   ]
+  ],
+  "steps": [
+   "Soften the diced onion in the oil over medium heat for 5 minutes, then add the garlic, 1 tsp grated ginger and the spice mix and cook for 1 minute.",
+   "Add the diced chicken and stir to coat for 3 minutes.",
+   "Add the pumpkin (2 cm cubes), tomatoes and coconut milk and simmer, partly covered, for 20 minutes until the pumpkin is tender and the chicken reaches 74 °C.",
+   "Meanwhile rinse the rice and cook it in 525 ml water, covered, on low heat for 12-15 minutes, then rest 5 minutes.",
+   "Stir the spinach through the curry until wilted and divide the curry and rice into five portions."
+  ],
+  "storage": "Cool within 1 hour; keeps 4 days refrigerated or 3 months frozen. Reheat until piping hot throughout.",
+  "subs": [
+   "Use halal-certified chicken.",
+   "Swap the chicken for 2 cans of drained chickpeas for a vegan curry.",
+   "Use sweet potato instead of pumpkin."
+  ]
+ },
+ {
+  "id": "lentil-cottage-pie",
+  "name": "Lentil cottage pie with sweet potato mash",
+  "desc": "A hearty vegetarian cottage pie of rich lentil and vegetable filling under a cheesy sweet potato mash.",
+  "servings": 4,
+  "prep": 20,
+  "cook": 40,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "vegetarian",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "lentils-cooked",
+    800
+   ],
+   [
+    "mushrooms",
+    200
+   ],
+   [
+    "carrot",
+    120
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "peas-frozen",
+    150
+   ],
+   [
+    "tomato-paste",
+    50
+   ],
+   [
+    "tomatoes-canned",
+    400
+   ],
+   [
+    "sweet-potato-baked",
+    800
+   ],
+   [
+    "milk-skim",
+    60
+   ],
+   [
+    "olive-oil",
+    15
+   ],
+   [
+    "cheddar",
+    40
+   ],
+   [
+    "garlic",
+    6
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 200 °C. Peel and chop the sweet potato, boil for 12-15 minutes until tender, drain and mash with the milk, salt and pepper.",
+   "Soften the diced onion, carrot and mushrooms in the oil for 8 minutes, then add the garlic and tomato paste and cook for 1 minute.",
+   "Add the tomatoes, drained lentils and 1 tsp dried thyme and simmer for 10 minutes until thick; stir in the peas.",
+   "Spoon into a baking dish, spread the mash over the top and sprinkle with grated cheddar.",
+   "Bake for 20 minutes until golden and bubbling at the edges."
+  ],
+  "storage": "Keeps 4 days refrigerated or 3 months frozen in portions. Reheat until piping hot throughout.",
+  "subs": [
+   "Leave out the cheese and use soy milk for a vegan pie.",
+   "Use 500 g halal-certified lean beef mince instead of half the lentils."
+  ]
+ },
+ {
+  "id": "lemon-garlic-fish",
+  "name": "Lemon-garlic fish with zucchini & quinoa",
+  "desc": "Flaky white fish baked with lemon and garlic alongside roasted zucchini, tomatoes and quinoa.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 20,
+  "meal": [
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "white-fish-raw",
+    300
+   ],
+   [
+    "quinoa-cooked",
+    370
+   ],
+   [
+    "zucchini",
+    300
+   ],
+   [
+    "tomato",
+    200
+   ],
+   [
+    "olive-oil",
+    15
+   ],
+   [
+    "lemon-juice",
+    30
+   ],
+   [
+    "garlic",
+    6
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 200 °C. Toss the sliced zucchini and halved tomatoes with half the oil, spread on a lined tray and roast for 5 minutes.",
+   "Mix the remaining oil, lemon juice, crushed garlic, salt and pepper and brush over the fish.",
+   "Add the fish to the tray and roast for 10-12 minutes until the flesh is opaque and flakes easily (63 °C at the thickest point).",
+   "Heat the quinoa (a microwave pouch, or 120 g dry quinoa simmered in 240 ml water for 15 minutes) and serve with the fish and vegetables."
+  ],
+  "storage": "Best eaten fresh. Leftovers keep 2 days in the fridge; reheat gently until steaming hot.",
+  "subs": [
+   "Barramundi, snapper or basa all work well.",
+   "Swap the quinoa for couscous or brown rice."
+  ]
+ },
+ {
+  "id": "chicken-traybake",
+  "name": "One-tray chicken & vegetable bake",
+  "desc": "Garlic-lemon chicken thighs roasted on one tray with potatoes and colourful vegetables.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 40,
+  "meal": [
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "meal-prep",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "chicken-thigh-raw",
+    600
+   ],
+   [
+    "potato-boiled",
+    600
+   ],
+   [
+    "carrot",
+    240
+   ],
+   [
+    "capsicum",
+    300
+   ],
+   [
+    "zucchini",
+    200
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "olive-oil",
+    20
+   ],
+   [
+    "garlic",
+    10
+   ],
+   [
+    "lemon-juice",
+    20
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 200 °C (180 °C fan). Cut the potatoes into 3 cm chunks and the carrots into batons, toss with half the oil and salt, and roast for 15 minutes.",
+   "Toss the chicken with the remaining oil, crushed garlic, lemon juice, 1 tsp dried oregano and 1 tsp paprika.",
+   "Add the chicken, capsicum, zucchini and onion wedges to the tray in a single layer.",
+   "Roast for 25 minutes until the vegetables are golden and the chicken reaches 74 °C at the thickest part.",
+   "Rest for 5 minutes and divide between four plates or containers."
+  ],
+  "storage": "Cool within 1 hour and refrigerate for up to 3 days. Reheat until piping hot throughout.",
+  "subs": [
+   "Use halal-certified chicken.",
+   "Swap the chicken for 2 cans of drained chickpeas and 300 g firm tofu for a vegan tray bake.",
+   "Use sweet potato instead of potato."
+  ]
+ },
+ {
+  "id": "burger-bowls",
+  "name": "Beef burger bowls with sweet potato wedges",
+  "desc": "Juicy lean beef patties served bun-free over crisp salad with roasted sweet potato wedges.",
+  "servings": 4,
+  "prep": 15,
+  "cook": 30,
+  "meal": [
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "beef-mince-5-raw",
+    500
+   ],
+   [
+    "egg-whole",
+    50
+   ],
+   [
+    "onion",
+    55
+   ],
+   [
+    "sweet-potato-baked",
+    600
+   ],
+   [
+    "lettuce-cos",
+    100
+   ],
+   [
+    "tomato",
+    160
+   ],
+   [
+    "cucumber",
+    100
+   ],
+   [
+    "cheddar",
+    40
+   ],
+   [
+    "olive-oil",
+    10
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 220 °C. Cut the sweet potato into wedges, toss with the oil, salt and paprika and roast for 25-30 minutes, turning halfway.",
+   "Mix the mince, egg, grated onion, salt and pepper and shape into 8 small patties.",
+   "Pan-fry or grill the patties for 4-5 minutes per side until cooked through with no pink in the centre (71 °C).",
+   "Divide the lettuce, tomato and cucumber between four bowls and top with the patties, grated cheddar, wedges and a little mustard."
+  ],
+  "storage": "Cooked patties keep 3 days refrigerated; raw patties freeze for up to 3 months.",
+  "subs": [
+   "Use halal-certified beef mince.",
+   "Use turkey mince for a leaner version (cook to 74 °C).",
+   "Serve in a wholemeal bun if you prefer."
+  ]
+ },
+ {
+  "id": "paneer-tikka",
+  "name": "Paneer tikka with rice & cucumber raita",
+  "desc": "Spiced, charred paneer and vegetable skewers with fluffy basmati and cooling cucumber raita.",
+  "servings": 4,
+  "prep": 20,
+  "cook": 15,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "paneer",
+    400
+   ],
+   [
+    "capsicum",
+    300
+   ],
+   [
+    "onion",
+    110
+   ],
+   [
+    "greek-yoghurt-0",
+    200
+   ],
+   [
+    "tikka-spice-mix",
+    12
+   ],
+   [
+    "basmati-dry",
+    240
+   ],
+   [
+    "olive-oil",
+    10
+   ],
+   [
+    "cucumber",
+    150
+   ],
+   [
+    "lemon-juice",
+    10
+   ]
+  ],
+  "steps": [
+   "Mix 100 g of the yoghurt with the spice mix, lemon juice and salt; toss with the cubed paneer, capsicum and onion chunks, drizzle with the oil and marinate for 15 minutes.",
+   "Thread onto skewers (soak wooden skewers for 20 minutes first) or spread on a lined tray.",
+   "Grill or bake at 220 °C for 12-15 minutes, turning once, until charred at the edges.",
+   "Meanwhile rinse the rice and cook it in 420 ml water, covered, on low heat for 12 minutes, then rest 5 minutes.",
+   "Grate the cucumber into the remaining yoghurt with salt and mint and serve with the paneer and rice."
+  ],
+  "storage": "Keeps 3 days refrigerated; keep the raita separate.",
+  "subs": [
+   "Use firm tofu and soy yoghurt for a vegan version.",
+   "Use halal-certified chicken breast instead of paneer (cook to 74 °C)."
+  ]
+ },
+ {
+  "id": "tempeh-peanut-bowl",
+  "name": "Sticky tempeh, greens & peanut sauce bowl",
+  "desc": "Golden tempeh glazed in a garlicky peanut sauce with steamed greens and brown rice.",
+  "servings": 2,
+  "prep": 10,
+  "cook": 15,
+  "meal": [
+   "lunch",
+   "dinner"
+  ],
+  "tags": [
+   "high-protein",
+   "vegetarian",
+   "vegan",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "tempeh",
+    300
+   ],
+   [
+    "broccoli",
+    300
+   ],
+   [
+    "green-beans",
+    200
+   ],
+   [
+    "brown-rice-cooked",
+    300
+   ],
+   [
+    "peanut-butter",
+    25
+   ],
+   [
+    "soy-sauce",
+    30
+   ],
+   [
+    "lemon-juice",
+    15
+   ],
+   [
+    "garlic",
+    5
+   ],
+   [
+    "olive-oil",
+    10
+   ]
+  ],
+  "steps": [
+   "Cut the tempeh into 1 cm slices.",
+   "Whisk the peanut butter, soy sauce, lemon juice, crushed garlic and 3 tbsp hot water into a smooth sauce.",
+   "Fry the tempeh in the oil over medium-high heat for 3-4 minutes per side until golden, then add half the sauce and toss until sticky.",
+   "Steam the broccoli and green beans for 4-5 minutes until tender-crisp.",
+   "Serve the tempeh and greens over the rice and drizzle with the remaining sauce."
+  ],
+  "storage": "Keeps 3 days refrigerated; reheat until steaming hot.",
+  "subs": [
+   "Use tamari for gluten-free.",
+   "Choose a soy sauce or tamari with no added alcohol if you follow a strict halal diet.",
+   "Peanut allergy: use tahini or sunflower seed butter.",
+   "Firm tofu works instead of tempeh."
+  ]
+ },
+ {
+  "id": "hummus-snack-box",
+  "name": "Hummus & crunchy veg snack box",
+  "desc": "A crunchy, colourful snack box of fresh vegetable sticks and rice cakes with creamy hummus.",
+  "servings": 1,
+  "prep": 5,
+  "cook": 0,
+  "meal": [
+   "snack"
+  ],
+  "tags": [
+   "quick",
+   "vegetarian",
+   "vegan",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "hummus",
+    60
+   ],
+   [
+    "carrot",
+    60
+   ],
+   [
+    "cucumber",
+    100
+   ],
+   [
+    "capsicum",
+    75
+   ],
+   [
+    "rice-cakes",
+    18
+   ]
+  ],
+  "steps": [
+   "Cut the carrot, cucumber and capsicum into sticks.",
+   "Spoon the hummus into a small container.",
+   "Pack the vegetable sticks and rice cakes alongside for dipping."
+  ],
+  "storage": "Cut vegetables keep 3 days in the fridge in a sealed container; keep rice cakes dry and separate.",
+  "subs": [
+   "Sesame allergy: use a white bean dip instead of hummus.",
+   "Add a hard-boiled egg for extra protein."
+  ]
+ },
+ {
+  "id": "pb-protein-balls",
+  "name": "Peanut butter protein balls",
+  "desc": "No-bake oat, date and peanut butter bites boosted with protein powder.",
+  "servings": 6,
+  "prep": 15,
+  "cook": 0,
+  "meal": [
+   "snack"
+  ],
+  "tags": [
+   "meal-prep",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "oats",
+    120
+   ],
+   [
+    "peanut-butter",
+    80
+   ],
+   [
+    "whey-generic",
+    60
+   ],
+   [
+    "honey",
+    40
+   ],
+   [
+    "dates",
+    80
+   ],
+   [
+    "chia-seeds",
+    20
+   ],
+   [
+    "milk-skim",
+    40
+   ]
+  ],
+  "steps": [
+   "Cover the chopped dates with boiling water for 5 minutes to soften, then drain well.",
+   "Pulse the oats in a food processor until coarse, then add the protein powder and chia seeds.",
+   "Add the peanut butter, honey, dates and milk and process to a firm dough, adding a little more milk if crumbly.",
+   "Roll into 12 balls (2 per serving) and chill for 30 minutes until firm."
+  ],
+  "storage": "Keeps 1 week in an airtight container in the fridge or 2 months frozen.",
+  "subs": [
+   "Choose a halal-certified protein powder if required.",
+   "Nut-free: use sunflower seed butter.",
+   "Vegan: use pea protein, soy milk and maple syrup instead of whey, milk and honey."
+  ]
+ },
+ {
+  "id": "chilli-edamame",
+  "name": "Chilli-salt edamame",
+  "desc": "Bright green edamame tossed with flaky salt, chilli and lemon for a plant-protein snack.",
+  "servings": 1,
+  "prep": 2,
+  "cook": 5,
+  "meal": [
+   "snack"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "vegetarian",
+   "vegan",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "edamame",
+    155
+   ],
+   [
+    "lemon-juice",
+    5
+   ]
+  ],
+  "steps": [
+   "Cook the frozen shelled edamame in boiling water for 3-4 minutes, or microwave as per the packet, until hot.",
+   "Drain well and toss with flaky salt, a pinch of chilli flakes and the lemon juice.",
+   "Serve warm or chilled."
+  ],
+  "storage": "Cooked edamame keeps 3 days in the fridge; eat cold or reheat until steaming.",
+  "subs": [
+   "Use edamame in the pod and double the cooking time for a slower snack."
+  ]
+ },
+ {
+  "id": "tuna-rice-cakes",
+  "name": "Tuna & cottage cheese rice cakes",
+  "desc": "Crisp rice cakes topped with a creamy tuna and cottage cheese mix and fresh tomato.",
+  "servings": 1,
+  "prep": 5,
+  "cook": 0,
+  "meal": [
+   "snack"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "halal-friendly",
+   "budget"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "rice-cakes",
+    18
+   ],
+   [
+    "tuna-canned-water",
+    95
+   ],
+   [
+    "cottage-cheese",
+    50
+   ],
+   [
+    "tomato",
+    60
+   ],
+   [
+    "lemon-juice",
+    5
+   ]
+  ],
+  "steps": [
+   "Drain the tuna and mix with the cottage cheese, lemon juice and black pepper.",
+   "Spread the mixture over the rice cakes.",
+   "Top with sliced tomato and eat straight away so the rice cakes stay crisp."
+  ],
+  "storage": "The tuna mix keeps 2 days in a sealed container in the fridge; assemble just before eating.",
+  "subs": [
+   "Swap tuna for canned salmon.",
+   "Use Greek yoghurt instead of cottage cheese."
+  ]
+ },
+ {
+  "id": "yoghurt-berry-bark",
+  "name": "Frozen Greek yoghurt berry bark",
+  "desc": "Frozen shards of honey-sweetened Greek yoghurt studded with berries and dark chocolate.",
+  "servings": 4,
+  "prep": 10,
+  "cook": 0,
+  "meal": [
+   "snack"
+  ],
+  "tags": [
+   "meal-prep",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "greek-yoghurt-0",
+    500
+   ],
+   [
+    "berries-mixed",
+    150
+   ],
+   [
+    "honey",
+    20
+   ],
+   [
+    "dark-chocolate-70",
+    40
+   ]
+  ],
+  "steps": [
+   "Line a baking tray with baking paper.",
+   "Mix the yoghurt and honey and spread it about 1 cm thick over the paper.",
+   "Scatter over the berries, then melt the chocolate in 30-second bursts in the microwave and drizzle it over.",
+   "Freeze for at least 3 hours until firm, then break into 8 pieces (2 per serving)."
+  ],
+  "storage": "Keeps 1 month in an airtight container in the freezer; eat straight from the freezer.",
+  "subs": [
+   "Check the chocolate label if you avoid dairy or need it to be nut-free.",
+   "Use maple syrup instead of honey."
+  ]
+ },
+ {
+  "id": "choc-pb-shake",
+  "name": "Chocolate peanut butter protein shake",
+  "desc": "A thick chocolate, banana and peanut butter shake with a big protein hit.",
+  "servings": 1,
+  "prep": 3,
+  "cook": 0,
+  "meal": [
+   "snack",
+   "breakfast"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "shake",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "milk-skim",
+    300
+   ],
+   [
+    "whey-generic",
+    30
+   ],
+   [
+    "banana",
+    80
+   ],
+   [
+    "peanut-butter",
+    12
+   ],
+   [
+    "cocoa-powder",
+    5
+   ]
+  ],
+  "steps": [
+   "Add the milk, protein powder, banana, peanut butter and cocoa to a blender.",
+   "Add a handful of ice and blend for 30-45 seconds until smooth.",
+   "Pour into a glass and drink straight away."
+  ],
+  "storage": "Best fresh; keeps up to 24 hours covered in the fridge. Shake before drinking.",
+  "subs": [
+   "Choose a halal-certified protein powder if required.",
+   "Use soy milk for dairy-free and pea protein instead of whey."
+  ]
+ },
+ {
+  "id": "berry-protein-smoothie",
+  "name": "Mixed berry protein smoothie",
+  "desc": "A creamy, tangy berry smoothie made with milk, Greek yoghurt and whey.",
+  "servings": 1,
+  "prep": 3,
+  "cook": 0,
+  "meal": [
+   "snack",
+   "breakfast"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "shake",
+   "vegetarian",
+   "halal-friendly"
+  ],
+  "free": true,
+  "ing": [
+   [
+    "milk-skim",
+    250
+   ],
+   [
+    "whey-generic",
+    30
+   ],
+   [
+    "berries-mixed",
+    150
+   ],
+   [
+    "greek-yoghurt-0",
+    100
+   ]
+  ],
+  "steps": [
+   "Add the milk, protein powder, frozen berries and yoghurt to a blender.",
+   "Blend for 30-45 seconds until smooth, adding a splash of water if too thick.",
+   "Pour into a glass and drink straight away."
+  ],
+  "storage": "Best fresh; keeps up to 24 hours covered in the fridge. Shake before drinking.",
+  "subs": [
+   "Choose a halal-certified protein powder if required.",
+   "Use soy milk, soy yoghurt and pea protein for a dairy-free version."
+  ]
+ },
+ {
+  "id": "mango-vegan-shake",
+  "name": "Mango oat vegan protein shake",
+  "desc": "A tropical dairy-free shake of mango, oats, soy milk and pea protein.",
+  "servings": 1,
+  "prep": 3,
+  "cook": 0,
+  "meal": [
+   "snack",
+   "breakfast"
+  ],
+  "tags": [
+   "high-protein",
+   "quick",
+   "shake",
+   "vegetarian",
+   "vegan",
+   "halal-friendly"
+  ],
+  "free": false,
+  "ing": [
+   [
+    "soy-milk-unsweetened",
+    300
+   ],
+   [
+    "pea-protein",
+    30
+   ],
+   [
+    "mango",
+    150
+   ],
+   [
+    "oats",
+    20
+   ]
+  ],
+  "steps": [
+   "Add the soy milk, pea protein, frozen mango and oats to a blender.",
+   "Blend for 45-60 seconds until completely smooth.",
+   "Pour into a glass and drink straight away."
+  ],
+  "storage": "Best fresh; keeps up to 24 hours covered in the fridge. Shake before drinking.",
+  "subs": [
+   "Use gluten-free oats if needed.",
+   "Swap mango for banana or pineapple."
+  ]
+ }
+]

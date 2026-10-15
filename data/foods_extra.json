@@ -1,0 +1,245 @@
+[
+ {
+  "id": "garlic",
+  "name": "Garlic, raw",
+  "kcal": 149,
+  "p": 6.4,
+  "c": 33.1,
+  "f": 0.5,
+  "fib": 2.1,
+  "serving": {
+   "label": "1 clove",
+   "g": 5
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "lemon-juice",
+  "name": "Lemon juice, fresh",
+  "kcal": 22,
+  "p": 0.4,
+  "c": 6.9,
+  "f": 0.2,
+  "fib": 0.3,
+  "serving": {
+   "label": "1 tbsp",
+   "g": 15
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "peas-frozen",
+  "name": "Green peas, frozen",
+  "kcal": 77,
+  "p": 5.2,
+  "c": 13.6,
+  "f": 0.4,
+  "fib": 4.5,
+  "serving": {
+   "label": "1/2 cup",
+   "g": 80
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "zucchini",
+  "name": "Zucchini, raw",
+  "kcal": 17,
+  "p": 1.2,
+  "c": 3.1,
+  "f": 0.3,
+  "fib": 1.0,
+  "serving": {
+   "label": "1 medium",
+   "g": 200
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "lettuce-cos",
+  "name": "Lettuce, cos, raw",
+  "kcal": 17,
+  "p": 1.2,
+  "c": 3.3,
+  "f": 0.3,
+  "fib": 2.1,
+  "serving": {
+   "label": "2 cups",
+   "g": 60
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "soy-milk-unsweetened",
+  "name": "Soy milk, unsweetened",
+  "kcal": 33,
+  "p": 3.0,
+  "c": 1.7,
+  "f": 1.6,
+  "fib": 0.4,
+  "serving": {
+   "label": "1 glass",
+   "g": 250
+  },
+  "tags": [
+   "soy",
+   "vegan",
+   "check-label"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "mango",
+  "name": "Mango, raw or frozen",
+  "kcal": 60,
+  "p": 0.8,
+  "c": 15,
+  "f": 0.4,
+  "fib": 1.6,
+  "serving": {
+   "label": "1 cup",
+   "g": 165
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "pumpkin-butternut",
+  "name": "Pumpkin, butternut, raw",
+  "kcal": 45,
+  "p": 1.0,
+  "c": 11.7,
+  "f": 0.1,
+  "fib": 2.0,
+  "serving": {
+   "label": "1 cup diced",
+   "g": 140
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "corn-kernels",
+  "name": "Sweet corn kernels, frozen or canned (drained)",
+  "kcal": 86,
+  "p": 3.3,
+  "c": 18.7,
+  "f": 1.4,
+  "fib": 2.0,
+  "serving": {
+   "label": "1/2 cup",
+   "g": 80
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "tomato-paste",
+  "name": "Tomato paste",
+  "kcal": 82,
+  "p": 4.3,
+  "c": 18.9,
+  "f": 0.5,
+  "fib": 4.1,
+  "serving": {
+   "label": "1 tbsp",
+   "g": 16
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "chicken-thigh-raw",
+  "name": "Chicken thigh fillet, skinless, raw",
+  "kcal": 121,
+  "p": 19.7,
+  "c": 0,
+  "f": 4.1,
+  "fib": 0,
+  "serving": {
+   "label": "2 fillets",
+   "g": 200
+  },
+  "tags": [
+   "meat",
+   "halal-if-certified"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "beef-lean-raw",
+  "name": "Beef, lean rump or round, trimmed, raw",
+  "kcal": 125,
+  "p": 22.5,
+  "c": 0,
+  "f": 3.8,
+  "fib": 0,
+  "serving": {
+   "label": "1 portion",
+   "g": 150
+  },
+  "tags": [
+   "meat",
+   "halal-if-certified"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "pea-protein",
+  "name": "Pea protein isolate powder, unflavoured",
+  "kcal": 380,
+  "p": 80,
+  "c": 4,
+  "f": 6,
+  "fib": 1,
+  "serving": {
+   "label": "1 scoop",
+   "g": 30
+  },
+  "tags": [
+   "vegan",
+   "check-label"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ },
+ {
+  "id": "cocoa-powder",
+  "name": "Cocoa powder, unsweetened",
+  "kcal": 228,
+  "p": 19.6,
+  "c": 24.9,
+  "f": 13.7,
+  "fib": 33,
+  "serving": {
+   "label": "1 tbsp",
+   "g": 5
+  },
+  "tags": [
+   "vegan"
+  ],
+  "src": "Typical generic value (FSANZ AFCD / USDA FDC style), approximate"
+ }
+]

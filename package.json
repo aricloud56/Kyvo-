@@ -1,0 +1,30 @@
+{
+  "name": "kyvo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KYVO: personalised daily fitness plans combining workouts, meals, calories, protein and progress.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.client.json --noEmit",
+    "lint": "tsc -p tsconfig.server.json --noEmit --noUnusedLocals --noUnusedParameters && tsc -p tsconfig.client.json --noEmit --noUnusedLocals --noUnusedParameters && node scripts/build.mjs && eslint .",
+    "db:migrate": "node dist/src/server/cli/migrate.js",
+    "db:seed": "node dist/src/server/cli/seed.js",
+    "start": "node dist/src/server/main.js",
+    "dev": "npm run build && node dist/src/server/main.js",
+    "test:unit": "node --test \"dist/tests/unit/*.test.js\"",
+    "test:integration": "node --test --test-concurrency=1 \"dist/tests/integration/*.test.js\"",
+    "test:e2e": "node --test --test-concurrency=1 \"dist/tests/e2e/*.test.js\"",
+    "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "preview": "node scripts/build-preview.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.5",
+    "eslint": "10.1.0",
+    "playwright": "1.56.1",
+    "typescript": "6.0.2"
+  }
+}

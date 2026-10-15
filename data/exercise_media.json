@@ -1,0 +1,902 @@
+[
+ {
+  "exercise_id": "incline-barbell-bench-press",
+  "kind": "youtube",
+  "ref": "lJ2o89kcnxY",
+  "title": "Incline Medium Grip Bench Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "dumbbell-bench-press",
+  "kind": "youtube",
+  "ref": "YQ2s_Y7g5Qk",
+  "title": "Flat Dumbbell Bench Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "incline-dumbbell-press",
+  "kind": "youtube",
+  "ref": "5CECBjd7HLQ",
+  "title": "Incline Dumbbell Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "dumbbell-fly",
+  "kind": "youtube",
+  "ref": "JFm8KbhjibM",
+  "title": "Flat Dumbbell Flye",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "cable-fly",
+  "kind": "youtube",
+  "ref": "4mfLHnFL0Uw",
+  "title": "Cable Flye",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "pec-deck",
+  "kind": "youtube",
+  "ref": "FDay9wFe5uE",
+  "title": "Machine Flye",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "machine-chest-press",
+  "kind": "youtube",
+  "ref": "NwzUje3z0qY",
+  "title": "Machine Chest Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "incline-machine-chest-press",
+  "kind": "youtube",
+  "ref": "TrTSvn5-MTk",
+  "title": "Incline Machine Chest Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "push-up",
+  "kind": "youtube",
+  "ref": "mm6_WcoCVTA",
+  "title": "Pushup",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "deficit-push-up",
+  "kind": "youtube",
+  "ref": "gmNlqsE3Onc",
+  "title": "Deficit Pushup",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "dumbbell-pullover",
+  "kind": "youtube",
+  "ref": "jQjWlIwG4sI",
+  "title": "Dumbbell Pullover",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "pull-up",
+  "kind": "youtube",
+  "ref": "iWpoegdfgtc",
+  "title": "Normal Grip Pullup",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "assisted-pull-up",
+  "kind": "youtube",
+  "ref": "8ygapPMYK1I",
+  "title": "Assisted Normal Grip Pullup",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "chin-up",
+  "kind": "youtube",
+  "ref": "9JC1EwqezGY",
+  "title": "Underhand Pullup",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "neutral-grip-pull-up",
+  "kind": "youtube",
+  "ref": "XWt6FQAK5wM",
+  "title": "Parallel Grip Pullup",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "lat-pulldown",
+  "kind": "youtube",
+  "ref": "EUIri47Epcg",
+  "title": "Normal Grip Pulldown",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "neutral-grip-lat-pulldown",
+  "kind": "youtube",
+  "ref": "--utaPT7XYQ",
+  "title": "Parallel Pulldown",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "underhand-lat-pulldown",
+  "kind": "youtube",
+  "ref": "VprlTxpB1rk",
+  "title": "Underhand Pulldown",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "barbell-bent-over-row",
+  "kind": "youtube",
+  "ref": "6FZHJGzMFEc",
+  "title": "Barbell Bent Over Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "seated-cable-row",
+  "kind": "youtube",
+  "ref": "UCXxvVItLoM",
+  "title": "Seated Cable Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "chest-supported-row",
+  "kind": "youtube",
+  "ref": "0UBRfiO4zDs",
+  "title": "Chest Supported Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "dumbbell-single-arm-row",
+  "kind": "youtube",
+  "ref": "DMo3HJoawrU",
+  "title": "Single Arm Supported Dumbbell Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "seal-row",
+  "kind": "youtube",
+  "ref": "4H2ItXwUTp8",
+  "title": "Seal Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "t-bar-row",
+  "kind": "youtube",
+  "ref": "yPis7nlbqdY",
+  "title": "T Bar Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "machine-row",
+  "kind": "youtube",
+  "ref": "_FrrYQxA6kc",
+  "title": "Machine Chest Supported Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "straight-arm-pulldown",
+  "kind": "youtube",
+  "ref": "G9uNaXGTJ4w",
+  "title": "Straight Arm Pulldown",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "face-pull",
+  "kind": "youtube",
+  "ref": "-MODnZdnmAQ",
+  "title": "Cable Rope Facepull",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "back-extension",
+  "kind": "youtube",
+  "ref": "5_ejbGfdAQE",
+  "title": "45 Degree Back Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "inverted-row",
+  "kind": "youtube",
+  "ref": "KOaCM1HMwU0",
+  "title": "Inverted Row",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "seated-dumbbell-shoulder-press",
+  "kind": "youtube",
+  "ref": "HzIiNhHhhtA",
+  "title": "Seated Dumbbell Shoulder Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "seated-barbell-shoulder-press",
+  "kind": "youtube",
+  "ref": "IuzRCN6eG6Y",
+  "title": "Seated Barbell Shoulder Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "machine-shoulder-press",
+  "kind": "youtube",
+  "ref": "WvLMauqrnK8",
+  "title": "Machine Shoulder Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "dumbbell-lateral-raise",
+  "kind": "youtube",
+  "ref": "OuG1smZTsQQ",
+  "title": "Lateral Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "cable-lateral-raise",
+  "kind": "youtube",
+  "ref": "2OMbdPF7mz4",
+  "title": "Cable Cross Body Lateral Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "leaning-lateral-raise",
+  "kind": "youtube",
+  "ref": "lq7eLC30b9w",
+  "title": "Leaning Cable Lateral Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "machine-lateral-raise",
+  "kind": "youtube",
+  "ref": "0o07iGKUarI",
+  "title": "Machine Lateral Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "front-raise",
+  "kind": "youtube",
+  "ref": "hRJ6tR5-if0",
+  "title": "Dumbbell Front Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "reverse-dumbbell-fly",
+  "kind": "youtube",
+  "ref": "34gVHrkaiz0",
+  "title": "Bent Lateral Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "reverse-pec-deck",
+  "kind": "youtube",
+  "ref": "5YK4bgzXDp0",
+  "title": "Machine Reverse Flye",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "rear-delt-cable-fly",
+  "kind": "youtube",
+  "ref": "qz1OLup4W_M",
+  "title": "Cable Single Arm Rear Delt Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "dumbbell-shrug",
+  "kind": "youtube",
+  "ref": "_t3lrPI6Ns4",
+  "title": "Dumbbell Shrug",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "barbell-shrug",
+  "kind": "youtube",
+  "ref": "M_MjF5Nm_h4",
+  "title": "Barbell Shrug",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "standing-barbell-curl",
+  "kind": "youtube",
+  "ref": "JnLFSFurrqQ",
+  "title": "Barbell Curl Normal Grip",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "ez-bar-curl",
+  "kind": "youtube",
+  "ref": "cdmnvo3augg",
+  "title": "EZ Bar Curl Narrow Grip",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "alternating-dumbbell-curl",
+  "kind": "youtube",
+  "ref": "iixND1P2lik",
+  "title": "Alternating Dumbbell Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "incline-dumbbell-curl",
+  "kind": "youtube",
+  "ref": "aTYlqC_JacQ",
+  "title": "Incline Dumbbell Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "hammer-curl",
+  "kind": "youtube",
+  "ref": "XOEL4MgekYE",
+  "title": "Hammer Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "preacher-curl",
+  "kind": "youtube",
+  "ref": "sxA__DoLsgo",
+  "title": "EZ Bar Preacher Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "single-arm-dumbbell-preacher-curl",
+  "kind": "youtube",
+  "ref": "fuK3nFvwgXk",
+  "title": "Dumbbell Single Arm Preacher Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "machine-preacher-curl",
+  "kind": "youtube",
+  "ref": "Ja6ZlIDONac",
+  "title": "Machine Preacher Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "cable-curl",
+  "kind": "youtube",
+  "ref": "opFVuRi_3b8",
+  "title": "Cable EZ Bar Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "spider-curl",
+  "kind": "youtube",
+  "ref": "ke2shAeQ0O8",
+  "title": "Dumbbell Spider Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "leg-press-calf-raise",
+  "kind": "youtube",
+  "ref": "KxEYX_cuesM",
+  "title": "Leg Press Calves",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "single-leg-calf-raise",
+  "kind": "youtube",
+  "ref": "_gEx2ijsmNM",
+  "title": "Single Leg Stair Claves",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "smith-machine-calf-raise",
+  "kind": "youtube",
+  "ref": "hh5516HCu4k",
+  "title": "Smith Machine Calves",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "rope-triceps-pushdown",
+  "kind": "youtube",
+  "ref": "-xa-6cQaZKY",
+  "title": "Rope Pushdown",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "straight-bar-triceps-pushdown",
+  "kind": "youtube",
+  "ref": "6Fzep104f0s",
+  "title": "Cable Triceps Pushdown",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "overhead-cable-extension",
+  "kind": "youtube",
+  "ref": "1u18yJELsh0",
+  "title": "Cable Overhead Triceps Extension",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "skull-crusher",
+  "kind": "youtube",
+  "ref": "jPjhQ2hsAds",
+  "title": "Dumbbell Skullcrusher",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "jm-press",
+  "kind": "youtube",
+  "ref": "Tih5iHyELsE",
+  "title": "JM Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "assisted-triceps-dip",
+  "kind": "youtube",
+  "ref": "yZ83t4mrPrI",
+  "title": "Assisted Dip",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "single-arm-cable-extension",
+  "kind": "youtube",
+  "ref": "Cp_bShvMY4c",
+  "title": "Cable Single Arm Pushdown",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "barbell-back-squat",
+  "kind": "youtube",
+  "ref": "i7J5h7BJ07g",
+  "title": "High Bar Squat",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "front-squat",
+  "kind": "youtube",
+  "ref": "HHxNbhP16UE",
+  "title": "Front Squat",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "smith-machine-squat",
+  "kind": "youtube",
+  "ref": "-eO_VydErV0",
+  "title": "Feet Forward Smith Squat",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "leg-press",
+  "kind": "youtube",
+  "ref": "yZmx_Ac3880",
+  "title": "Leg Press",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "hack-squat",
+  "kind": "youtube",
+  "ref": "rYgNArpwE7E",
+  "title": "Hack Squat",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "split-squat",
+  "kind": "youtube",
+  "ref": "jNihW0WDIL4",
+  "title": "Split Squat",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "walking-lunge",
+  "kind": "youtube",
+  "ref": "eFWCn5iEbTU",
+  "title": "Dumbbell Walking Lunge",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "reverse-lunge",
+  "kind": "youtube",
+  "ref": "TQfhY5oJ_Sc",
+  "title": "Reverse Lunge",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "leg-extension",
+  "kind": "youtube",
+  "ref": "m0FOpMEgero",
+  "title": "Leg Extension",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "romanian-deadlift",
+  "kind": "youtube",
+  "ref": "EiWMsLkYmos",
+  "title": "How to do RDLs PROPERLY for Hypertrophy",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "conventional-deadlift",
+  "kind": "youtube",
+  "ref": "AweC3UaM14o",
+  "title": "Deadlift",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "sumo-deadlift",
+  "kind": "youtube",
+  "ref": "pfSMst14EFk",
+  "title": "Sumo Deadlift",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "dumbbell-romanian-deadlift",
+  "kind": "youtube",
+  "ref": "cYKYGwcg0U8",
+  "title": "Dumbbell Stiff Legged Deadlift",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "seated-leg-curl",
+  "kind": "youtube",
+  "ref": "Orxowest56U",
+  "title": "Seated Leg Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "lying-leg-curl",
+  "kind": "youtube",
+  "ref": "n5WDXD_mpVY",
+  "title": "Lying Leg Curl",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "hip-thrust",
+  "kind": "youtube",
+  "ref": "EF7jXP17DPE",
+  "title": "Barbell Hip Thrust",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "cable-pull-through",
+  "kind": "youtube",
+  "ref": "pv8e6OSyETE",
+  "title": "Cable Pull Through",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "good-morning",
+  "kind": "youtube",
+  "ref": "dEJ0FTm-CEk",
+  "title": "High Bar Good Morning",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "glute-ham-raise",
+  "kind": "youtube",
+  "ref": "SBGYSfoqyfU",
+  "title": "Glute Ham Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "kneeling-rope-crunch",
+  "kind": "youtube",
+  "ref": "6GMKPQVERzw",
+  "title": "Rope Crunch",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "machine-crunch",
+  "kind": "youtube",
+  "ref": "-OUSBPnHvsQ",
+  "title": "Machine Crunch",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "hanging-knee-raise",
+  "kind": "youtube",
+  "ref": "RD_A-Z15ER4",
+  "title": "Hanging Knee Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "hanging-leg-raise",
+  "kind": "youtube",
+  "ref": "7FwGZ8qY5OU",
+  "title": "Hanging Straight Leg Raise",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "decline-sit-up",
+  "kind": "youtube",
+  "ref": "DAnTf16NcT0",
+  "title": "Slant Board Situp",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "v-up",
+  "kind": "youtube",
+  "ref": "BIOM5eSsJ_8",
+  "title": "V-Up",
+  "source": "Renaissance Periodization (YouTube)",
+  "license": "YouTube standard licence (embedded player)",
+  "attribution": "Video by Renaissance Periodization on YouTube",
+  "verified_note": "Matched by exact title and channel during the IRONFORM build on 14 Oct 2026"
+ },
+ {
+  "exercise_id": "barbell-bench-press",
+  "kind": "video",
+  "ref": "/media/barbell-bench-press.webm",
+  "title": "Barbell bench press demonstration",
+  "source": "https://commons.wikimedia.org/wiki/File:Bench_press_-_exercise_demonstration_video.webm",
+  "license": "CC BY 3.0",
+  "attribution": "Clip by FitnessScape, CC BY 3.0, via Wikimedia Commons",
+  "verified_note": "Bundled file; licence recorded from Wikimedia Commons"
+ },
+ {
+  "exercise_id": "barbell-bent-over-row",
+  "kind": "video",
+  "ref": "/media/barbell-bent-over-row.webm",
+  "title": "Barbell bent over row demonstration",
+  "source": "https://commons.wikimedia.org/wiki/File:Bent-over_row_-_exercise_demonstration_video.webm",
+  "license": "CC BY 3.0",
+  "attribution": "Clip by FitnessScape, CC BY 3.0, via Wikimedia Commons",
+  "verified_note": "Bundled file; licence recorded from Wikimedia Commons"
+ },
+ {
+  "exercise_id": "conventional-deadlift",
+  "kind": "video",
+  "ref": "/media/conventional-deadlift.webm",
+  "title": "Conventional deadlift demonstration",
+  "source": "https://commons.wikimedia.org/wiki/File:Deadlift_-_exercise_demonstration_video.webm",
+  "license": "CC BY 3.0",
+  "attribution": "Clip by FitnessScape, CC BY 3.0, via Wikimedia Commons",
+  "verified_note": "Bundled file; licence recorded from Wikimedia Commons"
+ }
+]
