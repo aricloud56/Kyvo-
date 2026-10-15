@@ -1,0 +1,244 @@
+{
+  "id": "lat-pulldown",
+  "name": "Lat pulldown",
+  "format": "kyvo-aim/1",
+  "about": "One repetition, t from 0 to 1. Each entry is the world direction a body segment points (x = the athlete's left, y = up, z = forward), applied to the OpenGym3D/MakeHuman skeleton by aiming each bone at its child joint. Entries ending .L are mirrored to .R. Written for KYVO; not motion capture.",
+  "duration": 3.2,
+  "fps": 30,
+  "segments": {
+    "spine": [
+      "spine05",
+      "neck01"
+    ],
+    "neck": [
+      "neck01",
+      "head"
+    ],
+    "thigh": [
+      "upperleg01.*",
+      "lowerleg01.*"
+    ],
+    "shin": [
+      "lowerleg01.*",
+      "foot.*"
+    ],
+    "upperarm": [
+      "upperarm01.*",
+      "lowerarm01.*"
+    ],
+    "forearm": [
+      "lowerarm01.*",
+      "wrist.*"
+    ]
+  },
+  "keyframes": [
+    {
+      "t": 0.0,
+      "dirs": {
+        "spine": [
+          0,
+          1,
+          -0.18
+        ],
+        "neck": [
+          0,
+          1,
+          0.12
+        ],
+        "thigh": [
+          0.12,
+          -0.08,
+          1
+        ],
+        "shin": [
+          0.05,
+          -1,
+          0.12
+        ],
+        "upperarm": [
+          0.3,
+          0.95,
+          0.02
+        ],
+        "forearm": [
+          0.22,
+          0.97,
+          0.03
+        ]
+      }
+    },
+    {
+      "t": 0.1,
+      "dirs": {
+        "spine": [
+          0,
+          1,
+          -0.18
+        ],
+        "neck": [
+          0,
+          1,
+          0.12
+        ],
+        "thigh": [
+          0.12,
+          -0.08,
+          1
+        ],
+        "shin": [
+          0.05,
+          -1,
+          0.12
+        ],
+        "upperarm": [
+          0.3,
+          0.95,
+          0.02
+        ],
+        "forearm": [
+          0.22,
+          0.97,
+          0.03
+        ]
+      }
+    },
+    {
+      "t": 0.45,
+      "dirs": {
+        "spine": [
+          0,
+          1,
+          -0.36
+        ],
+        "neck": [
+          0,
+          1,
+          0.2
+        ],
+        "thigh": [
+          0.12,
+          -0.08,
+          1
+        ],
+        "shin": [
+          0.05,
+          -1,
+          0.12
+        ],
+        "upperarm": [
+          0.4,
+          -0.88,
+          -0.26
+        ],
+        "forearm": [
+          0.04,
+          0.78,
+          0.62
+        ]
+      }
+    },
+    {
+      "t": 0.55,
+      "dirs": {
+        "spine": [
+          0,
+          1,
+          -0.36
+        ],
+        "neck": [
+          0,
+          1,
+          0.2
+        ],
+        "thigh": [
+          0.12,
+          -0.08,
+          1
+        ],
+        "shin": [
+          0.05,
+          -1,
+          0.12
+        ],
+        "upperarm": [
+          0.4,
+          -0.88,
+          -0.26
+        ],
+        "forearm": [
+          0.04,
+          0.78,
+          0.62
+        ]
+      }
+    },
+    {
+      "t": 1.0,
+      "dirs": {
+        "spine": [
+          0,
+          1,
+          -0.18
+        ],
+        "neck": [
+          0,
+          1,
+          0.12
+        ],
+        "thigh": [
+          0.12,
+          -0.08,
+          1
+        ],
+        "shin": [
+          0.05,
+          -1,
+          0.12
+        ],
+        "upperarm": [
+          0.3,
+          0.95,
+          0.02
+        ],
+        "forearm": [
+          0.22,
+          0.97,
+          0.03
+        ]
+      }
+    }
+  ],
+  "muscles": {
+    "primary": [
+      "lats",
+      "upper_back"
+    ],
+    "secondary": [
+      "biceps",
+      "rear_delts",
+      "forearms"
+    ]
+  },
+  "grip": {
+    "bones": [
+      "finger2-1.*",
+      "finger2-2.*",
+      "finger2-3.*",
+      "finger3-1.*",
+      "finger3-2.*",
+      "finger3-3.*",
+      "finger4-1.*",
+      "finger4-2.*",
+      "finger4-3.*",
+      "finger5-1.*",
+      "finger5-2.*",
+      "finger5-3.*"
+    ],
+    "axis": [
+      1,
+      0,
+      0
+    ],
+    "deg": 65
+  }
+}

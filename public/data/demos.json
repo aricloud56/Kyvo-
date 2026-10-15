@@ -1040,6 +1040,14 @@
           "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Decline Crunch."
         }
       ]
+    },
+    "lat-pulldown": {
+      "model3d": {
+        "glb": "models/lat-pulldown/body.glb",
+        "motion": "models/lat-pulldown/motion.json",
+        "equipment": "lat-pulldown",
+        "credit": "3D body: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Lat pulldown motion and machine: KYVO. Rendered live with three.js (MIT)."
+      }
     }
   }
 }

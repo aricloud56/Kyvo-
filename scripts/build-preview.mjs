@@ -14,6 +14,8 @@ copy('public/css/kyvo.css', 'css/kyvo.css');
 copy('public/media', 'media');
 copy('public/icon.svg', 'icon.svg');
 copy('public/data', 'data');
+copy('public/vendor', 'vendor');
+copy('public/models', 'models');
 for (const f of ['exercises.json', 'exercise_media.json', 'foods.json', 'foods_extra.json', 'recipes.json']) copy(`data/${f}`, `data/${f}`);
 // The Artifact host wraps this in its own document skeleton; a standalone copy is written too.
 const body = `<title>KYVO Preview</title>

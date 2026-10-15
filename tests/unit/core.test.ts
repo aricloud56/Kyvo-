@@ -246,9 +246,37 @@ test('demo config points at real files, and the pack importer only auto-matches 
   const demos = JSON.parse(fs.readFileSync(path.join(root, 'public', 'data', 'demos.json'), 'utf8'));
   for (const [id, d] of Object.entries<any>(demos.exercises)) {
     assert.ok(exercises.has(id), `unknown exercise ${id}`);
-    for (const a of d.angles) {
+    assert.ok(d.angles?.length || d.model3d, `${id} has no media`);
+    for (const a of d.angles ?? []) {
       for (const f of [...(a.video ?? []).map((v: any) => v.src), a.poster, a.image].filter(Boolean)) assert.ok(fs.existsSync(path.join(root, 'public', f)), f);
       assert.ok(a.credit && a.label);
+    }
+    if (d.model3d) {
+      // The 3D model and its motion exist, and every bone the motion drives is in the model's skeleton.
+      const m = d.model3d;
+      assert.ok(m.credit, `${id} 3D credit`);
+      const glb = fs.readFileSync(path.join(root, 'public', m.glb));
+      assert.equal(glb.toString('ascii', 0, 4), 'glTF', m.glb);
+      const gltf = JSON.parse(glb.toString('utf8', 20, 20 + glb.readUInt32LE(12)));
+      const names = new Set(gltf.nodes.map((n: any) => n.name));
+      const motion = JSON.parse(fs.readFileSync(path.join(root, 'public', m.motion), 'utf8'));
+      assert.equal(motion.format, 'kyvo-aim/1');
+      const used = [...Object.values<string[]>(motion.segments).flat(), ...(motion.grip?.bones ?? [])];
+      for (const b of used) for (const side of b.endsWith('.*') ? ['L', 'R'] : ['']) {
+        const n = side ? b.replace('*', side) : b;
+        assert.ok(names.has(n), `${m.motion}: bone ${n} not in ${m.glb}`);
+      }
+      const ts = motion.keyframes.map((k: any) => k.t);
+      assert.deepEqual(ts, [...ts].sort((a: number, b: number) => a - b));
+      assert.ok(ts[0] === 0 && ts.at(-1) === 1, 'the loop starts and ends on a keyframe');
+      if (id === 'lat-pulldown') {
+        // The bar must never go behind the neck: at every keyframe the hands stay in front of the shoulders.
+        const unit = (v: number[]) => v.map((x) => x / Math.hypot(...v));
+        for (const k of motion.keyframes) {
+          const handZ = unit(k.dirs.upperarm)[2] * 0.28 + unit(k.dirs.forearm)[2] * 0.26;
+          assert.ok(handZ > 0, `hands behind the shoulders at t=${k.t}`);
+        }
+      }
     }
   }
   const { matchPack, normalise } = await import(new URL(`file://${path.join(root, 'scripts', 'media', 'import-pack.mjs')}`).href);

@@ -2,11 +2,14 @@
 // has (a 3D demo video or image from public/data/demos.json or an imported licensed pack, a photo, a linked video,
 // or the KYVO movement illustration) and gives it the same controls, camera angles, loading state and fallback.
 // Media lives in data files, never in this code, so assets can be replaced without touching the viewer.
-import { assetUrl, exercisePhotos, figureFor, packDemo, curatedDemo, photoCredit, type DemoAngle } from './assets.js';
+import { assetUrl, exercisePhotos, figureFor, model3dFor, packDemo, curatedDemo, photoCredit, type DemoAngle } from './assets.js';
+import type { Controller } from './viewer3d.js';
+
+const VIEWS_3D = ['Rear', 'Side', 'Front']; // matches VIEWS in viewer3d.ts (kept here so the 3D module loads lazily)
 import { figureSVG } from './figure.js';
 import { muscleName } from './muscles.js';
 
-export type Source = 'demo' | 'movement' | 'photo';
+export type Source = '3d' | 'demo' | 'movement' | 'photo';
 export interface ViewerState { source: Source | null; angle: number; speed: 1 | 0.5; paused: boolean }
 export const newViewerState = (): ViewerState => ({ source: null, angle: 0, speed: 1, paused: false });
 
@@ -23,15 +26,25 @@ export function demoAngles(id: string): DemoAngle[] {
 
 export function availableSources(id: string): Source[] {
   const out: Source[] = [];
+  if (model3dFor(id)) out.push('3d');
   if (demoAngles(id).length) out.push('demo');
   if (figureFor(id)) out.push('movement');
   if (exercisePhotos(id).length) out.push('photo');
   return out;
 }
 
-const SOURCE_LABEL: Record<Source, string> = { demo: 'Demo', movement: 'Movement', photo: 'Photo' };
+const SOURCE_LABEL: Record<Source, string> = { '3d': '3D', demo: 'Demo', movement: 'Movement', photo: 'Photo' };
+
+// The live 3D scene, so it can be stopped when the viewer re-renders or the page changes.
+let current3d: Controller | null = null;
 
 function stage(x: { id: string; name: string }, st: ViewerState, src: Source | undefined): string {
+  if (src === '3d') {
+    return `<div class="vw-stage" data-kind="3d"><div class="vw-3d"></div>
+      <div class="vw-loading" role="status"><span class="spin" aria-hidden="true"></span><span>Loading 3D model…</span></div>
+      <div class="vw-fallback" hidden>${figureFallback(x)}<p>The 3D demo could not be shown on this device. The movement illustration and written steps below still apply.</p></div>
+    </div>`;
+  }
   if (src === 'demo') {
     const angles = demoAngles(x.id);
     const a = angles[Math.min(st.angle, angles.length - 1)];
@@ -64,6 +77,7 @@ function figureFallback(x: { id: string; name: string }): string {
 }
 
 function caption(x: { id: string }, src: Source | undefined, st: ViewerState): string {
+  if (src === '3d') return esc(model3dFor(x.id)!.credit);
   if (src === 'demo') {
     const a = demoAngles(x.id)[Math.min(st.angle, demoAngles(x.id).length - 1)];
     return `${a.sample ? '<b>Sample asset.</b> ' : ''}${esc(a.credit)}`;
@@ -77,10 +91,10 @@ function caption(x: { id: string }, src: Source | undefined, st: ViewerState): s
 export function exerciseViewer(x: { id: string; name: string; primary?: string[]; secondary?: string[] }, st: ViewerState): string {
   const sources = availableSources(x.id);
   const src = st.source && sources.includes(st.source) ? st.source : sources[0];
-  const angles = src === 'demo' ? demoAngles(x.id) : [];
-  const animated = src === 'movement' || (src === 'demo' && !!angles[Math.min(st.angle, angles.length - 1)]?.video);
+  const angles: { label: string; video?: unknown }[] = src === 'demo' ? demoAngles(x.id) : src === '3d' ? VIEWS_3D.map((label) => ({ label })) : [];
+  const animated = src === '3d' || src === 'movement' || (src === 'demo' && !!angles[Math.min(st.angle, angles.length - 1)]?.video);
   const primary = x.primary ?? [], secondary = (x.secondary ?? []).filter((m) => !primary.includes(m));
-  return `<div class="viewer" data-src="${src ?? 'none'}">
+  return `<div class="viewer" data-src="${src ?? 'none'}" data-exercise="${esc(x.id)}">
     ${stage(x, st, src)}
     ${animated ? `<div class="vw-controls" role="group" aria-label="Playback">
       <button type="button" class="vw-btn" data-vw="toggle" aria-label="${st.paused ? 'Play' : 'Pause'}">${st.paused ? I.play : I.pause}</button>
@@ -89,7 +103,7 @@ export function exerciseViewer(x: { id: string; name: string; primary?: string[]
     </div>` : ''}
     ${sources.length > 1 || angles.length > 1 ? `<div class="vw-pickers">
       ${sources.length > 1 ? `<div class="hero-switch" role="group" aria-label="Demonstration type">${sources.map((s) => `<button type="button" data-vw="source" data-v="${s}" aria-pressed="${s === src}">${SOURCE_LABEL[s]}</button>`).join('')}</div>` : ''}
-      ${angles.length > 1 ? `<div class="hero-switch" role="group" aria-label="Camera angle">${angles.map((a, i) => `<button type="button" data-vw="angle" data-v="${i}" aria-pressed="${i === Math.min(st.angle, angles.length - 1)}">${esc(a.label)}</button>`).join('')}</div>` : ''}
+      ${angles.length > 1 ? `<div class="hero-switch" role="group" aria-label="Camera angle">${angles.map((a, i) => `<button type="button" data-vw="${src === '3d' ? 'view' : 'angle'}" data-v="${i}" aria-pressed="${i === Math.min(st.angle, angles.length - 1)}">${esc(a.label)}</button>`).join('')}</div>` : ''}
     </div>` : ''}
     <p class="hero-note">${caption(x, src, st)}</p>
     ${primary.length ? `<div class="vw-legend" aria-label="Muscles highlighted">
@@ -124,23 +138,50 @@ export function wireViewer(root: HTMLElement, st: ViewerState, onChange: () => v
   const img = root.querySelector<HTMLImageElement>('.vw-stage[data-kind="image"] img.vw-media');
   img?.addEventListener('error', () => { img.hidden = true; const f = root.querySelector<HTMLElement>('.vw-fallback'); if (f) f.hidden = false; }, { once: true });
   if (svg && st.paused) svg.pauseAnimations?.();
+  current3d?.dispose();
+  current3d = null;
+  const host3d = root.querySelector<HTMLElement>('.vw-3d');
+  const model = host3d && model3dFor(root.querySelector<HTMLElement>('.viewer')?.dataset.exercise ?? '');
+  if (host3d && model) {
+    const loading = root.querySelector<HTMLElement>('.vw-loading');
+    const fail = (e: unknown) => {
+      console.warn('3D demo failed', e);
+      host3d.hidden = true;
+      if (loading) loading.hidden = true;
+      root.querySelector<HTMLElement>('.vw-fallback')!.hidden = false;
+      root.querySelector<HTMLElement>('.vw-controls')?.setAttribute('hidden', '');
+      root.querySelector('[data-vw="view"]')?.parentElement?.setAttribute('hidden', ''); // camera views need the model
+    };
+    import('./viewer3d.js')
+      .then((m) => m.mount3D(host3d, model, { paused: st.paused, speed: st.speed, view: st.angle, onReady: () => { if (loading) loading.hidden = true; root.querySelector('.vw-stage')?.setAttribute('data-ready', '1'); } }))
+      .then((c) => { if (host3d.isConnected) current3d = c; else c.dispose(); })
+      .catch(fail);
+  }
   root.querySelectorAll<HTMLButtonElement>('[data-vw]').forEach((b) => b.addEventListener('click', () => {
     const k = b.dataset.vw;
     if (k === 'toggle') {
       st.paused = !st.paused;
       if (video) { if (st.paused) video.pause(); else void video.play(); }
       if (svg) { if (st.paused) svg.pauseAnimations(); else svg.unpauseAnimations(); }
+      if (current3d) { if (st.paused) current3d.pause(); else current3d.play(); }
       setToggle(root, st.paused);
     } else if (k === 'replay') {
       if (video) { video.currentTime = 0; void video.play(); }
       if (svg) { svg.setCurrentTime(0); svg.unpauseAnimations(); }
+      current3d?.replay();
       st.paused = false;
       setToggle(root, false);
     } else if (k === 'speed') {
       st.speed = st.speed === 1 ? 0.5 : 1;
-      if (video) { video.playbackRate = st.speed; b.textContent = st.speed === 0.5 ? '0.5×' : '1×'; b.setAttribute('aria-pressed', String(st.speed === 0.5)); }
+      if (current3d) current3d.setSpeed(st.speed);
+      if (video || current3d) { if (video) video.playbackRate = st.speed; b.textContent = st.speed === 0.5 ? '0.5×' : '1×'; b.setAttribute('aria-pressed', String(st.speed === 0.5)); }
       else onChange();
     } else if (k === 'angle') { st.angle = Number(b.dataset.v); onChange(); }
+    else if (k === 'view') {
+      st.angle = Number(b.dataset.v);
+      current3d?.setView(st.angle);
+      b.parentElement?.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    }
     else if (k === 'source') { st.source = b.dataset.v as Source; st.angle = 0; onChange(); }
   }));
 }

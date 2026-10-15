@@ -20,6 +20,28 @@ The viewer reads its media only from data files, so assets can be swapped withou
 
 **Free demos in use now:** 52 exercises have looping clips made from the free Everkinetic drawings (CC BY-SA 4.0, credited on each clip). Each clip cross-fades the start and end drawings. They are built by `scripts/media/build-everkinetic.mjs`, which only uses exact name matches plus the hand-checked `scripts/media/everkinetic-map.json`. The CC BY-SA licence requires the credit line, and adapted clips must stay under CC BY-SA. The other 118 exercises use the KYVO movement illustration. Everkinetic has no drawing for lat pulldown, chin-up or the shoulder-press machine.
 
+## Live 3D demo: lat pulldown
+
+The lat pulldown has a real-time 3D demo, rendered in the browser with three.js. It is the first source on that exercise's page ("3D"), with Rear, Side and Front camera views, play/pause, replay and 0.5× speed.
+
+| Part | File | Source and licence |
+|---|---|---|
+| Body (anatomical male, muscle paint) | `public/models/lat-pulldown/body.glb` | OpenGym3D exercise pack (MIT, `LICENSE-opengym3d.txt`) built on the MakeHuman/MPFB2 male (CC0). The pack's `bent_over_row.glb`, used only for its rigged, painted body; its row animation is not used. |
+| Lat pulldown movement | `public/models/lat-pulldown/motion.json` | KYVO keyframes (format `kyvo-aim/1`) |
+| Machine, lighting, colours | `src/client/visuals/viewer3d.ts` | KYVO code |
+| 3D engine | `public/vendor/three/` | three.js r170 (MIT), self-hosted so the CSP stays `script-src 'self'` |
+
+How it works:
+- `motion.json` lists body segments (for example `upperarm: [upperarm01.*, lowerarm01.*]`, where `.*` means both sides, mirrored) and, at a few keyframes over one 3.2 s loop, the world direction each segment points in. The viewer aims each bone along its segment, bakes the result into a normal three.js animation clip and plays it with an `AnimationMixer`, so pause, replay and speed are exact.
+- The movement: seated with the thighs under the pads, a slightly wider than shoulder-width grip, a pull to the upper chest with the elbows driving down and back, a short pause, then a slower controlled return. The bar stays in front of the face throughout; a unit test checks that the hands never go behind the shoulders.
+- The machine is built from simple shapes and fitted to the seated body. The bar follows the hands every frame, and the cable runs from the pulley above the bar.
+- The pack's muscle paint is re-coloured at load time: main muscles (upper back, lats) `#E8552B`, assisting (biceps, forearms) `#F2A65A`, skin light grey, and dark-grey shorts. Highlighting is illustrative, not measured muscle activity.
+- If WebGL is unavailable or a file fails to load, the viewer shows the movement illustration and a message, and hides the 3D controls.
+
+Limits: the movement is hand-keyed, not motion capture, and the machine is a simplified model. The body is the same for every exercise, so further 3D exercises only need a new `motion.json` (and, for other machines, a machine builder).
+
+To add another exercise in 3D, add `"model3d": { "glb": …, "motion": …, "equipment": …, "credit": … }` to its entry in `demos.json`. The unit test checks that the files exist and that every bone the motion uses is in the model.
+
 ## Adding hand-picked demos (any exercise)
 
 Put the files in `public/media/demos/` and add an entry to `public/data/demos.json`:

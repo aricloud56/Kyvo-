@@ -254,3 +254,66 @@ test('G: another user’s data and the admin pages are not reachable', async () 
   await anon.close();
   await ctx.close();
 });
+
+test('H: the lat pulldown 3D demo loads, animates, shows the muscle colours and its controls work', async () => {
+  // A software WebGL renderer, so the 3D demo runs in a headless browser without a GPU.
+  const gl = await chromium.launch({
+    ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
+    args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'],
+  });
+  try {
+    const u = await newUser(run.base);
+    const ctx = await gl.newContext({ viewport: { width: 390, height: 844 } });
+    const [name, value] = u.client.cookie.split('=');
+    await ctx.addCookies([{ name, value, url: run.base }]);
+    const page = await ctx.newPage();
+    const errors: string[] = [];
+    page.on('pageerror', (e) => errors.push(e.message));
+    page.on('console', (m) => { if (/Content Security Policy|3D demo failed/.test(m.text())) errors.push(m.text()); });
+    await page.goto(`${run.base}/app#/exercise/lat-pulldown`);
+    await page.waitForSelector('.vw-stage[data-kind="3d"]');
+    await page.waitForSelector('.vw-stage[data-ready="1"]', { timeout: 30000 });
+    assert.ok(await page.locator('.vw-loading').isHidden(), 'loading indicator hides once the model is shown');
+    assert.ok(await page.locator('.vw-fallback').isHidden());
+    const stage = page.locator('.vw-stage');
+    // Count pixels close to the two muscle colours in a screenshot of the stage.
+    const shot = async () => (await stage.screenshot()).toString('base64');
+    const colours = (b64: string) => page.evaluate(`(async () => {
+      const img = new Image(); img.src = 'data:image/png;base64,${b64}'; await img.decode();
+      const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+      const g = c.getContext('2d'); g.drawImage(img, 0, 0);
+      const d = g.getImageData(0, 0, c.width, c.height).data;
+      const near = (i, [r, gr, b]) => Math.abs(d[i] - r) + Math.abs(d[i + 1] - gr) + Math.abs(d[i + 2] - b) < 60;
+      let pri = 0, sec = 0;
+      for (let i = 0; i < d.length; i += 4) { if (near(i, [232, 85, 43])) pri++; else if (near(i, [242, 166, 90])) sec++; }
+      return { pri, sec };
+    })()`) as Promise<{ pri: number; sec: number }>;
+    const a = await shot();
+    const { pri, sec } = await colours(a);
+    assert.ok(pri > 50 && sec > 50, `muscle colours visible (primary ${pri}, secondary ${sec} px)`);
+    await page.waitForTimeout(700);
+    assert.notEqual(await shot(), a, 'the figure moves while playing');
+    await page.click('[data-vw="toggle"]');
+    await page.waitForTimeout(150);
+    const p1 = await shot();
+    await page.waitForTimeout(600);
+    assert.equal(await shot(), p1, 'nothing moves while paused');
+    await page.click('[data-vw="replay"]');
+    await page.waitForTimeout(500);
+    assert.notEqual(await shot(), p1, 'replay plays again');
+    await page.click('[data-vw="speed"]');
+    assert.equal(await page.textContent('[data-vw="speed"]'), '0.5×');
+    await page.click('[data-vw="view"][data-v="1"]');
+    assert.equal(await page.getAttribute('[data-vw="view"][data-v="1"]', 'aria-pressed'), 'true');
+    await noHorizontalScroll(page, 'lat pulldown 3D demo');
+    assert.deepEqual(errors, []);
+    // If the model cannot load, the illustration fallback is shown instead of a blank box.
+    await page.route('**/models/lat-pulldown/body.glb', (r) => r.abort());
+    await page.reload();
+    await page.waitForSelector('.vw-fallback:visible', { timeout: 15000 });
+    assert.ok(await page.locator('.vw-controls').isHidden());
+    await ctx.close();
+  } finally {
+    await gl.close();
+  }
+});

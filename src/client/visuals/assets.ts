@@ -1,13 +1,14 @@
 // Loads the static illustration data (movement figures and licensed photos) once and renders tiles from it.
 import { api } from '../api.js';
 import { figureSVG, type FigureDef } from './figure.js';
+import type { Model3D } from './viewer3d.js';
 
 export interface Photo { file: string; w: number; h: number; by: string; license: string; source: string; note?: string }
 interface PhotoData { exercises: Record<string, Photo[]>; recipes: Record<string, Photo> }
 
 /** One camera angle of a demonstration. A video angle lists sources (MP4/WebM) and a poster; an image angle has image. */
 export interface DemoAngle { label: string; video?: { src: string; type: string }[]; poster?: string; image?: string; still?: boolean; credit: string; sample?: boolean }
-interface DemoData { exercises: Record<string, { angles: DemoAngle[] }> }
+interface DemoData { exercises: Record<string, { angles?: DemoAngle[]; model3d?: Model3D }> }
 interface PackData { vendor: string; license: string; exercises: Record<string, { file: string; kind: 'video' | 'image'; still?: boolean; title: string }> }
 
 let figures: Record<string, FigureDef & { approx?: boolean }> = {};
@@ -38,6 +39,7 @@ export function loadVisuals(): Promise<void> {
 
 export const figureFor = (id: string) => figures[id];
 export const exercisePhotos = (id: string): Photo[] => photos.exercises[id] ?? [];
+export const model3dFor = (id: string): Model3D | undefined => demos.exercises[id]?.model3d;
 export const curatedDemo = (id: string): DemoAngle[] | undefined => demos.exercises[id]?.angles;
 export function packDemo(id: string): DemoAngle[] | undefined {
   const m = pack?.exercises[id];
