@@ -240,3 +240,28 @@ test('every exercise has a movement figure and every credited photo file exists'
     assert.ok(p.by && p.license && p.source.startsWith('https://'), `credit for ${p.file}`);
   }
 });
+
+test('demo config points at real files, and the pack importer only auto-matches exact names', async () => {
+  const root = path.join(DATA_DIR, '..');
+  const demos = JSON.parse(fs.readFileSync(path.join(root, 'public', 'data', 'demos.json'), 'utf8'));
+  for (const [id, d] of Object.entries<any>(demos.exercises)) {
+    assert.ok(exercises.has(id), `unknown exercise ${id}`);
+    for (const a of d.angles) {
+      for (const f of [...(a.video ?? []).map((v: any) => v.src), a.poster, a.image].filter(Boolean)) assert.ok(fs.existsSync(path.join(root, 'public', f)), f);
+      assert.ok(a.credit && a.label);
+    }
+  }
+  const { matchPack, normalise } = await import(new URL(`file://${path.join(root, 'scripts', 'media', 'import-pack.mjs')}`).href);
+  assert.equal(normalise('Lat Pull-down (Cable)'), normalise('cable lat pulldown'));
+  const rows = [
+    { name: 'Cable lat pulldown', media: 'a.gif' },
+    { name: 'Barbell Bench Press', media: 'b.mp4' },
+    { name: 'Dumbbell incline fly', media: 'c.gif' },
+  ];
+  const { matched, review } = matchPack([...exercises.values()], rows);
+  const ids = matched.map((m: any) => m.id);
+  assert.ok(ids.includes('lat-pulldown'));
+  assert.ok(ids.includes('barbell-bench-press'));
+  assert.ok(!ids.includes('dumbbell-fly'), 'a near miss must go to review, not be applied');
+  assert.ok(review.some((r: any) => r.candidates.some((c: any) => c.name === 'Dumbbell incline fly')));
+});

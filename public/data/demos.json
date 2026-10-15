@@ -1,0 +1,19 @@
+{
+  "_readme": "Hand-picked exercise demonstrations. Key = KYVO exercise id. Each angle is either a video (sources + poster) or an image. Replace the sample files in public/media/demos/ with licensed 3D renders, keep the same shape, and set sample to false. A licensed pack imported with scripts/media/import-pack.mjs fills in every exercise not listed here.",
+  "exercises": {
+    "lat-pulldown": {
+      "angles": [
+        {
+          "label": "Side",
+          "video": [
+            { "src": "media/demos/lat-pulldown-side.webm", "type": "video/webm" },
+            { "src": "media/demos/lat-pulldown-side.mp4", "type": "video/mp4" }
+          ],
+          "poster": "media/demos/lat-pulldown-side.jpg",
+          "credit": "KYVO placeholder animation, rendered from the KYVO movement illustration to test playback. Swap in a licensed 3D anatomy video.",
+          "sample": true
+        }
+      ]
+    }
+  }
+}

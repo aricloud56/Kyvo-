@@ -145,7 +145,7 @@ All of these were run on 15 October 2026 against PostgreSQL 16 and Chromium (Pla
 |---|---|
 | `npm run lint` | Passed (strict TypeScript, build, ESLint: 0 problems) |
 | `npm run typecheck` | Passed |
-| `npm run test:unit` | **18 / 18 passed** |
+| `npm run test:unit` | **19 / 19 passed** |
 | `npm run test:integration` | **19 / 19 passed** |
 | `npm run test:e2e` | **7 / 7 passed** |
 

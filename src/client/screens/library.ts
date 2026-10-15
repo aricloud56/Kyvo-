@@ -6,7 +6,8 @@ import { EQUIPMENT_LABEL, GROUP_LABEL, groupsText, longDate, shortDate, wOut, wU
 import { barChart, icon, lineChart, wireCharts } from '../ui.js';
 import { figureSVG, respectReducedMotion } from '../visuals/figure.js';
 import { muscleMap, muscleName } from '../visuals/muscles.js';
-import { assetUrl, exercisePhotos, exerciseTile, figureFor, loadVisuals, photoCredit } from '../visuals/assets.js';
+import { exerciseTile, figureFor, loadVisuals } from '../visuals/assets.js';
+import { exerciseViewer, newViewerState, wireViewer, type ViewerState } from '../visuals/viewer.js';
 
 const STEP_LABEL: Record<string, string> = {
   start: 'Starting position', setup: 'Equipment setup', feet: 'Feet', grip: 'Grip or hand position', posture: 'Posture', brace: 'Brace',
@@ -88,30 +89,15 @@ export async function libraryScreen(view: HTMLElement) {
   await load();
 }
 
-type HeroMode = 'movement' | 'photo' | 'video';
-
-function videoBlock(m: any) {
+function videoCard(x: any) {
+  const m = (x.media ?? []).find((v: any) => v.kind === 'video') ?? (x.media ?? []).find((v: any) => v.kind === 'youtube');
+  if (!m) return '';
   const player = m.kind === 'youtube' && api.demo
     ? html`<a class="fig-tile video-link" href="https://www.youtube.com/watch?v=${m.ref}" target="_blank" rel="noopener">${icon('play', 40)}<span><b>Watch on YouTube</b><br><span class="small">${m.title}. The app plays this inside the page; the preview opens it in a new tab.</span></span></a>`
     : m.kind === 'youtube'
     ? html`<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${m.ref}?rel=0" title="${m.title || 'Exercise demonstration'}" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`
     : html`<div class="video"><video src="${m.ref}" controls muted loop playsinline preload="metadata" aria-label="${m.title || 'Exercise demonstration'}"></video></div>`;
-  return html`${player}<p class="hero-note">${m.attribution}. ${m.license}.${m.source && m.source.startsWith('https://') ? html` <a href="${m.source}" target="_blank" rel="noopener">Source</a>` : ''}</p>`;
-}
-
-function heroBlock(x: any, mode: HeroMode) {
-  const fig = figureFor(x.id);
-  const ph = exercisePhotos(x.id);
-  const vid = (x.media ?? []).find((m: any) => m.kind === 'video') ?? (x.media ?? []).find((m: any) => m.kind === 'youtube');
-  const modes: [HeroMode, string, boolean][] = [['movement', 'Movement', !!fig], ['photo', 'Photo', ph.length > 0], ['video', 'Video', !!vid]];
-  const available = modes.filter((m) => m[2]);
-  let body;
-  if (mode === 'photo' && ph.length) body = html`<div class="fig-tile photo"><img src="${assetUrl(ph[0].file)}" alt="${x.name}" width="${ph[0].w}" height="${ph[0].h}"></div><p class="hero-note">${raw(photoCredit(ph[0]))}</p>`;
-  else if (mode === 'video' && vid) body = videoBlock(vid);
-  else if (fig) body = html`<div class="fig-tile">${raw(figureSVG(fig, { label: `${x.name}: animated start and end position` }))}</div><p class="hero-note">${fig.approx ? 'Illustration of a closely related movement. Follow the written steps for this exact version.' : 'Illustration of the start and end position. Highlighted parts show the main muscles.'}</p>`;
-  else body = html`<div class="fig-tile empty"></div>`;
-  return html`<div class="ex-hero" id="hero">${body}</div>
-    ${available.length > 1 ? html`<div class="hero-switch" role="group" aria-label="Demonstration type">${available.map(([k, label]) => html`<button type="button" data-action="hero" data-mode="${k}" aria-pressed="${k === mode}">${label}</button>`)}</div>` : ''}`;
+  return html`<section class="card"><h2>Coach video</h2>${player}<p class="hero-note">${m.attribution}. ${m.license}.${m.source && m.source.startsWith('https://') ? html` <a href="${m.source}" target="_blank" rel="noopener">Source</a>` : ''}</p></section>`;
 }
 
 const TABS = ['guide', 'history', 'records', 'charts'] as const;
@@ -191,29 +177,35 @@ function chartsTab(x: any) {
   ], (n) => String(n), (d) => shortDate(d))}</section>`;
 }
 
-const pageState: { id: string; tab: Tab; hero: HeroMode | null } = { id: '', tab: 'guide', hero: null };
+const pageState: { id: string; tab: Tab; viewer: ViewerState } = { id: '', tab: 'guide', viewer: newViewerState() };
 
 export async function exerciseScreen(view: HTMLElement, params: string[]) {
   const [x] = await Promise.all([api.get<any>(`/api/exercises/${params[0]}`), loadVisuals()]);
-  if (pageState.id !== x.id) Object.assign(pageState, { id: x.id, tab: 'guide', hero: null });
-  const mode: HeroMode = pageState.hero ?? (figureFor(x.id) ? 'movement' : exercisePhotos(x.id).length ? 'photo' : 'video');
+  if (pageState.id !== x.id) Object.assign(pageState, { id: x.id, tab: 'guide', viewer: newViewerState() });
   const primary: string[] = x.primary ?? [];
   const header = html`<div class="sheet-head"><a class="icon-btn" href="#/library" aria-label="Back to the exercise library">${icon('back', 22)}</a><h1>${x.name}</h1>
     <button class="icon-btn" data-action="fav" aria-pressed="${x.favourite ? 'true' : 'false'}" aria-label="${x.favourite ? 'Remove from favourites' : 'Save to favourites'}">${icon(x.favourite ? 'starOn' : 'star', 22)}</button></div>`;
   const meta = html`<div class="ex-meta">${primary.slice(0, 3).map((m) => html`<span class="tag accent">${muscleName(m)}</span>`)}<span class="tag">${cap(x.difficulty)}</span>${x.equipment.slice(0, 3).map((e: string) => html`<span class="tag">${EQUIPMENT_LABEL[e] ?? e}</span>`)}</div>`;
   if (x.locked) {
-    view.innerHTML = html`${header}${heroBlock({ ...x, media: [] }, 'movement')}${meta}${raw(lockedCard(x.name))}
+    view.innerHTML = html`${header}${figureFor(x.id) ? html`<div class="ex-hero"><div class="fig-tile">${raw(figureSVG(figureFor(x.id)!, { label: `${x.name} movement` }))}</div></div>` : ''}${meta}${raw(lockedCard(x.name))}
     ${x.alternatives.length ? html`<section class="card"><h2>Free alternatives</h2><ul class="ex-rows">${x.alternatives.filter((a: any) => !a.locked).map((a: any) => html`<li><a href="#/exercise/${a.id}">${raw(exerciseTile(a.id, a.name, [], { className: 'ex-thumb' }))}<span class="grow nm">${a.name}</span></a></li>`)}</ul></section>` : ''}`.value;
   } else {
     const tab = pageState.tab;
     const body = tab === 'history' ? historyTab(x) : tab === 'records' ? recordsTab(x) : tab === 'charts' ? chartsTab(x) : guideTab(x);
-    view.innerHTML = html`${header}${heroBlock(x, mode)}${meta}
+    view.innerHTML = html`${header}<div class="ex-hero" id="viewer">${raw(exerciseViewer(x, pageState.viewer))}</div>${meta}
     <div class="row" style="margin:14px 0 0"><button class="btn btn-primary btn-sm" data-action="add">${icon('plus', 16)} Add to a workout</button></div>
     <div class="tabs" role="tablist" aria-label="Exercise details">${TABS.map((t) => html`<button role="tab" id="tab-${t}" aria-controls="tabpanel" aria-selected="${t === tab}" tabindex="${t === tab ? 0 : -1}" data-action="tab" data-tab="${t}">${TAB_LABEL[t]}</button>`)}</div>
-    <div id="tabpanel" role="tabpanel" aria-labelledby="tab-${tab}">${body}</div>`.value;
+    <div id="tabpanel" role="tabpanel" aria-labelledby="tab-${tab}">${body}</div>
+    ${tab === 'guide' ? videoCard(x) : ''}`.value;
     if (tab === 'charts') wireCharts(view, {}, (d) => shortDate(d));
   }
   respectReducedMotion(view);
+  const viewerEl = view.querySelector<HTMLElement>('#viewer');
+  const wire = () => viewerEl && wireViewer(viewerEl, pageState.viewer, () => {
+    viewerEl.innerHTML = exerciseViewer(x, pageState.viewer);
+    wire();
+  });
+  wire();
   const rerender = () => exerciseScreen(view, params);
   onActions(view, {
     fav: async (el) => {
@@ -228,11 +220,6 @@ export async function exerciseScreen(view: HTMLElement, params: string[]) {
       pageState.tab = el.dataset.tab as Tab;
       await rerender();
       view.querySelector<HTMLElement>(`#tab-${pageState.tab}`)?.focus();
-    },
-    hero: async (el) => {
-      pageState.hero = el.dataset.mode as HeroMode;
-      await rerender();
-      view.querySelector<HTMLElement>(`[data-mode="${pageState.hero}"]`)?.focus();
     },
     add: async () => {
       const prog = await api.get<any>('/api/program');

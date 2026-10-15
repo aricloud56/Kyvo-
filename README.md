@@ -179,6 +179,7 @@ data/          Exercises, exercise media, foods, recipes (seed content)
 public/        CSS, icons, manifest, local demo clips, data/figures.json (movement illustrations),
                data/photos.json + media/photos/ (Wikimedia Commons photos with credits)
 scripts/figures/  Generator for the movement illustrations (python3 scripts/figures/build_figures.py)
+scripts/media/    Licensed exercise-media importer (see docs/EXERCISE-MEDIA.md)
 legal/         Draft privacy policy, terms, subscription terms, disclaimer, contact (need legal review)
 content/       TikTok content ideas
 docs/          Delivery report, legal review checklist

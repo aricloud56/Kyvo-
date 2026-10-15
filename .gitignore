@@ -4,3 +4,5 @@ storage/
 storage-test/
 .env
 *.log
+public/media/pack/
+public/data/media-pack.json

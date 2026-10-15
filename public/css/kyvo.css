@@ -401,3 +401,37 @@ svg.fig .cable { stroke: #8B9185; stroke-width: 2; stroke-dasharray: 4 3; }
 .cover-mark { position: absolute; right: 8px; top: 7px; font-size: 9px; font-weight: 900; letter-spacing: .2em; color: var(--accent); }
 .chip-scroll .chip[aria-pressed=true] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .muscle-map g[class^="m-"] > * , .muscle-map g[class^="m-"] g > * { stroke: #1a1a1a; stroke-width: .8; }
+
+/* Exercise viewer (src/client/visuals/viewer.ts) */
+.viewer { display: grid; gap: 10px; }
+.vw-stage { position: relative; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background: #F4F5F2; display: grid; place-items: center; }
+.vw-stage.fig-stage { background: radial-gradient(120% 90% at 50% 15%, #FAFBF7 0%, var(--tile) 55%, var(--tile-2) 100%); }
+.vw-stage .vw-media { width: 100%; height: 100%; object-fit: contain; display: block; }
+.vw-stage .vw-media.cover { object-fit: cover; }
+.vw-stage svg.fig { height: 100%; width: auto; }
+.vw-loading { position: absolute; inset: auto 12px 12px auto; display: flex; gap: 8px; align-items: center; background: rgba(17,17,17,.75); color: #fff; font-size: 13px; padding: 6px 10px; border-radius: 999px; }
+.vw-loading[hidden], .vw-fallback[hidden] { display: none; }
+.spin { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(255,255,255,.35); border-top-color: var(--accent); animation: vwspin 0.9s linear infinite; }
+@keyframes vwspin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+.vw-fallback, .vw-stage[data-kind="none"] { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 8px; padding: 16px; text-align: center; color: #3A3D40; font-size: 14px; background: #F4F5F2; }
+.vw-fallback p, .vw-stage[data-kind="none"] p { margin: 0; max-width: 32ch; }
+.vw-fig { width: 46%; max-width: 200px; aspect-ratio: 1; }
+.vw-fig svg.fig { width: 100%; height: 100%; }
+.vw-badge { position: absolute; top: 10px; left: 10px; background: rgba(17,17,17,.75); color: #fff; font-size: 12px; padding: 4px 9px; border-radius: 999px; }
+.vw-controls { display: flex; gap: 8px; justify-content: center; }
+.vw-btn { min-width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--border-strong); background: var(--surface-2); color: var(--text); display: inline-grid; place-items: center; font: inherit; font-weight: 600; padding: 0 14px; cursor: pointer; }
+.vw-btn[aria-pressed="true"] { background: var(--accent); color: #111; border-color: var(--accent); }
+.vw-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.vw-pickers { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.vw-pickers .hero-switch { margin: 0; flex: 1 1 220px; }
+.vw-legend { display: grid; gap: 4px; font-size: 14px; }
+.vw-legend .lg { display: flex; gap: 8px; align-items: center; }
+.vw-legend i { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.vw-legend i.pri { background: #E8552B; }
+.vw-legend i.sec { background: #F2A65A; }
+.fig-tile.demo { background: #F4F5F2; }
+.fig-tile.demo img { object-fit: contain; }
+@media (min-width: 900px) { .vw-stage { aspect-ratio: 16 / 9; } }
+.ex-hero:has(.viewer) { overflow: visible; border-radius: 0; }
+.vw-controls[hidden] { display: none; }
