@@ -5,7 +5,7 @@
 import { assetUrl, exercisePhotos, figureFor, model3dFor, packDemo, curatedDemo, photoCredit, type DemoAngle } from './assets.js';
 import type { Controller } from './viewer3d.js';
 
-const VIEWS_3D = ['Rear', 'Side', 'Front']; // matches VIEWS in viewer3d.ts (kept here so the 3D module loads lazily)
+const VIEWS_3D = ['Rear', 'Side', 'Front'] as const; // default order; matches VIEWS in viewer3d.ts (kept here so the 3D module loads lazily)
 import { figureSVG } from './figure.js';
 import { muscleName } from './muscles.js';
 
@@ -91,10 +91,10 @@ function caption(x: { id: string }, src: Source | undefined, st: ViewerState): s
 export function exerciseViewer(x: { id: string; name: string; primary?: string[]; secondary?: string[] }, st: ViewerState): string {
   const sources = availableSources(x.id);
   const src = st.source && sources.includes(st.source) ? st.source : sources[0];
-  const angles: { label: string; video?: unknown }[] = src === 'demo' ? demoAngles(x.id) : src === '3d' ? VIEWS_3D.map((label) => ({ label })) : [];
+  const angles: { label: string; video?: unknown }[] = src === 'demo' ? demoAngles(x.id) : src === '3d' ? (model3dFor(x.id)!.views ?? VIEWS_3D).map((label) => ({ label })) : [];
   const animated = src === '3d' || src === 'movement' || (src === 'demo' && !!angles[Math.min(st.angle, angles.length - 1)]?.video);
   const primary = x.primary ?? [], secondary = (x.secondary ?? []).filter((m) => !primary.includes(m));
-  return `<div class="viewer" data-src="${src ?? 'none'}" data-exercise="${esc(x.id)}">
+  return `<div class="viewer" data-src="${src ?? 'none'}" data-exercise="${esc(x.id)}" data-name="${esc(x.name)}">
     ${stage(x, st, src)}
     ${animated ? `<div class="vw-controls" role="group" aria-label="Playback">
       <button type="button" class="vw-btn" data-vw="toggle" aria-label="${st.paused ? 'Play' : 'Pause'}">${st.paused ? I.play : I.pause}</button>
@@ -141,7 +141,8 @@ export function wireViewer(root: HTMLElement, st: ViewerState, onChange: () => v
   current3d?.dispose();
   current3d = null;
   const host3d = root.querySelector<HTMLElement>('.vw-3d');
-  const model = host3d && model3dFor(root.querySelector<HTMLElement>('.viewer')?.dataset.exercise ?? '');
+  const vEl = root.querySelector<HTMLElement>('.viewer');
+  const model = host3d && model3dFor(vEl?.dataset.exercise ?? '');
   if (host3d && model) {
     const loading = root.querySelector<HTMLElement>('.vw-loading');
     const fail = (e: unknown) => {
@@ -153,7 +154,7 @@ export function wireViewer(root: HTMLElement, st: ViewerState, onChange: () => v
       root.querySelector('[data-vw="view"]')?.parentElement?.setAttribute('hidden', ''); // camera views need the model
     };
     import('./viewer3d.js')
-      .then((m) => m.mount3D(host3d, model, { paused: st.paused, speed: st.speed, view: st.angle, onReady: () => { if (loading) loading.hidden = true; root.querySelector('.vw-stage')?.setAttribute('data-ready', '1'); } }))
+      .then((m) => m.mount3D(host3d, model, { paused: st.paused, speed: st.speed, view: st.angle, label: vEl?.dataset.name ?? 'exercise', onReady: () => { if (loading) loading.hidden = true; root.querySelector('.vw-stage')?.setAttribute('data-ready', '1'); } }))
       .then((c) => { if (host3d.isConnected) current3d = c; else c.dispose(); })
       .catch(fail);
   }

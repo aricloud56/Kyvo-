@@ -291,6 +291,8 @@ test('H: the lat pulldown 3D demo loads, animates, shows the muscle colours and 
     const a = await shot();
     const { pri, sec } = await colours(a);
     assert.ok(pri > 50 && sec > 50, `muscle colours visible (primary ${pri}, secondary ${sec} px)`);
+    // From behind, the back (main muscles) covers more of the picture than the arms (assisting).
+    assert.ok(pri > sec, `the back shows the main colour (primary ${pri}, secondary ${sec} px)`);
     await page.waitForTimeout(700);
     assert.notEqual(await shot(), a, 'the figure moves while playing');
     await page.click('[data-vw="toggle"]');
@@ -308,10 +310,41 @@ test('H: the lat pulldown 3D demo loads, animates, shows the muscle colours and 
     await noHorizontalScroll(page, 'lat pulldown 3D demo');
     assert.deepEqual(errors, []);
     // If the model cannot load, the illustration fallback is shown instead of a blank box.
-    await page.route('**/models/lat-pulldown/body.glb', (r) => r.abort());
+    await page.route('**/models/body.glb', (r) => r.abort());
     await page.reload();
     await page.waitForSelector('.vw-fallback:visible', { timeout: 15000 });
     assert.ok(await page.locator('.vw-controls').isHidden());
+    await ctx.close();
+  } finally {
+    await gl.close();
+  }
+});
+
+test('I: an imported OpenGym3D exercise (bodyweight squat) plays in 3D with its own camera order', async () => {
+  const gl = await chromium.launch({
+    ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
+    args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'],
+  });
+  try {
+    const u = await newUser(run.base);
+    const ctx = await gl.newContext({ viewport: { width: 390, height: 844 } });
+    const [name, value] = u.client.cookie.split('=');
+    await ctx.addCookies([{ name, value, url: run.base }]);
+    const page = await ctx.newPage();
+    const errors: string[] = [];
+    page.on('pageerror', (e) => errors.push(e.message));
+    page.on('console', (m) => { if (/Content Security Policy|3D demo failed/.test(m.text())) errors.push(m.text()); });
+    await page.goto(`${run.base}/app#/exercise/bodyweight-squat`);
+    await page.waitForSelector('.vw-stage[data-ready="1"]', { timeout: 30000 });
+    assert.deepEqual(await page.$$eval('[data-vw="view"]', (bs) => bs.map((b) => b.textContent)), ['Front', 'Side', 'Rear']);
+    const stage = page.locator('.vw-stage');
+    const a = await stage.screenshot();
+    await page.waitForTimeout(900);
+    assert.ok(!a.equals(await stage.screenshot()), 'the squat moves');
+    await page.click('[data-vw="view"][data-v="1"]');
+    assert.equal(await page.getAttribute('[data-vw="view"][data-v="1"]', 'aria-pressed'), 'true');
+    assert.match(await page.textContent('.hero-note') ?? '', /OpenGym3D/);
+    assert.deepEqual(errors, []);
     await ctx.close();
   } finally {
     await gl.close();

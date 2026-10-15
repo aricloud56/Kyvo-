@@ -259,6 +259,21 @@ test('demo config points at real files, and the pack importer only auto-matches 
       assert.equal(glb.toString('ascii', 0, 4), 'glTF', m.glb);
       const gltf = JSON.parse(glb.toString('utf8', 20, 20 + glb.readUInt32LE(12)));
       const names = new Set(gltf.nodes.map((n: any) => n.name));
+      assert.ok(!m.views || (m.views.length && m.views.every((v: string) => ['Rear', 'Side', 'Front'].includes(v))), `${id} views`);
+      if (m.clip) {
+        // An imported clip: made for this body, every animated bone exists, and one paint pair per vertex.
+        const clip = JSON.parse(fs.readFileSync(path.join(root, 'public', m.clip), 'utf8'));
+        assert.equal(clip.format, 'kyvo-clip/1', m.clip);
+        assert.equal(clip.vertices, gltf.accessors[gltf.meshes[0].primitives[0].attributes.POSITION].count, `${m.clip} body`);
+        assert.ok(clip.duration > 0.5 && clip.tracks.length > 10, `${m.clip} has movement`);
+        for (const t of clip.tracks) {
+          assert.ok(names.has(t.bone), `${m.clip}: bone ${t.bone} not in ${m.glb}`);
+          const times = Buffer.from(t.times, 'base64').length / 4, values = Buffer.from(t.values, 'base64').length / 4;
+          assert.equal(values, times * (t.path === 'quaternion' ? 4 : 3), `${m.clip}: ${t.bone} ${t.path}`);
+        }
+        assert.equal(Buffer.from(clip.paint, 'base64').length, clip.vertices * 2, `${m.clip} paint`);
+        continue;
+      }
       const motion = JSON.parse(fs.readFileSync(path.join(root, 'public', m.motion), 'utf8'));
       assert.equal(motion.format, 'kyvo-aim/1');
       const used = [...Object.values<string[]>(motion.segments).flat(), ...(motion.grip?.bones ?? [])];

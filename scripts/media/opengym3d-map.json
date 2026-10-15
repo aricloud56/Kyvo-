@@ -1,0 +1,107 @@
+{
+  "_note": "KYVO exercise id -> OpenGym3D pack exercise, checked by hand: same body movement and stance (the pack draws no equipment). views: camera order, the first is the default. Every pack exercise is converted, but only these are shown. No KYVO match: bicep_curl (both arms at once), crunch, dumbbell_shoulder_press (standing), high_knees, jumping_jack, overhead_tricep_extension (standing), sumo_squat, superman. Rejected after rendering frame by frame, because they would teach the wrong movement: bent_over_row (one arm pulls, torso nearly upright), front_raise (one arm, raised out to the side), glute_bridge (shoulders float above the floor, arms reach through it), push_up (the chest barely lowers).",
+  "standing-calf-raise": {
+    "pack": "calf_raise",
+    "views": [
+      "Side",
+      "Rear",
+      "Front"
+    ]
+  },
+  "conventional-deadlift": {
+    "pack": "deadlift",
+    "views": [
+      "Side",
+      "Rear",
+      "Front"
+    ]
+  },
+  "good-morning": {
+    "pack": "good_morning",
+    "views": [
+      "Side",
+      "Rear",
+      "Front"
+    ]
+  },
+  "hammer-curl": {
+    "pack": "hammer_curl",
+    "views": [
+      "Front",
+      "Side",
+      "Rear"
+    ]
+  },
+  "dumbbell-lateral-raise": {
+    "pack": "lateral_raise",
+    "views": [
+      "Front",
+      "Side",
+      "Rear"
+    ]
+  },
+  "forward-lunge": {
+    "pack": "lunge",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  },
+  "standing-barbell-overhead-press": {
+    "pack": "overhead_press",
+    "views": [
+      "Front",
+      "Side",
+      "Rear"
+    ]
+  },
+  "plank": {
+    "pack": "plank",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  },
+  "reverse-lunge": {
+    "pack": "reverse_lunge",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  },
+  "romanian-deadlift": {
+    "pack": "romanian_deadlift",
+    "views": [
+      "Side",
+      "Rear",
+      "Front"
+    ]
+  },
+  "dumbbell-romanian-deadlift": {
+    "pack": "romanian_deadlift",
+    "views": [
+      "Side",
+      "Rear",
+      "Front"
+    ]
+  },
+  "bodyweight-squat": {
+    "pack": "squat",
+    "views": [
+      "Front",
+      "Side",
+      "Rear"
+    ]
+  },
+  "wall-sit": {
+    "pack": "wall_sit",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  }
+}

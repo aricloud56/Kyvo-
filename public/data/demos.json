@@ -359,7 +359,17 @@
           "poster": "media/demos/ek/dumbbell-lateral-raise.jpg",
           "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lateral Dumbbell Raises."
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/lateral_raise.json",
+        "views": [
+          "Front",
+          "Side",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Lateral Raise."
+      }
     },
     "front-raise": {
       "source": "everkinetic",
@@ -459,7 +469,17 @@
           "poster": "media/demos/ek/hammer-curl.jpg",
           "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Alternating Hammer Curl with Dumbbell."
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/hammer_curl.json",
+        "views": [
+          "Front",
+          "Side",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Hammer Curl."
+      }
     },
     "machine-preacher-curl": {
       "source": "everkinetic",
@@ -559,7 +579,17 @@
           "poster": "media/demos/ek/standing-calf-raise.jpg",
           "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Standing Calf Raises using Machine."
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/calf_raise.json",
+        "views": [
+          "Side",
+          "Rear",
+          "Front"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Calf Raise."
+      }
     },
     "seated-calf-raise": {
       "source": "everkinetic",
@@ -879,7 +909,17 @@
           "poster": "media/demos/ek/reverse-lunge.jpg",
           "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lunges: Dumbbell (Rear)."
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/reverse_lunge.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Reverse Lunge."
+      }
     },
     "forward-lunge": {
       "source": "everkinetic",
@@ -899,7 +939,17 @@
           "poster": "media/demos/ek/forward-lunge.jpg",
           "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Lunges: Dumbbell."
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/lunge.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Forward Lunge."
+      }
     },
     "leg-extension": {
       "source": "everkinetic",
@@ -999,7 +1049,17 @@
           "poster": "media/demos/ek/good-morning.jpg",
           "credit": "Drawing: Everkinetic (Greg Priday and contributors), CC BY-SA 4.0, animated by KYVO. Everkinetic exercise: Good Mornings: Barbell."
         }
-      ]
+      ],
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/good_morning.json",
+        "views": [
+          "Side",
+          "Rear",
+          "Front"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Good Morning."
+      }
     },
     "side-plank": {
       "source": "everkinetic",
@@ -1043,10 +1103,94 @@
     },
     "lat-pulldown": {
       "model3d": {
-        "glb": "models/lat-pulldown/body.glb",
+        "glb": "models/body.glb",
         "motion": "models/lat-pulldown/motion.json",
         "equipment": "lat-pulldown",
         "credit": "3D body: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Lat pulldown motion and machine: KYVO. Rendered live with three.js (MIT)."
+      }
+    },
+    "conventional-deadlift": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/deadlift.json",
+        "views": [
+          "Side",
+          "Rear",
+          "Front"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Deadlift."
+      }
+    },
+    "standing-barbell-overhead-press": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/overhead_press.json",
+        "views": [
+          "Front",
+          "Side",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Overhead Press."
+      }
+    },
+    "plank": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/plank.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Plank."
+      }
+    },
+    "romanian-deadlift": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/romanian_deadlift.json",
+        "views": [
+          "Side",
+          "Rear",
+          "Front"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Romanian Deadlift."
+      }
+    },
+    "dumbbell-romanian-deadlift": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/romanian_deadlift.json",
+        "views": [
+          "Side",
+          "Rear",
+          "Front"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Romanian Deadlift."
+      }
+    },
+    "bodyweight-squat": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/squat.json",
+        "views": [
+          "Front",
+          "Side",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Bodyweight Squat."
+      }
+    },
+    "wall-sit": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/wall_sit.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Wall Sit."
       }
     }
   }

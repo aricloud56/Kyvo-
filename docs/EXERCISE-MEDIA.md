@@ -20,27 +20,55 @@ The viewer reads its media only from data files, so assets can be swapped withou
 
 **Free demos in use now:** 52 exercises have looping clips made from the free Everkinetic drawings (CC BY-SA 4.0, credited on each clip). Each clip cross-fades the start and end drawings. They are built by `scripts/media/build-everkinetic.mjs`, which only uses exact name matches plus the hand-checked `scripts/media/everkinetic-map.json`. The CC BY-SA licence requires the credit line, and adapted clips must stay under CC BY-SA. The other 118 exercises use the KYVO movement illustration. Everkinetic has no drawing for lat pulldown, chin-up or the shoulder-press machine.
 
-## Live 3D demo: lat pulldown
+## Live 3D demos
 
-The lat pulldown has a real-time 3D demo, rendered in the browser with three.js. It is the first source on that exercise's page ("3D"), with Rear, Side and Front camera views, play/pause, replay and 0.5× speed.
+Fourteen exercises have a real-time 3D demo, rendered in the browser with three.js. It is the first source on their page ("3D"), with Rear, Side and Front camera views (each exercise sets the order, the first is the default), play/pause, replay and 0.5× speed. Main muscles are `#E8552B`, assisting muscles `#F2A65A`, skin light grey, with dark-grey shorts. Highlighting is illustrative, not measured muscle activity. If WebGL is unavailable or a file fails to load, the viewer shows the movement illustration and a message, and hides the 3D controls.
 
 | Part | File | Source and licence |
 |---|---|---|
-| Body (anatomical male, muscle paint) | `public/models/lat-pulldown/body.glb` | OpenGym3D exercise pack (MIT, `LICENSE-opengym3d.txt`) built on the MakeHuman/MPFB2 male (CC0). The pack's `bent_over_row.glb`, used only for its rigged, painted body; its row animation is not used. |
+| Body (rigged anatomical male) | `public/models/body.glb` | OpenGym3D exercise pack v1 (MIT, `public/models/LICENSE-opengym3d.txt`), built on the MakeHuman/MPFB2 male (CC0). Shared by every 3D demo. |
+| Imported movements and muscle paint | `public/models/og3d/<pack-id>.json` | OpenGym3D pack animations, converted by `scripts/media/import-opengym3d.mjs` |
 | Lat pulldown movement | `public/models/lat-pulldown/motion.json` | KYVO keyframes (format `kyvo-aim/1`) |
-| Machine, lighting, colours | `src/client/visuals/viewer3d.ts` | KYVO code |
+| Lat pulldown machine, lighting, colours | `src/client/visuals/viewer3d.ts` | KYVO code |
 | 3D engine | `public/vendor/three/` | three.js r170 (MIT), self-hosted so the CSP stays `script-src 'self'` |
 
-How it works:
-- `motion.json` lists body segments (for example `upperarm: [upperarm01.*, lowerarm01.*]`, where `.*` means both sides, mirrored) and, at a few keyframes over one 3.2 s loop, the world direction each segment points in. The viewer aims each bone along its segment, bakes the result into a normal three.js animation clip and plays it with an `AnimationMixer`, so pause, replay and speed are exact.
+### Imported from OpenGym3D (13 exercises)
+
+All 24 pack exercises use the same body, so the importer keeps one body and writes a small file per exercise (about 50–110 KB) with the animation tracks and the per-vertex muscle paint. All 24 are converted; only the hand-checked pairs in `scripts/media/opengym3d-map.json` are shown:
+
+| KYVO exercise | Pack motion | Default view |
+|---|---|---|
+| Bodyweight squat | squat | Front |
+| Forward lunge | lunge | Side |
+| Reverse lunge | reverse_lunge | Side |
+| Conventional deadlift | deadlift | Side |
+| Romanian deadlift, Dumbbell Romanian deadlift | romanian_deadlift | Side |
+| Good morning | good_morning | Side |
+| Standing calf raise | calf_raise | Side |
+| Wall sit | wall_sit | Side |
+| Plank | plank | Side |
+| Dumbbell lateral raise | lateral_raise | Front |
+| Hammer curl | hammer_curl | Front |
+| Standing barbell overhead press | overhead_press | Front |
+
+Limits: the pack draws **no equipment** (no bar, dumbbells, wall or machine), and the caption says so. The muscle paint comes from the pack, so it can differ slightly from the KYVO muscle list in the legend.
+
+Not shown:
+- No matching KYVO exercise: bicep curl (both arms at once), crunch, standing dumbbell shoulder press, high knees, jumping jack, standing overhead triceps extension, sumo squat, superman.
+- Rejected after rendering each motion frame by frame, because they would teach the wrong movement: bent-over row (only one arm pulls, torso nearly upright), front raise (one arm, raised out to the side), glute bridge (the shoulders float above the floor and the arms reach through it), push-up (the chest barely lowers).
+
+To re-import (for example from a newer pack): unzip `dist/opengym3d-exercise-pack-v1.zip` from the OpenGym3D repository and run `node scripts/media/import-opengym3d.mjs --pack <folder>/pack`. To show another pack motion on a KYVO exercise, add it to the map and re-run; check it frame by frame first.
+
+### Lat pulldown (KYVO motion and machine)
+
+- `motion.json` lists body segments (for example `upperarm: [upperarm01.*, lowerarm01.*]`, where `.*` means both sides, mirrored) and, at a few keyframes over one 3.2 s loop, the world direction each segment points in. The viewer aims each bone along its segment and bakes the result into a normal three.js animation clip, so pause, replay and speed are exact.
 - The movement: seated with the thighs under the pads, a slightly wider than shoulder-width grip, a pull to the upper chest with the elbows driving down and back, a short pause, then a slower controlled return. The bar stays in front of the face throughout; a unit test checks that the hands never go behind the shoulders.
-- The machine is built from simple shapes and fitted to the seated body. The bar follows the hands every frame, and the cable runs from the pulley above the bar.
-- The pack's muscle paint is re-coloured at load time: main muscles (upper back, lats) `#E8552B`, assisting (biceps, forearms) `#F2A65A`, skin light grey, and dark-grey shorts. Highlighting is illustrative, not measured muscle activity.
-- If WebGL is unavailable or a file fails to load, the viewer shows the movement illustration and a message, and hides the 3D controls.
+- The machine is built from simple shapes and fitted to the seated body. The bar follows the hands every frame.
+- Limits: the movement is hand-keyed, not motion capture, and the machine is simplified.
 
-Limits: the movement is hand-keyed, not motion capture, and the machine is a simplified model. The body is the same for every exercise, so further 3D exercises only need a new `motion.json` (and, for other machines, a machine builder).
+### Tests
 
-To add another exercise in 3D, add `"model3d": { "glb": …, "motion": …, "equipment": …, "credit": … }` to its entry in `demos.json`. The unit test checks that the files exist and that every bone the motion uses is in the model.
+A unit test checks every 3D entry in `demos.json`: the body exists, each imported clip was made for this body, every animated bone is in the skeleton and the paint has one entry per vertex. End-to-end tests open the lat pulldown and the bodyweight squat in the real app and check that the model loads, moves, shows the muscle colours (main on the back for the lat pulldown), and that the controls and fallback work.
 
 ## Adding hand-picked demos (any exercise)
 

@@ -1,18 +1,27 @@
-// Real-time 3D exercise demonstration (Three.js). Loads the OpenGym3D anatomical body (CC0 MakeHuman mesh, MIT
-// pack), builds one repetition from a KYVO motion file by aiming each bone at a target direction, bakes it into an
-// animation clip, and plays it next to a simple machine model. Used by viewer.ts for exercises that have a 3D model.
-// Three.js is loaded on demand from /vendor, so pages without a 3D demo never download it.
+// Real-time 3D exercise demonstration (Three.js) on the OpenGym3D anatomical body (CC0 MakeHuman mesh, MIT pack).
+// Two kinds of motion:
+//  - "clip": an animation imported from the OpenGym3D pack (scripts/media/import-opengym3d.mjs), with its own
+//    muscle paint; the camera frames the whole movement automatically.
+//  - "motion": a KYVO motion file that aims each bone at a target direction, baked into a clip and played next to a
+//    simple machine model (lat pulldown).
+// Used by viewer.ts for exercises that have a 3D model. Three.js is loaded on demand from /vendor, so pages without
+// a 3D demo never download it.
 import { assetUrl } from './assets.js';
 
-export interface Model3D { glb: string; motion: string; equipment: 'lat-pulldown'; credit: string }
+export type View = 'Rear' | 'Side' | 'Front';
+export interface Model3D { glb: string; credit: string; clip?: string; motion?: string; equipment?: 'lat-pulldown'; views?: View[] }
 export interface Controller { play(): void; pause(): void; replay(): void; setSpeed(s: number): void; setView(i: number): void; dispose(): void }
 
-/** Camera views: rear three-quarter (shows the lats), side and front three-quarter. */
-export const VIEWS = ['Rear', 'Side', 'Front'] as const;
-const CAMERAS: [V3, V3][] = [[[-2.5, 2.0, -3.7], [0, 1.22, 0.3]], [[4.6, 1.5, 0.35], [0, 1.22, 0.35]], [[2.9, 1.9, 3.9], [0, 1.2, 0.2]]];
+/** Camera views: rear three-quarter (shows the back), side and front three-quarter. A model can reorder them. */
+export const VIEWS: View[] = ['Rear', 'Side', 'Front'];
+// Hand-placed cameras around the lat pulldown machine: [position, target].
+const LAT_CAMERAS: Record<View, [V3, V3]> = { Rear: [[-2.5, 2.0, -3.7], [0, 1.22, 0.3]], Side: [[4.6, 1.5, 0.35], [0, 1.22, 0.35]], Front: [[2.9, 1.9, 3.9], [0, 1.2, 0.2]] };
+// For imported clips: the direction from the athlete to the camera (the athlete faces +Z, Y is up).
+const VIEW_DIRS: Record<View, V3> = { Front: [0.6, 0.32, 1], Side: [1, 0.18, 0.06], Rear: [-0.6, 0.32, -1] };
 
 type V3 = [number, number, number];
 interface Motion { duration: number; fps: number; grip?: { bones: string[]; axis: V3; deg: number }; segments: Record<string, [string, string]>; keyframes: { t: number; dirs: Record<string, V3> }[] }
+interface ClipFile { format: 'kyvo-clip/1'; duration: number; vertices: number; tracks: { bone: string; path: 'quaternion' | 'position' | 'scale'; times: string; values: string }[]; paint: string }
 
 // Highlight colours from the KYVO style brief (sRGB). The body model stores its muscle paint as vertex colours;
 // they are decomposed into "primary" and "secondary" weights and re-coloured with these.
@@ -21,12 +30,15 @@ const SKIN = 0xd9dce0, PRIMARY = 0xe8552b, SECONDARY = 0xf2a65a, SHORTS = 0x4b4e
 // (so the hands hanging beside the hips in the rest pose stay bare).
 const SHORTS_BONES = new Set(['root', 'pelvisL', 'pelvisR', 'upperleg01L', 'upperleg01R', 'upperleg02L', 'upperleg02R', 'spine05', 'spine04']);
 const SHORTS_Y: [number, number] = [0.6, 0.92];
-// Linear vertex colours found in the OpenGym3D bent-over-row model: skin, primary (back) and secondary (arms).
-const SRC_SKIN: V3 = [0.62, 0.64, 0.68], SRC_PRI: V3 = [0.8, 0.26, 0.02], SRC_SEC: V3 = [0.62, 0.02, 0.03];
+// Linear vertex colours the OpenGym3D pack paints with: skin, main muscles (red) and assisting muscles (orange).
+// In the shared body (the pack's bent-over row) the main paint is on the back and the assisting paint on the arms.
+const SRC_SKIN: V3 = [0.62, 0.64, 0.68], SRC_PRI: V3 = [0.62, 0.02, 0.03], SRC_SEC: V3 = [0.8, 0.26, 0.02];
 
 const smooth = (x: number) => x * x * (3 - 2 * x);
+const bytes = (b64: string) => Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+const floats = (b64: string) => new Float32Array(bytes(b64).buffer);
 
-export async function mount3D(host: HTMLElement, model: Model3D, opts: { paused: boolean; speed: number; view: number; onReady: () => void }): Promise<Controller> {
+export async function mount3D(host: HTMLElement, model: Model3D, opts: { paused: boolean; speed: number; view: number; label: string; onReady: () => void }): Promise<Controller> {
   const vendor = new URL(assetUrl('vendor/three/'), document.baseURI).href; // absolute, so import() never sees a bare specifier
   const THREE: any = await import(/* @vite-ignore */ `${vendor}three.module.min.js`);
   const { GLTFLoader }: any = await import(/* @vite-ignore */ `${vendor}GLTFLoader.js`);
@@ -34,7 +46,7 @@ export async function mount3D(host: HTMLElement, model: Model3D, opts: { paused:
   const canvas = document.createElement('canvas');
   canvas.className = 'vw-canvas';
   canvas.setAttribute('role', 'img');
-  canvas.setAttribute('aria-label', 'Animated 3D lat pulldown. The back muscles are highlighted red-orange, and the biceps, rear shoulders and forearms soft orange.');
+  canvas.setAttribute('aria-label', `Animated 3D demonstration: ${opts.label}. The main muscles are highlighted red-orange and the assisting muscles soft orange.`);
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'low-power' });
   if (!renderer.getContext()) throw new Error('WebGL unavailable');
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
@@ -46,39 +58,139 @@ export async function mount3D(host: HTMLElement, model: Model3D, opts: { paused:
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xffffff);
   scene.add(new THREE.HemisphereLight(0xffffff, 0xc9ccd1, 1.6));
-  const key = new THREE.DirectionalLight(0xffffff, 2.0);
-  key.position.set(-2.5, 4, -3);
-  scene.add(key);
+  const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
+  keyLight.position.set(-2.5, 4, -3);
+  scene.add(keyLight);
   const fill = new THREE.DirectionalLight(0xffffff, 0.9);
   fill.position.set(3, 2.5, 2);
   scene.add(fill);
 
   const camera = new THREE.PerspectiveCamera(30, 1, 0.05, 50);
-  const setView = (i: number) => {
-    const [pos, at] = CAMERAS[Math.max(0, Math.min(CAMERAS.length - 1, i))];
-    camera.position.set(...pos);
-    camera.lookAt(...at);
-  };
-  setView(opts.view);
+  const views = model.views?.length ? model.views : VIEWS;
 
-  const [gltf, motion] = await Promise.all([
+  const [gltf, data] = await Promise.all([
     new GLTFLoader().loadAsync(assetUrl(model.glb)),
-    fetch(assetUrl(model.motion)).then((r: Response) => { if (!r.ok) throw new Error('motion missing'); return r.json() as Promise<Motion>; }),
+    fetch(assetUrl((model.clip ?? model.motion)!)).then((r: Response) => { if (!r.ok) throw new Error('motion missing'); return r.json() as Promise<ClipFile | Motion>; }),
   ]);
   const body = gltf.scene;
   scene.add(body);
 
-  // Re-colour the muscle paint.
   let mesh: any;
   body.traverse((o: any) => { if (o.isSkinnedMesh) mesh = o; if (o.isMesh) { o.castShadow = false; o.frustumCulled = false; } });
-  recolour(THREE, mesh);
+  if (!mesh) throw new Error('No body mesh');
+  const clipFile = model.clip ? (data as ClipFile) : null;
+  if (clipFile && clipFile.vertices !== mesh.geometry.attributes.position.count) throw new Error('Clip was made for a different body');
+  recolour(THREE, mesh, clipFile ? bytes(clipFile.paint) : undefined);
 
-  // Bones by their original names (GLTFLoader strips the dots: upperarm01.L -> upperarm01L).
+  // Bones by name. GLTFLoader sanitises node names (upperarm01.L -> upperarm01L), so names are looked up the same way.
+  const key = (n: string) => THREE.PropertyBinding.sanitizeNodeName(n);
   const bones: Record<string, any> = {};
   body.traverse((o: any) => { if (o.isBone) bones[o.name] = o; });
-  const bone = (n: string) => bones[n.replace(/\./g, '')];
+  const bone = (n: string) => bones[key(n)];
+
+  let clip: any;
+  let lat: ReturnType<typeof latPulldown> | null = null;
+  if (clipFile) {
+    const Track: Record<string, any> = { quaternion: THREE.QuaternionKeyframeTrack, position: THREE.VectorKeyframeTrack, scale: THREE.VectorKeyframeTrack };
+    clip = new THREE.AnimationClip(model.clip, clipFile.duration, clipFile.tracks.filter((t) => bone(t.bone))
+      .map((t) => new Track[t.path](`${key(t.bone)}.${t.path}`, Array.from(floats(t.times)), Array.from(floats(t.values)))));
+  } else {
+    lat = latPulldown(THREE, body, bone, data as Motion);
+    clip = lat.clip;
+    scene.add(lat.machine.group);
+  }
+
+  const mixer = new THREE.AnimationMixer(body);
+  const action = mixer.clipAction(clip);
+  action.setLoop(THREE.LoopRepeat, Infinity).play();
+
+  // For imported clips: put the lowest point of the whole movement on the floor, and measure the space it uses so
+  // every camera view frames all of it.
+  const space = new THREE.Box3();
+  if (clipFile) {
+    const box = new THREE.Box3();
+    for (let i = 0; i <= 12; i++) {
+      mixer.setTime((i / 12) * clipFile.duration);
+      body.updateMatrixWorld(true);
+      mesh.computeBoundingBox();
+      space.union(box.copy(mesh.boundingBox).applyMatrix4(mesh.matrixWorld));
+    }
+    mixer.setTime(0);
+    body.position.y -= space.min.y;
+    space.translate(new THREE.Vector3(0, -space.min.y, 0));
+  }
+  const centre = space.getCenter(new THREE.Vector3()), size = space.getSize(new THREE.Vector3());
+  scene.add(floorShadow(THREE, clipFile ? { x: centre.x, z: centre.z, w: Math.max(1.4, size.x * 1.6), d: Math.max(1.4, size.z * 1.6) } : { x: 0, z: 0.45, w: 2.6, d: 2.6 }));
+  mixer.timeScale = opts.speed;
+  let paused = opts.paused;
+
+  let view = Math.max(0, Math.min(views.length - 1, opts.view));
+  const frame = () => {
+    const v = views[view];
+    if (lat) {
+      const [pos, at] = LAT_CAMERAS[v];
+      camera.position.set(...pos);
+      camera.lookAt(...at);
+      return;
+    }
+    // Fit the sphere around the whole movement into the narrower of the two fields of view.
+    const r = space.getBoundingSphere(new THREE.Sphere()).radius;
+    const vf = (camera.fov * Math.PI) / 180, hf = 2 * Math.atan(Math.tan(vf / 2) * camera.aspect);
+    const dist = (r / Math.sin(Math.min(vf, hf) / 2)) * 0.92;
+    const dir = new THREE.Vector3(...VIEW_DIRS[v]).normalize();
+    camera.position.copy(centre).addScaledVector(dir, dist);
+    camera.lookAt(centre);
+  };
+  const setView = (i: number) => { view = Math.max(0, Math.min(views.length - 1, i)); frame(); };
+
+  const resize = () => {
+    const w = host.clientWidth || 320, h = host.clientHeight || 200;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    // Keep the whole machine in frame on narrow screens by widening the vertical field of view.
+    camera.fov = lat && w / h < 1.5 ? 30 * (1.5 / (w / h)) ** 0.8 : 30;
+    camera.updateProjectionMatrix();
+    frame();
+  };
+  const ro = new ResizeObserver(resize);
+  ro.observe(host);
+  resize();
+
+  const clock = new THREE.Clock();
+  let first = true;
+  let disposed = false;
+  const dispose = () => {
+    if (disposed) return;
+    disposed = true;
+    renderer.setAnimationLoop(null);
+    ro.disconnect();
+    renderer.dispose();
+    scene.traverse((o: any) => { o.geometry?.dispose?.(); if (o.material) [].concat(o.material).forEach((m: any) => m.dispose?.()); });
+    canvas.remove();
+  };
+  renderer.setAnimationLoop(() => {
+    if (!host.isConnected) { dispose(); return; } // the page changed
+    const dt = clock.getDelta();
+    mixer.update(paused ? 0 : dt);
+    lat?.placeBar();
+    renderer.render(scene, camera);
+    if (first) { first = false; opts.onReady(); }
+  });
+
+  return {
+    play: () => { paused = false; },
+    pause: () => { paused = true; },
+    replay: () => { action.time = 0; paused = false; },
+    setSpeed: (s: number) => { mixer.timeScale = s; },
+    setView,
+    dispose,
+  };
+}
+
+/** The lat pulldown: bakes the KYVO motion file into a clip, seats the athlete and fits the machine around them. */
+function latPulldown(THREE: any, body: any, bone: (n: string) => any, motion: Motion) {
   const rest = new Map<any, any>();
-  for (const b of Object.values(bones)) rest.set(b, b.quaternion.clone());
+  body.traverse((o: any) => { if (o.isBone) rest.set(o, o.quaternion.clone()); });
 
   // Expand mirrored segments: "upperarm01.*" -> .L with the given direction and .R with x negated.
   const segs: { from: any; to: any; key: string; mirror: boolean }[] = [];
@@ -147,14 +259,6 @@ export async function mount3D(host: HTMLElement, model: Model3D, opts: { paused:
   // The pulley sits straight above the bar's top position so the cable hangs vertically at the start.
   const topBarZ = (bone('wrist.L').getWorldPosition(new THREE.Vector3()).z + bone('wrist.R').getWorldPosition(new THREE.Vector3()).z) / 2;
   const machine = buildMachine(THREE, { seatY: hip.y - 0.1, kneeZ: knee.z, kneeY: knee.y, pulleyZ: topBarZ });
-  scene.add(machine.group);
-  scene.add(floorShadow(THREE));
-
-  const mixer = new THREE.AnimationMixer(body);
-  const action = mixer.clipAction(clip);
-  action.setLoop(THREE.LoopRepeat, Infinity).play();
-  mixer.timeScale = opts.speed;
-  let paused = opts.paused;
 
   const wristL = bone('wrist.L'), wristR = bone('wrist.R'), handL = bone('finger3-1.L'), handR = bone('finger3-1.R');
   const pL = new THREE.Vector3(), pR = new THREE.Vector3(), hL = new THREE.Vector3(), hR = new THREE.Vector3();
@@ -165,67 +269,34 @@ export async function mount3D(host: HTMLElement, model: Model3D, opts: { paused:
     pL.lerp(hL, 0.6); pR.lerp(hR, 0.6);
     machine.setBar(pL.add(pR).multiplyScalar(0.5));
   };
-
-  const resize = () => {
-    const w = host.clientWidth || 320, h = host.clientHeight || 200;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    // Keep the whole machine in frame on narrow screens by widening the vertical field of view.
-    camera.fov = w / h < 1.5 ? 30 * (1.5 / (w / h)) ** 0.8 : 30;
-    camera.updateProjectionMatrix();
-  };
-  const ro = new ResizeObserver(resize);
-  ro.observe(host);
-  resize();
-
-  const clock = new THREE.Clock();
-  let first = true;
-  let disposed = false;
-  const dispose = () => {
-    if (disposed) return;
-    disposed = true;
-    renderer.setAnimationLoop(null);
-    ro.disconnect();
-    renderer.dispose();
-    scene.traverse((o: any) => { o.geometry?.dispose?.(); if (o.material) [].concat(o.material).forEach((m: any) => m.dispose?.()); });
-    canvas.remove();
-  };
-  renderer.setAnimationLoop(() => {
-    if (!host.isConnected) { dispose(); return; } // the page changed
-    const dt = clock.getDelta();
-    mixer.update(paused ? 0 : dt);
-    placeBar();
-    renderer.render(scene, camera);
-    if (first) { first = false; opts.onReady(); }
-  });
-
-  return {
-    play: () => { paused = false; },
-    pause: () => { paused = true; },
-    replay: () => { action.time = 0; paused = false; },
-    setSpeed: (s: number) => { mixer.timeScale = s; },
-    setView,
-    dispose,
-  };
+  return { clip, machine, placeBar };
 }
 
-function recolour(THREE: any, mesh: any) {
+function recolour(THREE: any, mesh: any, paint?: Uint8Array) {
   const col = mesh?.geometry?.attributes?.color;
   if (!col) return;
   const lin = (hex: number) => new THREE.Color(hex); // three.js stores hex colours in linear space already
   const skin = lin(SKIN), pri = lin(PRIMARY), sec = lin(SECONDARY), shorts = lin(SHORTS);
   const { position, skinIndex: joints, skinWeight: weights } = mesh.geometry.attributes;
   const inShorts = (mesh.skeleton?.bones ?? []).map((b: any) => SHORTS_BONES.has(b.name));
-  // Write each vertex as skin + p*(primary - skin) + q*(secondary - skin) and solve for p and q (least squares over
-  // the three channels), then rebuild it from the brand colours. Blended border vertices keep their soft edge.
+  // Each vertex is skin + p*(main - skin) + q*(assisting - skin). p and q come from the clip's paint, or are solved
+  // from the model's own vertex colours (least squares over the three channels). The vertex is then rebuilt from the
+  // brand colours, so blended border vertices keep their soft edge.
   const dp = SRC_PRI.map((v, i) => v - SRC_SKIN[i]), dq = SRC_SEC.map((v, i) => v - SRC_SKIN[i]);
   const dot = (a: number[], b: number[]) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
   const pp = dot(dp, dp), qq = dot(dq, dq), pq = dot(dp, dq), det = pp * qq - pq * pq;
   const clamp = (v: number) => Math.min(1, Math.max(0, v));
   for (let i = 0; i < col.count; i++) {
-    const d = [col.getX(i) - SRC_SKIN[0], col.getY(i) - SRC_SKIN[1], col.getZ(i) - SRC_SKIN[2]];
-    const dpd = dot(dp, d), dqd = dot(dq, d);
-    const p = clamp((qq * dpd - pq * dqd) / det), q = clamp((pp * dqd - pq * dpd) / det);
+    let p: number, q: number;
+    if (paint) {
+      p = paint[i * 2] / 255;
+      q = paint[i * 2 + 1] / 255;
+    } else {
+      const d = [col.getX(i) - SRC_SKIN[0], col.getY(i) - SRC_SKIN[1], col.getZ(i) - SRC_SKIN[2]];
+      const dpd = dot(dp, d), dqd = dot(dq, d);
+      p = clamp((qq * dpd - pq * dqd) / det);
+      q = clamp((pp * dqd - pq * dpd) / det);
+    }
     const out = skin.clone().lerp(sec, q / Math.max(1e-6, 1 - p) > 1 ? 1 : q).lerp(pri, p);
     if (joints && weights) {
       let best = 0;
@@ -319,7 +390,7 @@ function buildMachine(THREE: any, fit: { seatY: number; kneeZ: number; kneeY: nu
   };
 }
 
-function floorShadow(THREE: any) {
+function floorShadow(THREE: any, at: { x: number; z: number; w: number; d: number }) {
   const c = document.createElement('canvas');
   c.width = c.height = 128;
   const x = c.getContext('2d')!;
@@ -328,8 +399,8 @@ function floorShadow(THREE: any) {
   grd.addColorStop(1, 'rgba(0,0,0,0)');
   x.fillStyle = grd;
   x.fillRect(0, 0, 128, 128);
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.6), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false }));
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(at.w, at.d), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false }));
   m.rotation.x = -Math.PI / 2;
-  m.position.set(0, 0.002, 0.45);
+  m.position.set(at.x, 0.002, at.z);
   return m;
 }
