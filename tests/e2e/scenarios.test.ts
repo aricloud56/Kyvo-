@@ -183,7 +183,7 @@ test('E: a rest day has no workout requirement', async () => {
   assert.ok(!plan.checklist.some((c: any) => c.key === 'workout'));
   const { ctx, page, errors } = await signedIn(u);
   await page.goto(`${run.base}/app#/today`);
-  await page.waitForSelector('h2:text("Rest day")');
+  await page.waitForSelector('.next-eyebrow:has-text("Rest day")');
   assert.equal(await page.locator('[data-action=start]').count(), 0);
   assert.equal(await page.locator('.checklist :text("Complete today")').count(), 0);
   // Completing every required task on a rest day earns the end-of-day summary without any workout.

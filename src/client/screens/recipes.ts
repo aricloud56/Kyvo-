@@ -5,11 +5,14 @@ import { html, numOrNull, onActions, raw, sheet, toast } from '../dom.js';
 import { SLOT_LABEL, kcal } from '../format.js';
 import { ALLERGEN_LABELS } from '../../core/nutrition.js';
 import { MEAL_SLOTS } from '../../core/types.js';
+import { icon } from '../ui.js';
+import { assetUrl, loadVisuals, photoCredit, recipePhoto } from '../visuals/assets.js';
 
 const TAGS: Record<string, string> = { 'high-protein': 'High protein', vegetarian: 'Vegetarian', vegan: 'Vegan', quick: 'Quick', budget: 'Budget', 'meal-prep': 'Meal prep', shake: 'Shakes', 'halal-friendly': 'Halal-friendly' };
 const filters = { q: '', meal: '', tag: '', favourites: false };
 
 export async function recipesScreen(view: HTMLElement) {
+  await loadVisuals();
   view.innerHTML = html`<p class="muted small"><a href="#/nutrition">‹ Nutrition</a></p><h1>Recipes</h1>
   <div class="card" role="search"><input type="search" id="rq" placeholder="Search recipes" aria-label="Search recipes" value="${filters.q}">
     <div class="row" style="margin-top:10px">
@@ -26,8 +29,8 @@ export async function recipesScreen(view: HTMLElement) {
     if (filters.favourites) p.set('favourites', '1');
     const list = await api.get<any[]>(`/api/recipes?${p}`);
     res.innerHTML = list.length
-      ? html`${list.map((x) => html`<li><a href="#/recipe/${x.id}" class="row between" style="color:var(--text);text-decoration:none;gap:10px"><span><b>${x.name}</b>${x.favourite ? ' ★' : ''}<br>
-          <span class="small muted">${Math.round(x.perServing.kcal)} kcal · ${Math.round(x.perServing.p)} g protein · ${x.prep + x.cook} min</span></span>${x.locked ? html`<span class="tag accent">Premium</span>` : ''}</a></li>`)}`.value
+      ? html`${list.map((x) => { const ph = recipePhoto(x.id); return html`<li><a href="#/recipe/${x.id}" class="row" style="color:var(--text);text-decoration:none;gap:12px;flex-wrap:nowrap">${ph ? html`<img class="meal-thumb" style="width:56px;height:56px" src="${assetUrl(ph.file)}" alt="" loading="lazy">` : html`<span class="meal-thumb ph" style="width:56px;height:56px" aria-hidden="true">${icon('food', 22)}</span>`}<span class="grow" style="min-width:0"><b>${x.name}</b>${x.favourite ? ' ★' : ''}<br>
+          <span class="small muted">${Math.round(x.perServing.kcal)} kcal · ${Math.round(x.perServing.p)} g protein · ${x.prep + x.cook} min</span></span>${x.locked ? html`<span class="tag accent">Premium</span>` : ''}</a></li>`; })}`.value
       : html`<li class="empty">No recipes match those filters.</li>`.value;
   };
   let t: number;
@@ -43,8 +46,10 @@ export async function recipesScreen(view: HTMLElement) {
 }
 
 export async function recipeScreen(view: HTMLElement, params: string[], servings?: number) {
-  const x = await api.get<any>(`/api/recipes/${params[0]}${servings ? `?servings=${servings}` : ''}`);
+  const [x] = await Promise.all([api.get<any>(`/api/recipes/${params[0]}${servings ? `?servings=${servings}` : ''}`), loadVisuals()]);
+  const ph = recipePhoto(x.id);
   const head = html`<p class="muted small"><a href="#/recipes">‹ Recipes</a></p>
+  ${ph ? html`<figure style="margin:0 0 14px"><img class="meal-photo" src="${assetUrl(ph.file)}" alt="${x.name}, serving suggestion" width="${ph.w}" height="${ph.h}"><figcaption class="hero-note">${raw(photoCredit(ph))}</figcaption></figure>` : ''}
   <div class="row between"><h1 style="margin:0">${x.name}</h1><button class="btn btn-ghost btn-sm" data-action="fav" aria-pressed="${x.favourite ? 'true' : 'false'}">${x.favourite ? '★ Saved' : '☆ Save'}</button></div>
   <p class="muted">${x.desc}</p>
   <p class="small">${x.meal.map((m: string) => SLOT_LABEL[m]).join(', ')} · Prep ${x.prep} min · Cook ${x.cook} min · Makes ${x.servings}</p>

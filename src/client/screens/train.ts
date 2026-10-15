@@ -1,27 +1,63 @@
 // Workout planner: weekly schedule, workouts (create, edit, duplicate, reorder), programs and history.
 import { api } from '../api.js';
 import { go, state } from '../app.js';
-import { confirmSheet, html, numOrNull, onActions, sheet, toast } from '../dom.js';
-import { prescriptionText, shortDate, wIn, wOut, wUnit } from '../format.js';
+import { confirmSheet, html, numOrNull, onActions, raw, sheet, toast } from '../dom.js';
+import { shortDate, wIn, wOut, wUnit } from '../format.js';
 import { WEEKDAY_NAMES } from '../../core/util.js';
+import { icon } from '../ui.js';
+import { figureSVG, respectReducedMotion } from '../visuals/figure.js';
+import { exerciseTile, figureFor, loadVisuals } from '../visuals/assets.js';
+
+const COVER: Record<string, { code: string; ex: string; hue: string; level: string }> = {
+  beginner3: { code: 'START', ex: 'goblet-squat', hue: '#1f3b2a', level: 'Beginner' },
+  full3: { code: 'FULL', ex: 'barbell-back-squat', hue: '#203046', level: 'Beg – Int' },
+  home_db: { code: 'HOME', ex: 'dumbbell-bench-press', hue: '#3d2c1c', level: 'Beg – Int' },
+  upper_lower4: { code: 'U/L', ex: 'barbell-bench-press', hue: '#2f2140', level: 'Intermediate' },
+  hypertrophy4: { code: 'GROW', ex: 'incline-dumbbell-press', hue: '#3f1f25', level: 'Intermediate' },
+  ppl6: { code: 'PPL', ex: 'pull-up', hue: '#16363a', level: 'Int – Adv' },
+  strength4: { code: 'STR', ex: 'conventional-deadlift', hue: '#3a3416', level: 'Int – Adv' },
+  fatloss4: { code: 'LEAN', ex: 'kettlebell-swing', hue: '#40221a', level: 'All levels' },
+};
+
+/** Cover art for a program: brand gradient, a large movement figure and a bold short code. */
+export function programCover(templateId: string, name: string) {
+  const c = COVER[templateId] ?? { code: 'KYVO', ex: 'push-up', hue: '#262626', level: '' };
+  const fig = figureFor(c.ex);
+  return html`<div class="prog-cover" style="background:radial-gradient(120% 100% at 80% 0%, ${c.hue} 0%, #141414 75%)" aria-hidden="true">
+    ${fig ? raw(figureSVG(fig, { label: name, animate: false, t: 1, className: 'cover-fig' })) : ''}
+    <span class="cover-code">${c.code}</span><span class="cover-mark">KYVO</span></div>`;
+}
 
 export async function trainScreen(view: HTMLElement) {
-  const prog = await api.get<any>('/api/program');
-  const active = await api.get<any>('/api/sessions/active');
+  const [prog, active] = await Promise.all([api.get<any>('/api/program'), api.get<any>('/api/sessions/active'), loadVisuals()]);
   const days = [1, 2, 3, 4, 5, 6, 0];
-  view.innerHTML = html`<h1>Train</h1>
+  const me = state.me!;
+  const currentTpl = prog.workouts.find((w: any) => w.template_id)?.template_id ?? prog.templatePref ?? null;
+  const trainDays = days.filter((d) => prog.schedule[d]).length;
+  const card = (t: any, current: boolean) => html`<article class="prog-card${current ? ' current' : ''}">
+    <button class="prog-main" style="all:unset;display:flex;gap:14px;padding:14px;cursor:pointer;width:calc(100% - 28px)" data-action="pick" data-t="${t.id}" ${t.locked ? 'data-locked="1"' : ''} aria-label="${current ? 'Current program' : 'Switch to'} ${t.name}${t.locked ? ' (Premium)' : ''}">
+      <span style="position:relative">${t.locked ? html`<span class="prog-badge pro">PREMIUM</span>` : html`<span class="prog-badge">FREE</span>`}${programCover(t.id, t.name)}</span>
+      <span class="prog-body"><span class="pt">${t.name}</span><span class="by">KYVO program</span>
+        <span class="prog-chips"><span>${COVER[t.id]?.level ?? 'All levels'}</span><span>${t.days} days a week</span></span></span></button>
+    <div class="prog-foot"><span>${current ? html`<b>Your program</b> · ${trainDays} training days scheduled` : t.description}</span></div></article>`;
+
+  view.innerHTML = html`<nav class="head-tabs" aria-label="Train sections"><a href="#/train" aria-current="page">Train</a><a href="#/library">Library</a><a href="#/train/history">History</a><span class="spacer"></span>${me.premium ? '' : html`<a class="pro-pill" href="#/premium">Try <b>PRO</b></a>`}</nav>
   ${active ? html`<div class="notice" style="margin-bottom:14px">You have a workout in progress. <a href="#/workout">Resume it</a></div>` : ''}
-  <div class="row" style="margin-bottom:14px"><a class="btn btn-secondary btn-sm" href="#/library">Exercise library</a><a class="btn btn-secondary btn-sm" href="#/train/history">History</a><a class="btn btn-secondary btn-sm" href="#/train/workout/new">+ New workout</a></div>
-  <section class="card" aria-labelledby="wk-h"><h2 id="wk-h">Your week</h2>
+  <section aria-labelledby="wo-h"><div class="row between"><h2 id="wo-h" style="margin:0">Your workouts</h2><a class="btn btn-ghost btn-sm" href="#/train/workout/new">${icon('plus', 16)} New</a></div>
+    ${prog.workouts.map((w: any) => html`<article class="card" style="margin-top:10px"><div class="next-top">${w.exercises[0] ? raw(exerciseTile(w.exercises[0].exerciseId, w.exercises[0].name)) : ''}<div style="min-width:0;flex:1">
+      <div class="next-eyebrow">${w.source === 'custom' ? 'Custom workout' : 'Program workout'}</div><h3 style="margin:2px 0 0;font-size:18px">${w.name}</h3><p class="small muted" style="margin:2px 0 0">${w.focus || `${w.exercises.length} exercises`}</p></div></div>
+      <p class="small muted" style="margin:10px 0 12px">${w.exercises.map((x: any) => x.name).join(' · ')}</p>
+      <div class="row"><button class="btn btn-sm btn-primary" data-action="start" data-id="${w.id}">${icon('play', 14)} Start</button><a class="btn btn-sm btn-secondary" href="#/train/workout/${w.id}">Edit</a><button class="btn btn-sm btn-ghost" data-action="wmore" data-id="${w.id}" aria-label="More actions for ${w.name}">•••</button><button hidden data-action="dup" data-hidden-action="dup" data-id="${w.id}"></button><button hidden data-action="del" data-hidden-action="del" data-id="${w.id}"></button></div></article>`)}
+  </section>
+  <section aria-labelledby="pg-h" style="margin-top:24px"><div class="row between"><h2 id="pg-h" style="margin:0">Programs</h2><button class="btn btn-ghost btn-sm" data-action="program">Recommended for me</button></div>
+    <p class="small muted" style="margin:4px 0 0">Every program adapts to your equipment, experience and training days.</p>
+    ${[...prog.templates].sort((a: any, b: any) => (a.id === currentTpl ? -1 : b.id === currentTpl ? 1 : 0)).map((t: any) => card(t, t.id === currentTpl))}
+  </section>
+  <section class="card" aria-labelledby="wk-h" style="margin-top:20px"><h2 id="wk-h">Your week</h2>
     <ul class="list">${days.map((d) => html`<li class="row between"><label for="day-${d}" style="margin:0;min-width:110px">${WEEKDAY_NAMES[d]}</label>
       <select id="day-${d}" data-day="${d}" style="max-width:260px"><option value="">Rest day</option>${prog.workouts.map((w: any) => html`<option value="${w.id}" ${prog.schedule[d] === w.id ? 'selected' : ''}>${w.name}</option>`)}</select></li>`)}</ul>
-    <p class="xs muted">Changes apply from today. Past days and your history are never changed.</p></section>
-  <section style="margin-top:20px" aria-labelledby="wo-h"><div class="row between"><h2 id="wo-h" style="margin:0">Workouts</h2><button class="btn btn-ghost btn-sm" data-action="program">Change program</button></div>
-    ${prog.workouts.map((w: any) => html`<article class="card" style="margin-top:10px"><div class="card-head"><h3 style="margin:0">${w.name}</h3><span class="tag">${w.source === 'custom' ? 'Custom' : 'Program'}</span></div>
-      <p class="small muted">${w.focus}</p>
-      <ol class="small" style="padding-left:20px;margin:6px 0 10px">${w.exercises.map((x: any) => html`<li>${x.name} <span class="muted num">${prescriptionText(x)}</span></li>`)}</ol>
-      <div class="row"><button class="btn btn-sm btn-primary" data-action="start" data-id="${w.id}">Start now</button><a class="btn btn-sm btn-secondary" href="#/train/workout/${w.id}">Edit</a><button class="btn btn-sm btn-ghost" data-action="dup" data-id="${w.id}">Duplicate</button><button class="btn btn-sm btn-ghost" data-action="del" data-id="${w.id}">Delete</button></div></article>`)}
-  </section>`.value;
+    <p class="xs muted">Changes apply from today. Past days and your history are never changed.</p></section>`.value;
+  respectReducedMotion(view);
 
   view.querySelectorAll<HTMLSelectElement>('select[data-day]').forEach((s) => s.addEventListener('change', async () => {
     try {
@@ -32,9 +68,26 @@ export async function trainScreen(view: HTMLElement) {
     }
   }));
   onActions(view, {
+    pick: async (el) => {
+      if (el.dataset.locked) return go('#/premium');
+      if (el.dataset.t === currentTpl) return;
+      if (!(await confirmSheet('Switch program?', 'KYVO builds new workouts for this program from today. Your custom workouts and history are kept.', 'Switch program'))) return;
+      await api.post('/api/program/generate', { templateId: el.dataset.t });
+      toast('New program ready');
+      await trainScreen(view);
+    },
     start: async (el) => {
       await api.post('/api/sessions', { workoutId: el.dataset.id });
       go('#/workout');
+    },
+    wmore: (el) => {
+      const w = prog.workouts.find((x: any) => x.id === el.dataset.id);
+      const close = sheet(w.name, html`<div class="row"><button class="btn btn-secondary" data-m="dup">Duplicate</button><button class="btn btn-danger" data-m="del">Delete</button></div>`, (sh) => {
+        sh.querySelectorAll<HTMLElement>('[data-m]').forEach((b) => b.addEventListener('click', () => {
+          close();
+          view.querySelector<HTMLElement>(`[data-hidden-action="${b.dataset.m}"][data-id="${w.id}"]`)?.click();
+        }));
+      });
     },
     dup: async (el) => {
       await api.post(`/api/workouts/${el.dataset.id}/duplicate`);
@@ -148,7 +201,7 @@ export function pickExercise(onPick: (ex: { id: string; name: string; logging: s
 
 export async function historyScreen(view: HTMLElement) {
   const list = await api.get<any[]>('/api/sessions');
-  view.innerHTML = html`<p class="muted small"><a href="#/train">‹ Train</a></p><h1>Workout history</h1>
+  view.innerHTML = html`<nav class="head-tabs" aria-label="Train sections"><a href="#/train">Train</a><a href="#/library">Library</a><a href="#/train/history" aria-current="page">History</a></nav><h1 class="sr-only">Workout history</h1>
   ${state.me?.premium ? '' : html`<p class="small muted">Free accounts show the last 90 days. <a href="#/premium">Premium</a> keeps your full history.</p>`}
   ${list.length ? html`<ul class="list card">${list.map((s) => html`<li><a href="#/session/${s.id}" class="row between" style="color:var(--text);text-decoration:none"><span><b>${s.name}</b><br><span class="small muted">${shortDate(s.date)} · ${s.sets} sets · ${wOut(s.volumeKg)} ${wUnit()}</span></span>${s.records ? html`<span class="tag accent">🏆 ${s.records}</span>` : ''}</a></li>`)}</ul>`
   : html`<div class="card empty">No completed workouts yet. Your first one will show up here.</div>`}`.value;

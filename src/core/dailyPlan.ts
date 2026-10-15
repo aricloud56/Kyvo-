@@ -1,4 +1,5 @@
 // The KYVO Daily Plan: one function that turns a profile, a weekly program and history into today's plan.
+import { addDays, weekStart, weekdayOf } from './util.js';
 import type { ChecklistItemDef, DailyPlan, ExerciseSummary, MealSlot, PlannedMeal, PlannedWorkout, Profile, Targets, WorkoutDef } from './types.js';
 import { MEAL_SLOTS } from './types.js';
 import { type PastSession, estimateMinutes, muscleGroupsOf, suggestLoad } from './workouts.js';
@@ -98,4 +99,27 @@ export function summariseDay(plan: Pick<DailyPlan, 'isRest' | 'targets' | 'check
   else if (tasksDone > 0) message = 'You showed up for part of the plan today, and that still counts. Tomorrow is a fresh start.';
   else message = 'Busy day? No problem. Your plan will be ready tomorrow.';
   return { workout: workoutDone ? 'completed' : plan.isRest ? 'rest' : 'not_done', kcal: Math.round(eaten.kcal), proteinG: Math.round(eaten.p), kcalPct, proteinPct, tasksDone, tasksTotal: required.length, records, message };
+}
+
+export interface WeekProgress {
+  /** Training days scheduled this week (Monday to Sunday). */
+  planned: number;
+  /** Workouts completed this week. */
+  done: number;
+  /** Week number since the first completed workout (1 for a new user). */
+  week: number;
+  /** Which training day of the week this date is (1-based), or null on a rest day. */
+  day: number | null;
+}
+
+export function weekProgress(date: string, scheduledWeekdays: number[], completedDates: string[], firstWorkout: string | null): WeekProgress {
+  const start = weekStart(date);
+  const end = addDays(start, 6);
+  const order = (wd: number) => (wd + 6) % 7; // Monday first
+  const days = [...new Set(scheduledWeekdays)].sort((a, b) => order(a) - order(b));
+  const wd = weekdayOf(date);
+  const idx = days.indexOf(wd);
+  const done = new Set(completedDates.filter((d) => d >= start && d <= end)).size;
+  const week = firstWorkout && firstWorkout <= date ? Math.floor((Date.parse(start) - Date.parse(weekStart(firstWorkout))) / (7 * 86400000)) + 1 : 1;
+  return { planned: days.length, done, week, day: idx >= 0 ? idx + 1 : null };
 }

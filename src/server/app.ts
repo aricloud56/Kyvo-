@@ -26,7 +26,7 @@ import { CAMPAIGN_BY_SLUG } from '../core/campaigns.js';
 import { todayIn, addDays } from '../core/util.js';
 
 const SESSION_COOKIE = 'kyvo_session';
-const MIME: Record<string, string> = { '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.webm': 'video/webm', '.png': 'image/png', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8' };
+const MIME: Record<string, string> = { '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.webm': 'video/webm', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8' };
 
 export interface App {
   server: http.Server;
@@ -260,7 +260,7 @@ export async function createApp(cfg: Config, opts: { storage?: Storage } = {}): 
     const fav = await tx.maybeOne("select 1 from kyvo.favourites where user_id = $1 and kind = 'exercise' and ref_id = $2", [uid(c), id]);
     const subs = substitutesFor(id, catalog.exercises, equipmentSet(profile), premium, 8).map((s) => ({ id: s.id, name: s.name, locked: s.premium && !premium }));
     const media = (catalog.media.get(id) ?? []).map((m) => ({ kind: m.kind, ref: m.ref, title: m.title, attribution: m.attribution, license: m.license, source: m.source, verifiedNote: m.verified_note }));
-    const base = { id, name: e.name, groups: e.groups, equipment: e.equipment, difficulty: e.difficulty, logging: e.logging, premium: e.premium, locked, favourite: !!fav, alternatives: subs, musclesText: content.musclesText };
+    const base = { id, name: e.name, groups: e.groups, equipment: e.equipment, difficulty: e.difficulty, logging: e.logging, premium: e.premium, locked, favourite: !!fav, alternatives: subs, musclesText: content.musclesText, primary: e.primary, secondary: e.secondary };
     if (locked) return { ...base, content: null, media: [] };
     const history = await training.exerciseHistory(tx, uid(c), id, premium ? null : FREE_LIMITS.historyDays);
     return { ...base, content: { steps: content.steps, cues: content.cues, mistakes: content.mistakes, safety: content.safety, checks: content.checks, programming: content.programming, reduceLoad: content.reduceLoad, secondary: e.secondary, primary: e.primary }, media, history };

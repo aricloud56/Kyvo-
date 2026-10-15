@@ -1,0 +1,226 @@
+{
+ "exercises": {
+  "barbell-back-squat": [
+   {
+    "file": "media/photos/back-squat.jpg",
+    "w": 480,
+    "h": 321,
+    "by": "Nenad Stojkovic",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Woman_doing_squat_workout_in_gym_with_barbell,_back_view.jpg"
+   }
+  ],
+  "romanian-deadlift": [
+   {
+    "file": "media/photos/romanian-deadlift.jpg",
+    "w": 361,
+    "h": 480,
+    "by": "stu_spivack",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Deadlift_(3).JPG",
+    "note": "Shows the standing start position."
+   }
+  ],
+  "leg-press": [
+   {
+    "file": "media/photos/leg-press.jpg",
+    "w": 320,
+    "h": 480,
+    "by": "Nenad Stojkovic",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Young_man_using_a_leg_press_machine_at_the_gym.jpg"
+   }
+  ],
+  "walking-lunge": [
+   {
+    "file": "media/photos/walking-lunges.jpg",
+    "w": 480,
+    "h": 320,
+    "by": "Tyler Read",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dumbbell_lunges.jpg"
+   }
+  ],
+  "standing-calf-raise": [
+   {
+    "file": "media/photos/standing-calf-raise.jpg",
+    "w": 384,
+    "h": 448,
+    "by": "GeorgeStepanek",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:DumbbellStandingCalfRaise.JPG"
+   }
+  ],
+  "incline-dumbbell-press": [
+   {
+    "file": "media/photos/incline-dumbbell-press.jpg",
+    "w": 480,
+    "h": 320,
+    "by": "U.S. Air Force, A1C Paden Henry",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Two_Miles_Ahead_of_the_Curve-_86_MXO_Airman_embraces_new_fitness_standards_(9782536).jpg"
+   },
+   {
+    "file": "media/photos/bench-press.jpg",
+    "w": 480,
+    "h": 343,
+    "by": "U.S. Navy, MCSN Jeffery J. Gabriel Jr.",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:US_Navy_070227-N-0998G-003_Operations_Specialist_3rd_Class_Greg_Ivy,_a_native_of_Sacramento,_Calif.,_incline_presses_two_30-pound_dumbbells_as_Quartermaster_Seaman_Julian_Marulanda,_a_native_of_Bridgeport,_Conn.,_acts_as_spotte.jpg",
+    "note": "Spotter assisting an incline dumbbell press."
+   }
+  ],
+  "standing-barbell-overhead-press": [
+   {
+    "file": "media/photos/overhead-press.jpg",
+    "w": 320,
+    "h": 480,
+    "by": "Nenad Stojkovic",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Attractive_sporty_woman_doing_overhead_press_in_gym_with_barbell.jpg"
+   }
+  ],
+  "conventional-deadlift": [
+   {
+    "file": "media/photos/deadlift.jpg",
+    "w": 480,
+    "h": 321,
+    "by": "Nenad Stojkovic",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fit_young_man_doing_deadlift_exercise_in_gym.jpg"
+   }
+  ],
+  "lat-pulldown": [
+   {
+    "file": "media/photos/lat-pulldown.jpg",
+    "w": 480,
+    "h": 320,
+    "by": "Tyler Read",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Girl_doing_lat_pulldown_exercise.jpg"
+   }
+  ],
+  "seated-cable-row": [
+   {
+    "file": "media/photos/seated-row.jpg",
+    "w": 480,
+    "h": 333,
+    "by": "Miguel Angel Oma\u00f1a Rojas",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Woman_using_a_seated_cable_row_machine_at_the_gym.jpg"
+   }
+  ],
+  "chin-up": [
+   {
+    "file": "media/photos/chin-ups.jpg",
+    "w": 319,
+    "h": 480,
+    "by": "theogeo on Flickr",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chin-ups.jpg"
+   }
+  ],
+  "dumbbell-lateral-raise": [
+   {
+    "file": "media/photos/lateral-raise.jpg",
+    "w": 480,
+    "h": 393,
+    "by": "GeorgeStepanek",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:DumbbellLateralRaise.JPG"
+   }
+  ]
+ },
+ "recipes": {
+  "overnight-oats": {
+   "file": "media/photos/meal-oats.jpg",
+   "w": 360,
+   "h": 480,
+   "by": "Nervy8924",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Protein_overnight_oats.jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "scrambled-egg-avo-toast": {
+   "file": "media/photos/meal-avo.jpg",
+   "w": 480,
+   "h": 360,
+   "by": "Andy Li",
+   "license": "CC0",
+   "source": "https://commons.wikimedia.org/wiki/File:Smashed_avocado_%26_poached_eggs_-_M%26S_Caf%C3%A9_2023-12-28.jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "chicken-burrito-bowls": {
+   "file": "media/photos/meal-bowl.jpg",
+   "w": 480,
+   "h": 360,
+   "by": "Missvain",
+   "license": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Chipotle_burrito_bowl_-_October_2024_-_Sarah_Stierch.jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "tuna-rice-bowl": {
+   "file": "media/photos/meal-poke.jpg",
+   "w": 480,
+   "h": 480,
+   "by": "Daderot",
+   "license": "CC0",
+   "source": "https://commons.wikimedia.org/wiki/File:Poke_bowl_-_Cambridge,_MA.jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "beef-broccoli-stirfry": {
+   "file": "media/photos/meal-stirfry.jpg",
+   "w": 480,
+   "h": 319,
+   "by": "jeffreyw",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Beef_noodle_stir_fry_(4765940970).jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "lemon-garlic-fish": {
+   "file": "media/photos/meal-barra.jpg",
+   "w": 480,
+   "h": 360,
+   "by": "Alpha from Melbourne, Australia",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Roasted_Barramundi_Fillet_-_Windsor_Hotel_(56397403).jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "lamb-kofta": {
+   "file": "media/photos/meal-kofta.jpg",
+   "w": 480,
+   "h": 370,
+   "by": "CharmaineZoe's Marvelous Melange from England",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Dinner_30_07_2019_Lamb_Koftas_with_salad,_a_sourdough_and_linseed_wrap_with_onion_%26_garlic_dip_(48162583727).jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "berry-protein-smoothie": {
+   "file": "media/photos/meal-shake.jpg",
+   "w": 465,
+   "h": 480,
+   "by": "Sandstein",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Protein_shake.jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "cottage-cheese-bowl": {
+   "file": "media/photos/meal-cottage.jpg",
+   "w": 480,
+   "h": 360,
+   "by": "Shadle",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Cottage_Cheese_homemade.jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  },
+  "greek-yoghurt-parfait": {
+   "file": "media/photos/meal-nuts.jpg",
+   "w": 480,
+   "h": 445,
+   "by": "Haydn Blackey",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Breakfast_-_Greek_Yogurt_with_chia_seeds,_sunflower_seeds,_almond_flakes_and_walnuts_-_Holiday_Inn_-_Bloomsbury_-_London_2026-06-05.jpg",
+   "note": "Serving suggestion: a similar dish, not this exact recipe."
+  }
+ }
+}

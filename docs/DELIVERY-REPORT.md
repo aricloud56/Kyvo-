@@ -76,6 +76,11 @@ Media: 90 exercises have a demonstration.
 - The other 80 show a written "video demonstration unavailable" fallback with the step-by-step instructions.
 - The admin dashboard lists exercises without media.
 
+Illustrations (added after the first preview):
+- Every one of the 170 exercises has an animated start-to-end movement illustration with the primary muscles highlighted, plus a front and back muscle map. 142 are drawn for that exercise; 28 use a close stand-in figure from a similar movement (marked `approx` in `public/data/figures.json`). They are drawn by `scripts/figures/build_figures.py` from the Rep & Plate pose library.
+- 12 exercises and 10 recipes have real photos from Wikimedia Commons. Each shows its author, licence and source link in the app (`public/data/photos.json`). Recipe photos are labelled as a serving suggestion of a similar dish.
+- A unit test checks that every exercise has a figure and every credited photo file exists.
+
 ## 5. Daily Plan generation and personalisation
 
 Code: `src/core/dailyPlan.ts`, `src/core/workouts.ts`, `src/core/meals.ts`, `src/server/services/plan.ts`.
@@ -140,7 +145,7 @@ All of these were run on 15 October 2026 against PostgreSQL 16 and Chromium (Pla
 |---|---|
 | `npm run lint` | Passed (strict TypeScript, build, ESLint: 0 problems) |
 | `npm run typecheck` | Passed |
-| `npm run test:unit` | **17 / 17 passed** |
+| `npm run test:unit` | **18 / 18 passed** |
 | `npm run test:integration` | **19 / 19 passed** |
 | `npm run test:e2e` | **7 / 7 passed** |
 

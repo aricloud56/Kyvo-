@@ -227,3 +227,16 @@ test('stripe signatures: valid, tampered, wrong secret and stale timestamps', ()
   const old = signStripePayload(payload, 'whsec_a', Math.floor(Date.now() / 1000) - 3600);
   assert.equal(verifyStripeSignature(Buffer.from(payload), old, 'whsec_a'), false);
 });
+
+test('every exercise has a movement figure and every credited photo file exists', () => {
+  const pub = path.join(DATA_DIR, '..', 'public');
+  const figures = JSON.parse(fs.readFileSync(path.join(pub, 'data', 'figures.json'), 'utf8'));
+  const missing = rawExercises.filter((e) => !figures[e.id]).map((e) => e.id);
+  assert.deepEqual(missing, []);
+  const photos = JSON.parse(fs.readFileSync(path.join(pub, 'data', 'photos.json'), 'utf8'));
+  const all = [...Object.values(photos.exercises).flat(), ...Object.values(photos.recipes)] as { file: string; by: string; license: string; source: string }[];
+  for (const p of all) {
+    assert.ok(fs.existsSync(path.join(pub, p.file)), p.file);
+    assert.ok(p.by && p.license && p.source.startsWith('https://'), `credit for ${p.file}`);
+  }
+});

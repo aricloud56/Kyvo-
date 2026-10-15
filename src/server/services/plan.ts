@@ -4,7 +4,7 @@ import { json } from '../lib/db.js';
 import type { Catalog } from './catalog.js';
 import type { DailyPlan, LoggedSet, Macros, MealSlot, PlannedExercise, Profile, Targets, WorkoutDef } from '../../core/types.js';
 import { MEAL_SLOTS } from '../../core/types.js';
-import { buildDailyPlan, plannedWorkoutFor, regenerateMeals, summariseDay, type DaySummary } from '../../core/dailyPlan.js';
+import { buildDailyPlan, plannedWorkoutFor, regenerateMeals, summariseDay, weekProgress, type DaySummary } from '../../core/dailyPlan.js';
 import { generateProgram, type PastSession } from '../../core/workouts.js';
 import { estimateTargets } from '../../core/nutrition.js';
 import { swapMeal, swapOptions, plannedTotals } from '../../core/meals.js';
@@ -215,6 +215,10 @@ export class PlanService {
     const required = plan.checklist.filter((c) => !c.optional);
     const allDone = required.every((c) => done.has(c.key));
     const summary: DaySummary | null = date < today || allDone ? summariseDay(plan, eaten, done, workoutDone, records.n) : null;
+    const sched = await tx.query<{ weekday: number }>('select weekday from kyvo.user_schedule where user_id = $1 and workout_id is not null', [userId]);
+    const completed = await tx.query<{ d: string }>("select distinct plan_date::text as d from kyvo.workout_sessions where user_id = $1 and status = 'completed' and plan_date between $2::date - 6 and $2::date + 6", [userId, date]);
+    const first = await tx.maybeOne<{ d: string | null }>("select min(plan_date)::text as d from kyvo.workout_sessions where user_id = $1 and status = 'completed'", [userId]);
+    const tpl = await tx.maybeOne<{ name: string }>('select t.name from kyvo.user_workouts w join kyvo.workout_templates t on t.id = w.template_id where w.user_id = $1 and not w.archived order by w.created_at limit 1', [userId]);
     return {
       date, today, isToday: date === today, isPast: date < today, displayName: profile.displayName, goal: profile.goal, units: profile.units,
       plan,
@@ -232,6 +236,8 @@ export class PlanService {
       hydrationEnabled: profile.hydrationEnabled,
       hydrationTargetMl: profile.hydrationTargetMl,
       summary,
+      week: weekProgress(date, sched.map((r) => Number(r.weekday)), completed.map((r) => r.d), first?.d ?? null),
+      programName: tpl?.name ?? null,
     };
   }
 

@@ -4,7 +4,7 @@
 import { ApiError, type Api } from '../api.js';
 import type { DailyPlan, ExerciseSummary, FoodItem, LoggedSet, Macros, MealSlot, PlannedExercise, Profile, Recipe, Targets, WorkoutDef } from '../../core/types.js';
 import { MEAL_SLOTS } from '../../core/types.js';
-import { buildDailyPlan, regenerateMeals, summariseDay } from '../../core/dailyPlan.js';
+import { buildDailyPlan, regenerateMeals, summariseDay, weekProgress } from '../../core/dailyPlan.js';
 import { buildRecipeInfo, plannedTotals, swapMeal, swapOptions, type RecipeInfo } from '../../core/meals.js';
 import { allergensIn, estimateTargets, recipeNutrition, roundMacros, scaleFood, scaleIngredients, validateManualTargets } from '../../core/nutrition.js';
 import { TEMPLATES, detectRecords, equipmentSet, exerciseAvailable, generateProgram, prescribe, setVolume, substitutesFor, type PastSession } from '../../core/workouts.js';
@@ -83,7 +83,8 @@ export class DemoApi implements Api {
     this.profile = {
       displayName: 'Sam', ageRange: '25-34', sex: 'unspecified', heightCm: 176, weightKg: 80, goal: 'muscle_gain', experience: 'intermediate', location: 'gym',
       equipment: ['barbell', 'dumbbell', 'cable', 'machine', 'bench', 'rack', 'pullup_bar', 'plate', 'ez_bar', 'smith', 'bodyweight', 'mat', 'band', 'kettlebell', 'dip_station', 'box', 'wall', 'treadmill', 'bike', 'rower'],
-      trainingDays: [1, 3, 5], sessionMinutes: 60, trainingStyle: 'balanced', diet: 'none', allergies: [], exclusions: [], units: 'metric', activity: 'light',
+      // Today is always a training day in the preview, so the Daily Plan shows a workout to start.
+      trainingDays: [0, 2, 4].map((n) => (weekdayOf(this.today()) + n) % 7).sort(), sessionMinutes: 60, trainingStyle: 'balanced', diet: 'none', allergies: [], exclusions: [], units: 'metric', activity: 'light',
       hydrationEnabled: true, hydrationTargetMl: 2500, templatePref: 'auto', timezone: this.tz, onboarded: true,
     };
     this.targets = estimateTargets(this.profile);
@@ -233,6 +234,7 @@ export class DemoApi implements Api {
     if (plan.workout) for (const [id, ps] of this.historyFor(plan.workout.exercises.map((x) => x.exerciseId), addDays(date, -1))) lastPerformance[id] = describeSets(ps[0].sets);
     const allDone = plan.checklist.filter((c) => !c.optional).every((c) => done.has(c.key));
     const records = this.records.filter((r) => r.date === date).length;
+    const completedDates = this.sessions.filter((s) => s.status === 'completed').map((s) => s.date);
     return {
       date, today, isToday: date === today, isPast: date < today, displayName: this.profile.displayName, goal: this.profile.goal, units: this.profile.units,
       plan,
@@ -248,6 +250,8 @@ export class DemoApi implements Api {
       })),
       hydrationMl: this.water.get(date) ?? 0, hydrationEnabled: this.profile.hydrationEnabled, hydrationTargetMl: this.profile.hydrationTargetMl,
       summary: date < today || allDone ? summariseDay(plan, eaten, done, workoutDone, records) : null,
+      week: weekProgress(date, Object.entries(this.schedule).filter(([, w]) => w).map(([d]) => Number(d)), completedDates, completedDates.length ? completedDates.reduce((a, b) => (a < b ? a : b)) : null),
+      programName: TEMPLATES.find((t) => t.id === this.workouts.find((w) => !w.archived && w.templateId)?.templateId)?.name ?? null,
     };
   }
 
@@ -684,7 +688,7 @@ export class DemoApi implements Api {
       if (!e) throw notFound('Exercise not found.');
       const c = this.content.get(e.id);
       const locked = e.premium && !this.premium;
-      const base = { id: e.id, name: e.name, groups: e.groups, equipment: e.equipment, difficulty: e.difficulty, logging: e.logging, premium: e.premium, locked, favourite: this.favourites.has(`exercise:${e.id}`), musclesText: c.musclesText,
+      const base = { id: e.id, name: e.name, groups: e.groups, equipment: e.equipment, difficulty: e.difficulty, logging: e.logging, premium: e.premium, locked, favourite: this.favourites.has(`exercise:${e.id}`), musclesText: c.musclesText, primary: e.primary, secondary: e.secondary,
         alternatives: substitutesFor(e.id, this.exercises, equipmentSet(this.profile), this.premium, 8).map((s) => ({ id: s.id, name: s.name, locked: s.premium && !this.premium })) };
       if (locked) return { ...base, content: null, media: [] };
       return {

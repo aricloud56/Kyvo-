@@ -3,8 +3,10 @@ import { api } from '../api.js';
 import { go, state } from '../app.js';
 import { $, html, onActions, raw, sheet, toast } from '../dom.js';
 import { icon, meter, ring } from '../ui.js';
-import { GOAL_LABEL, SLOT_LABEL, groupsText, longDate, prescriptionText, restText, wOut, wUnit, kcal } from '../format.js';
-import { addDays } from '../../core/util.js';
+import { assetUrl, exerciseTile, loadVisuals, recipePhoto } from '../visuals/assets.js';
+import { respectReducedMotion } from '../visuals/figure.js';
+import { GOAL_LABEL, SLOT_LABEL, longDate, wOut, wUnit, kcal } from '../format.js';
+import { WEEKDAY_NAMES, addDays, weekdayOf } from '../../core/util.js';
 import type { PlannedMeal } from '../../core/types.js';
 
 function greeting(): string {
@@ -12,13 +14,15 @@ function greeting(): string {
   return h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
 }
 
-const thumb = (d: { kind: string; ref: string } | null) =>
-  d?.kind === 'youtube' && !api.demo ? html`<img src="https://i.ytimg.com/vi/${d.ref}/mqdefault.jpg" alt="" loading="lazy">` : d ? icon('play', 20) : icon('dumbbell', 22);
-
 export async function todayScreen(view: HTMLElement, params: string[]) {
   const me = state.me!;
   const date = params[0] ?? me.today;
-  const d = await api.get<any>(`/api/plan/${date}`);
+  const [d] = await Promise.all([api.get<any>(`/api/plan/${date}`), loadVisuals()]);
+  const [prog, metrics, photos] = await Promise.all([
+    d.plan.isRest ? api.get<any>('/api/program').catch(() => null) : Promise.resolve(null),
+    api.get<any>('/api/progress?days=30').catch(() => null),
+    api.get<any[]>('/api/photos').catch(() => []),
+  ]);
   const p = d.plan;
   const t = p.targets;
   const name = d.displayName ? `, ${d.displayName}` : '';
@@ -37,6 +41,8 @@ export async function todayScreen(view: HTMLElement, params: string[]) {
     <p class="muted" style="margin:0">${message}</p>
     <div class="goal-pill"><span class="tag accent">Goal: ${GOAL_LABEL[d.goal] ?? d.goal}</span>${me.premium ? html`<span class="tag">Premium</span>` : ''}</div>
   </header>
+
+  ${nextCard(d, prog)}
 
   ${d.summary ? html`<section class="card summary-card" aria-labelledby="sum-h" style="margin-top:16px">
     <h2 id="sum-h">${d.isPast ? 'Day summary' : 'Today’s summary'}</h2>
@@ -60,21 +66,7 @@ export async function todayScreen(view: HTMLElement, params: string[]) {
     <p class="xs muted" style="margin:10px 0 0">Targets are estimates${t.source === 'manual' ? ' you set yourself' : ''}, not medical advice. <a href="#/profile">Adjust</a></p>
   </section>
 
-  ${p.isRest ? html`<section class="card" aria-labelledby="w-h"><h2 id="w-h">Rest day</h2><p class="muted">No workout is planned today. Rest helps your muscles recover and adapt. A walk or some light stretching is a nice extra if you feel like it.</p>
-    ${d.isPast ? '' : html`<button class="btn btn-secondary btn-sm" data-action="train-anyway">Train today anyway</button>`}</section>`
-  : html`<section class="card workout-card" aria-labelledby="w-h">
-    <div class="card-head"><h2 id="w-h">${p.workout.name}</h2><span class="tag">${d.workoutStatus === 'completed' ? 'Completed' : `~${p.workout.estMinutes} min`}</span></div>
-    <p class="muted small" style="margin-top:-4px">${p.workout.focus} · ${groupsText(p.workout.muscleGroups) || 'Whole body'} · ${p.workout.exercises.length} exercises</p>
-    <ul class="list ex-list">${p.workout.exercises.map((x: any) => html`<li>
-      <a class="ex-thumb" href="#/exercise/${x.exerciseId}" aria-label="How to do ${x.name}">${thumb(d.demos?.[x.exerciseId] ?? null)}</a>
-      <div class="grow"><a href="#/exercise/${x.exerciseId}" style="color:var(--text);font-weight:600;text-decoration:none">${x.name}</a>
-      <div class="small muted num">${prescriptionText(x)}${x.mode === 'weight_reps' && x.suggestedWeightKg ? ` @ ${wOut(x.suggestedWeightKg)} ${wUnit()}` : ''} · ${restText(x.restSec)}</div>
-      ${d.lastPerformance[x.exerciseId] ? html`<div class="xs muted">Last time: ${d.lastPerformance[x.exerciseId]}</div>` : ''}</div></li>`)}</ul>
-    ${d.isPast && d.workoutStatus !== 'completed' ? '' : d.workoutStatus === 'completed'
-      ? html`<a class="btn btn-secondary btn-block" href="#/session/${d.sessionId}">View workout summary</a>`
-      : html`<button class="btn btn-primary btn-block btn-lg" data-action="start">${d.workoutStatus === 'in_progress' ? 'Resume workout' : 'Start workout'}</button>`}
-    ${!d.isPast && d.workoutStatus === 'not_started' ? html`<button class="btn btn-ghost btn-sm" style="margin-top:6px" data-action="skip-today">Make today a rest day</button>` : ''}
-  </section>`}
+  ${quickActions(date, metrics, photos)}
 
   <section aria-labelledby="m-h" style="margin-top:22px">
     <div class="row between"><h2 id="m-h" style="margin:0">Today’s meals</h2><span class="small muted num">Plan: ${p.plannedTotals.kcal.toLocaleString('en-AU')} kcal · ${Math.round(p.plannedTotals.p)} g protein</span></div>
@@ -82,9 +74,10 @@ export async function todayScreen(view: HTMLElement, params: string[]) {
     ${p.meals.map((m: PlannedMeal) => {
       const logged = d.loggedSlots.includes(m.slot);
       return html`<article class="card meal${logged ? ' logged' : ''}" style="margin-top:10px" aria-label="${SLOT_LABEL[m.slot]}">
+        <div class="meal-row">${mealThumb(m.recipeId, m.name)}<div class="grow" style="min-width:0">
         <div class="row between"><span class="meal-slot">${SLOT_LABEL[m.slot]}</span>${logged ? html`<span class="tag accent">${icon('check', 14)} Logged</span>` : ''}</div>
         <h3 style="margin:0">${m.name}</h3>
-        <div class="small muted">${m.portion === 1 ? '1 serving' : `${m.portion} servings`}${m.prepMin ? ` · ${m.prepMin} min` : ''}</div>
+        <div class="small muted">${m.portion === 1 ? '1 serving' : `${m.portion} servings`}${m.prepMin ? ` · ${m.prepMin} min` : ''}</div></div></div>
         <div class="macros"><span><b>${m.kcal}</b> kcal</span><span><b>${Math.round(m.p)}</b> g protein</span><span><b>${Math.round(m.c)}</b> g carbs</span><span><b>${Math.round(m.f)}</b> g fat</span></div>
         <div class="row"><a class="btn btn-sm btn-secondary" href="#/recipe/${m.recipeId}">View recipe</a>
         ${d.isPast ? '' : html`${logged ? '' : html`<button class="btn btn-sm btn-primary" data-action="log" data-slot="${m.slot}">Log meal</button>`}<button class="btn btn-sm btn-ghost" data-action="swap" data-slot="${m.slot}">${icon('swap', 16)} Swap</button>`}</div>
@@ -101,8 +94,19 @@ export async function todayScreen(view: HTMLElement, params: string[]) {
 
   ${d.isPast ? '' : html`<div class="row" style="margin-top:16px"><button class="btn btn-ghost btn-sm" data-action="regen-meals">New meal suggestions</button><a class="btn btn-ghost btn-sm" href="#/train">Edit training plan</a></div>`}`.value;
 
+  respectReducedMotion(view);
   const reload = () => todayScreen(view, params);
   onActions(view, {
+    more: (el) => {
+      const hidden = view.querySelectorAll<HTMLElement>('.plan-rows li[hidden], .plan-rows li.extra');
+      const open = el.getAttribute('aria-expanded') !== 'true';
+      hidden.forEach((li) => {
+        li.classList.add('extra');
+        li.hidden = !open;
+      });
+      el.setAttribute('aria-expanded', String(open));
+      el.innerHTML = open ? 'Show less ▴' : `Show ${hidden.length} more ▾`;
+    },
     start: async () => {
       await api.post('/api/sessions', { date });
       go('#/workout');
@@ -163,4 +167,91 @@ export async function todayScreen(view: HTMLElement, params: string[]) {
     },
   });
   void raw;
+}
+
+function mealThumb(recipeId: string, name: string) {
+  const ph = recipePhoto(recipeId);
+  return ph ? html`<img class="meal-thumb" src="${assetUrl(ph.file)}" alt="" loading="lazy" title="Serving suggestion: ${name}">` : html`<span class="meal-thumb ph" aria-hidden="true">${icon('food', 26)}</span>`;
+}
+
+function weekBar(d: any) {
+  const w = d.week;
+  if (!w || !w.planned) return '';
+  const pct = Math.min(100, Math.round((w.done / w.planned) * 100));
+  return html`<div class="bar-row"><div class="bar" role="progressbar" aria-label="Workouts this week" aria-valuemin="0" aria-valuemax="${w.planned}" aria-valuenow="${w.done}"><span style="width:${pct}%"></span></div><b>${pct}%</b></div>
+    <div class="xs muted">${w.done} of ${w.planned} workouts done this week</div>`;
+}
+
+/** The "Next up" card: today's workout, or on a rest day the next scheduled one. */
+function nextCard(d: any, prog: any) {
+  const p = d.plan;
+  const w = d.week ?? { week: 1, day: null };
+  if (!p.isRest) {
+    const ex = p.workout.exercises;
+    const first = ex[0];
+    const status = d.workoutStatus;
+    const eyebrow = status === 'completed' ? 'Completed today' : `${d.isToday ? 'Today' : 'Planned'} · Week ${w.week}${w.day ? ` · Day ${w.day}` : ''}`;
+    return html`<section class="next-card" aria-labelledby="w-h">
+      <div class="next-top">${first ? raw(exerciseTile(first.exerciseId, first.name)) : ''}<div style="min-width:0">
+        <div class="next-eyebrow">${eyebrow}</div><h2 class="next-title" id="w-h">${p.workout.name}</h2>
+        <div class="next-sub">${d.programName ?? p.workout.focus} · about ${p.workout.estMinutes} min</div></div></div>
+      ${weekBar(d)}
+      <ul class="plan-rows">${ex.map((x: any, i: number) => html`<li ${i >= 3 ? 'hidden' : ''}><a href="#/exercise/${x.exerciseId}"><span class="nm">${x.name}</span></a>
+        <span class="rx">${rxText(x)}</span></li>`)}</ul>
+      ${ex.length > 3 ? html`<button class="more-btn" data-action="more" aria-expanded="false">Show ${ex.length - 3} more ▾</button>` : ''}
+      ${d.isPast && status !== 'completed' ? '' : status === 'completed'
+        ? html`<a class="btn btn-secondary btn-block btn-start" href="#/session/${d.sessionId}">View workout summary</a>`
+        : html`<button class="btn btn-primary btn-start" data-action="start">${icon('play', 20)} ${status === 'in_progress' ? 'Resume workout' : 'Start workout'}</button>`}
+      ${!d.isPast && status === 'not_started' ? html`<button class="btn btn-ghost btn-sm" style="margin-top:6px" data-action="skip-today">Make today a rest day</button>` : ''}
+    </section>`;
+  }
+  const next = prog ? nextScheduled(d.date, prog) : null;
+  return html`<section class="next-card" aria-labelledby="w-h">
+    <div class="next-top"><div class="fig-tile" style="display:grid;place-items:center;color:#1c1c1c">${icon('today', 34)}</div><div>
+      <div class="next-eyebrow">Rest day · Week ${w.week}</div><h2 class="next-title" id="w-h">Recover and recharge</h2>
+      <div class="next-sub">${next ? `Next up: ${next.name}, ${next.when}` : 'No workout is planned today.'}</div></div></div>
+    ${weekBar(d)}
+    <p class="small muted" style="margin:12px 0 0">Rest helps your muscles recover and adapt. A walk or light stretching is a nice extra if you feel like it.</p>
+    ${next ? html`<ul class="plan-rows">${next.exercises.slice(0, 3).map((x: any) => html`<li><a href="#/exercise/${x.exerciseId}"><span class="nm">${x.name}</span></a><span class="rx">${rxText(x)}</span></li>`)}</ul>` : ''}
+    ${d.isPast ? '' : html`<button class="btn btn-secondary btn-block btn-start" data-action="train-anyway">${icon('play', 18)} Train today anyway</button>`}
+  </section>`;
+}
+
+const rxText = (x: any) => {
+  const reps = x.repMin === x.repMax ? `${x.repMin}` : `${x.repMin}-${x.repMax}`;
+  return raw(`<b>${x.sets}</b> sets · <b>${reps}</b> ${x.mode === 'time' ? 's' : 'reps'}`);
+};
+
+function nextScheduled(date: string, prog: any): { name: string; when: string; exercises: any[] } | null {
+  for (let i = 1; i <= 7; i++) {
+    const day = addDays(date, i);
+    const o = prog.overrides?.find((x: any) => x.date === day);
+    const id = o ? o.workoutId : prog.schedule[weekdayOf(day)];
+    const w = id && prog.workouts.find((x: any) => x.id === id);
+    if (w) return { name: w.name, when: i === 1 ? 'tomorrow' : `on ${WEEKDAY_NAMES[weekdayOf(day)]}`, exercises: w.exercises };
+  }
+  return null;
+}
+
+function spark(points: { date: string; value: number }[]) {
+  if (points.length < 2) return '';
+  const ys = points.map((p) => p.value), mid = (Math.min(...ys) + Math.max(...ys)) / 2, span = Math.max(Math.max(...ys) - Math.min(...ys), 3), min = mid - span / 2;
+  const xy = points.map((p, i) => [(i / (points.length - 1)) * 200, 8 + (1 - (p.value - min) / span) * 54]);
+  const line = xy.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`).join('');
+  return raw(`<svg class="spark" viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="spk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".35"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs><path d="${line}L200,70L0,70Z" fill="url(#spk)"/><path d="${line}" fill="none" stroke="var(--accent)" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`);
+}
+
+function quickActions(date: string, metrics: any, photos: any[]) {
+  const pts = metrics?.trend?.length ? metrics.trend : metrics?.weights ?? [];
+  const last = metrics?.weights?.length ? metrics.weights[metrics.weights.length - 1] : null;
+  return html`<h2 class="section-label">Quick actions</h2>
+  <div class="quick-grid">
+    <a class="quick wide" href="#/nutrition/${date}">${icon('food', 22)} Log food</a>
+    <a class="quick" href="#/library">${icon('folder', 22)} Exercise library</a>
+    <a class="quick" href="#/train/workout/new">${icon('pencil', 22)} Create workout</a>
+    <a class="quick tall" href="#/progress" aria-label="Body weight${last ? `: ${wOut(last.value)} ${wUnit()}` : ''}. Open progress"><span class="qh">${icon('scale', 22)} Bodyweight</span>
+      ${last ? html`<span class="small muted num">${wOut(last.value)} ${wUnit()}</span>` : html`<span class="small muted">Log your first weigh-in</span>`}${spark(pts)}</a>
+    <a class="quick tall" href="#/progress#photos"><span class="qh">${icon('camera', 22)} Progress pics</span>
+      <span class="photo-slots">${[0, 1, 2, 3].map((i) => (photos[i] && !api.demo ? html`<span><img src="/api/photos/${photos[i].id}/image" alt="" loading="lazy"></span>` : html`<span></span>`))}</span></a>
+  </div>`;
 }
