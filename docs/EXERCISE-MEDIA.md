@@ -18,7 +18,7 @@ The viewer reads its media only from data files, so assets can be swapped withou
 2. `public/data/media-pack.json`: created by the pack importer from a purchased library.
 3. The KYVO movement illustration (`public/data/figures.json`) and photos (`public/data/photos.json`).
 
-Lat pulldown is the reference exercise. Its current demo is a **placeholder** video rendered from the KYVO illustration, labelled "Sample asset" in the app, to show that playback works. It is not a 3D anatomy render.
+**Free demos in use now:** 52 exercises have looping clips made from the free Everkinetic drawings (CC BY-SA 4.0, credited on each clip). Each clip cross-fades the start and end drawings. They are built by `scripts/media/build-everkinetic.mjs`, which only uses exact name matches plus the hand-checked `scripts/media/everkinetic-map.json`. The CC BY-SA licence requires the credit line, and adapted clips must stay under CC BY-SA. The other 118 exercises use the KYVO movement illustration. Everkinetic has no drawing for lat pulldown, chin-up or the shoulder-press machine.
 
 ## Adding hand-picked demos (any exercise)
 
