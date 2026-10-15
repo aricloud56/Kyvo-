@@ -4,7 +4,7 @@
 //   node scripts/media/import-pack.mjs --manifest <pack.json|pack.csv> --dir <folder with the media files> \
 //     --vendor "ExerciseDB" --license "Commercial licence, purchased 2026-10-15" [--map data/media-pack-map.json]
 //
-// Each manifest row needs an exercise name and a media file (GIF, WebP, MP4 or WebM). Field names are detected
+// Each manifest row needs an exercise name and a media file (GIF, WebP, MP4, WebM, or a PNG/JPEG still). Field names are detected
 // (name/title/exercise and gifUrl/gif/videoUrl/video/mp4/file/media); a URL is reduced to its file name and looked
 // up in --dir. Rows are matched to KYVO exercises by exact name or alias after normalising. Close-but-not-exact
 // matches are NOT applied: they are written to storage/media-pack-review.json so a person can confirm them in the
@@ -17,7 +17,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const MEDIA_EXT = new Set(['.gif', '.webp', '.mp4', '.webm']);
+const MEDIA_EXT = new Set(['.gif', '.webp', '.mp4', '.webm', '.png', '.jpg', '.jpeg']);
+const STILL_EXT = new Set(['.png', '.jpg', '.jpeg']);
 const SYN = { db: 'dumbbell', dumbbells: 'dumbbell', bb: 'barbell', kb: 'kettlebell', ez: 'ezbar', pushup: 'push up', pullup: 'pull up', chinup: 'chin up', situp: 'sit up' };
 const STOP = new Set(['the', 'a', 'with', 'on', 'of', 'and', 'exercise']);
 
@@ -113,7 +114,7 @@ function main() {
     const ext = path.extname(base).toLowerCase();
     if (!src || !MEDIA_EXT.has(ext)) { noFile.push(`${id} (${base})`); continue; }
     fs.copyFileSync(src, path.join(outDir, `${id}${ext}`));
-    index.exercises[id] = { file: `media/pack/${id}${ext}`, kind: ext === '.mp4' || ext === '.webm' ? 'video' : 'image', title: row.name };
+    index.exercises[id] = { file: `media/pack/${id}${ext}`, kind: ext === '.mp4' || ext === '.webm' ? 'video' : 'image', still: STILL_EXT.has(ext), title: row.name };
   }
   fs.mkdirSync(path.join(pub, 'data'), { recursive: true });
   fs.writeFileSync(path.join(pub, 'data', 'media-pack.json'), JSON.stringify(index));

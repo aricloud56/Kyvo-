@@ -8,7 +8,7 @@ interface PhotoData { exercises: Record<string, Photo[]>; recipes: Record<string
 /** One camera angle of a demonstration. A video angle lists sources (MP4/WebM) and a poster; an image angle has image. */
 export interface DemoAngle { label: string; video?: { src: string; type: string }[]; poster?: string; image?: string; still?: boolean; credit: string; sample?: boolean }
 interface DemoData { exercises: Record<string, { angles: DemoAngle[] }> }
-interface PackData { vendor: string; license: string; exercises: Record<string, { file: string; kind: 'video' | 'image'; title: string }> }
+interface PackData { vendor: string; license: string; exercises: Record<string, { file: string; kind: 'video' | 'image'; still?: boolean; title: string }> }
 
 let figures: Record<string, FigureDef & { approx?: boolean }> = {};
 let photos: PhotoData = { exercises: {}, recipes: {} };
@@ -44,7 +44,7 @@ export function packDemo(id: string): DemoAngle[] | undefined {
   if (!m || !pack) return undefined;
   const credit = `Demonstration: ${pack.vendor}. ${pack.license}.`;
   if (m.kind === 'video') return [{ label: 'Default', video: [{ src: m.file, type: m.file.endsWith('.webm') ? 'video/webm' : 'video/mp4' }], credit }];
-  return [{ label: 'Default', image: m.file, credit }];
+  return [{ label: 'Default', image: m.file, still: !!m.still, credit }];
 }
 export const recipePhoto = (id: string): Photo | undefined => photos.recipes[id];
 
