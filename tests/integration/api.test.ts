@@ -24,9 +24,9 @@ after(async () => {
 });
 
 describe('content', () => {
-  test('database holds at least 150 unique, published exercises (170 expected)', async () => {
+  test('database holds at least 150 unique, published exercises (177 expected)', async () => {
     const r = await admin.asSystem((tx) => tx.one<{ n: number; names: number; ids: number }>('select count(*)::int as n, count(distinct lower(name))::int as names, count(distinct id)::int as ids from kyvo.exercises where published'));
-    assert.equal(r.n, 170);
+    assert.equal(r.n, 177);
     assert.equal(r.names, r.n);
     assert.equal(r.ids, r.n);
     const orphanMedia = await admin.asSystem((tx) => tx.one<{ n: number }>('select count(*)::int as n from kyvo.exercise_media m left join kyvo.exercises e on e.id = m.exercise_id where e.id is null'));
@@ -39,7 +39,7 @@ describe('content', () => {
     const r = await new Client(run.base).get('/api/health');
     assert.equal(r.status, 200);
     assert.equal(r.body.database, true);
-    assert.equal(r.body.exercises, 170);
+    assert.equal(r.body.exercises, 177);
   });
 });
 

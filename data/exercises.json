@@ -5326,7 +5326,7 @@
 "progressions": [
 "arnold-press",
 "standing-barbell-overhead-press",
-"Standing dumbbell shoulder press"
+"standing-dumbbell-shoulder-press"
 ],
 "alternatives": [
 "machine-shoulder-press",
@@ -10325,7 +10325,7 @@
 ],
 "progressions": [
 "ez-bar-lying-triceps-extension",
-"standing overhead dumbbell extension"
+"standing-overhead-dumbbell-extension"
 ],
 "alternatives": [
 "overhead-cable-extension",
@@ -21607,6 +21607,874 @@
 "groups": [
 "cardio",
 "bodyweight"
+],
+"premium": false
+},
+{
+"id": "crunch",
+"name": "Crunch",
+"category": "core",
+"primary": [
+"abs"
+],
+"secondary": [
+"obliques"
+],
+"musclesText": "Primary: rectus abdominis. Secondary: internal and external obliques.",
+"pattern": "trunk flexion",
+"equipment": [
+"bodyweight",
+"mat"
+],
+"difficulty": "beginner",
+"type": "core",
+"mechanic": "isolation",
+"logging": "reps",
+"increment": 0,
+"aliases": [
+"basic crunch",
+"floor crunch",
+"ab crunch",
+"abdominal crunch"
+],
+"goals": [
+"muscle",
+"endurance"
+],
+"steps": {
+"start": "Lie on your back on a mat with your knees bent and feet flat on the floor.",
+"setup": "Use a mat on a flat floor. No other equipment is needed.",
+"feet": "Feet flat and hip-width apart, about a foot from your hips, heels staying down.",
+"grip": "Rest your fingertips lightly behind your ears or cross your arms over your chest; do not pull on your head.",
+"posture": "Keep your lower back relaxed against the mat and leave a fist-sized gap between chin and chest.",
+"brace": "Gently draw your ribs down towards your hips before you lift.",
+"initiate": "Curl your head, then your shoulders and upper back off the mat by shortening the distance between ribs and pelvis.",
+"concentric": "Lift until your shoulder blades just clear the mat, keeping your lower back on the floor.",
+"breathing": "Breathe out as you curl up and in as you lower.",
+"eccentric": "Lower slowly, one section of the spine at a time, until your shoulder blades touch the mat.",
+"rom": "From shoulders resting on the mat to shoulder blades just off it; this is a short movement, not a full sit-up.",
+"tempo": "2-1-1-0: one second up, a one-second squeeze, two seconds down.",
+"finish": "Finish each rep with your head and shoulders back on the mat and your abs still lightly braced.",
+"exit": "After the last rep, lower fully, roll onto your side and push yourself up to sit."
+},
+"cues": [
+"Ribs towards hips",
+"Shoulder blades just off the floor",
+"Do not pull your head",
+"Lower back stays down",
+"Lower slowly"
+],
+"mistakes": [
+{
+"m": "Pulling on the head and neck to get up.",
+"fix": "Keep fingertips light behind the ears, or cross your arms over your chest."
+},
+{
+"m": "Sitting all the way up so the hip flexors do the work.",
+"fix": "Stop when your shoulder blades leave the mat."
+},
+{
+"m": "Dropping back down quickly.",
+"fix": "Take two seconds to lower each rep."
+},
+{
+"m": "Feet lifting off the floor.",
+"fix": "Shorten the range and keep your heels pressed lightly into the mat."
+}
+],
+"safety": [
+"Stop if you feel neck pain; support your head with your hands without pulling.",
+"Avoid if a clinician has told you to avoid loaded spinal flexion.",
+"Stop if you feel sharp lower-back pain."
+],
+"checks": [
+"Use a mat on a flat, non-slip floor.",
+"Have clear space around you."
+],
+"reduceLoad": "Cross your arms over your chest, shorten the range, or do fewer reps if your neck strains or your form slips.",
+"regressions": [
+"dead-bug",
+"Crunch with a shorter range"
+],
+"progressions": [
+"reverse-crunch",
+"weighted-decline-crunch",
+"cable-crunch"
+],
+"alternatives": [
+"reverse-crunch",
+"bicycle-crunch",
+"dead-bug",
+"plank"
+],
+"programming": {
+"muscle": {
+"sets": "3",
+"reps": "12-20",
+"rest": "45-60 s",
+"rir": "1-3"
+},
+"strength": null,
+"endurance": {
+"sets": "2-3",
+"reps": "20-30",
+"rest": "30-45 s",
+"rir": "2-3"
+},
+"rehab": "Not a first-choice rehabilitation exercise; for gentle core work start with the dead bug and check with a physiotherapist.",
+"frequency": "2-4 times per week.",
+"initialLoad": "Bodyweight only, as many slow reps as you can do without pulling on your neck.",
+"judgeLoad": "Finish each set with one to three clean reps left.",
+"progression": "Add reps up to 20, then slow the lowering, then move to a harder variation.",
+"increase": "Move to a harder variation once all sets reach 20 slow reps. Training your abs strengthens them but does not spot-reduce belly fat; fat loss comes from an overall energy deficit.",
+"maintain": "Keep reps the same if your neck starts to strain, and reduce them if your lower back aches."
+},
+"groups": [
+"core",
+"bodyweight"
+],
+"premium": false
+},
+{
+"id": "standing-dumbbell-shoulder-press",
+"name": "Standing dumbbell shoulder press",
+"category": "shoulders",
+"primary": [
+"front_delts",
+"side_delts"
+],
+"secondary": [
+"triceps",
+"traps",
+"abs"
+],
+"musclesText": "Primary: anterior and lateral deltoids. Secondary: triceps, upper trapezius and serratus anterior, with the core and glutes bracing the standing position.",
+"pattern": "vertical push",
+"equipment": [
+"dumbbell"
+],
+"difficulty": "intermediate",
+"type": "hypertrophy",
+"mechanic": "compound",
+"logging": "weight_reps",
+"increment": 2,
+"aliases": [
+"standing DB shoulder press",
+"standing dumbbell overhead press",
+"standing dumbbell press"
+],
+"goals": [
+"muscle",
+"strength",
+"endurance"
+],
+"steps": {
+"start": "Stand holding a dumbbell in each hand at shoulder height, palms facing forward or slightly in.",
+"setup": "Pick a matched pair you can press with control and step back into clear space with room overhead.",
+"feet": "Feet hip- to shoulder-width apart, knees soft, weight spread across the whole foot.",
+"grip": "Hold each handle in the middle with a full grip, wrists stacked over the elbows and forearms vertical.",
+"posture": "Stand tall with ribs down, glutes lightly squeezed and head neutral; do not lean back.",
+"brace": "Take a breath into your belly and brace your trunk before each press.",
+"initiate": "Press both dumbbells straight up, moving your head slightly back so the weights pass your face.",
+"concentric": "Finish with the dumbbells over the middle of your shoulders and your arms almost straight, biceps near the ears.",
+"breathing": "Brace at the bottom, breathe out through the top half of the press, breathe in as you lower.",
+"eccentric": "Lower under control along the same path until the dumbbells are back at shoulder height.",
+"rom": "From the dumbbells at shoulder height to arms nearly locked overhead, without arching the lower back.",
+"tempo": "2-0-1-0: two seconds down, one second up.",
+"finish": "A rep ends with the dumbbells stacked over the shoulders before you start the next lowering.",
+"exit": "After the last rep lower the dumbbells to your shoulders, then to your thighs, then bend your knees to set them down."
+},
+"cues": [
+"Ribs down",
+"Squeeze your glutes",
+"Press up and slightly in",
+"Biceps by the ears at the top",
+"No leaning back"
+],
+"mistakes": [
+{
+"m": "Leaning back and arching the lower back to finish the press.",
+"fix": "Brace harder, squeeze your glutes, or choose lighter dumbbells."
+},
+{
+"m": "Elbows flaring straight out to the sides.",
+"fix": "Keep the elbows slightly in front of your body."
+},
+{
+"m": "Using a knee dip to drive the weights up.",
+"fix": "Keep the legs still; a leg drive turns it into a push press."
+},
+{
+"m": "Stopping well short of overhead.",
+"fix": "Lighten the load until you can finish with the arms beside your ears."
+}
+],
+"safety": [
+"Stop if you feel sharp shoulder pain or pinching overhead.",
+"Use a seated version if standing makes your lower back arch.",
+"Keep the dumbbells under control; never let them drift behind your head."
+],
+"checks": [
+"Make sure you have clear space overhead and around you.",
+"Check the dumbbell heads are secure on adjustable dumbbells."
+],
+"reduceLoad": "Reduce the load if you start leaning back, if the dumbbells wobble, or if you cannot reach overhead with control.",
+"regressions": [
+"seated-dumbbell-shoulder-press",
+"machine-shoulder-press"
+],
+"progressions": [
+"standing-barbell-overhead-press",
+"arnold-press"
+],
+"alternatives": [
+"seated-dumbbell-shoulder-press",
+"standing-barbell-overhead-press",
+"machine-shoulder-press",
+"arnold-press"
+],
+"programming": {
+"muscle": {
+"sets": "3-4",
+"reps": "8-12",
+"rest": "90 s",
+"rir": "1-2"
+},
+"strength": {
+"sets": "3-5",
+"reps": "5-8",
+"rest": "2-3 min",
+"rir": "1-2"
+},
+"endurance": {
+"sets": "2-3",
+"reps": "12-15",
+"rest": "60 s",
+"rir": "2-3"
+},
+"rehab": "Not a first-choice rehabilitation exercise; overhead pressing after a shoulder injury should be cleared with a physiotherapist.",
+"frequency": "1-2 times per week, 48 h between hard pressing sessions.",
+"initialLoad": "Choose dumbbells you can press 12 times standing tall with two reps to spare.",
+"judgeLoad": "The last reps should be slow but upright; any backward lean means the load is too heavy.",
+"progression": "Double progression in the 8-12 rep range.",
+"increase": "Move up one dumbbell increment (usually 2 kg per hand) when all sets reach 12 reps.",
+"maintain": "Stay at the same dumbbells while reps are climbing, and drop a size if the jump makes you lean back."
+},
+"groups": [
+"shoulders"
+],
+"premium": true
+},
+{
+"id": "standing-overhead-dumbbell-extension",
+"name": "Standing overhead dumbbell extension",
+"category": "triceps",
+"primary": [
+"triceps"
+],
+"secondary": [
+"abs",
+"front_delts"
+],
+"musclesText": "Primary: triceps brachii, with emphasis on the long head because the arm is overhead. Secondary: core muscles bracing the standing position, anterior deltoids.",
+"pattern": "elbow extension",
+"equipment": [
+"dumbbell"
+],
+"difficulty": "beginner",
+"type": "hypertrophy",
+"mechanic": "isolation",
+"logging": "weight_reps",
+"increment": 2,
+"aliases": [
+"standing overhead triceps extension",
+"standing dumbbell triceps extension",
+"standing French press"
+],
+"goals": [
+"muscle",
+"endurance"
+],
+"steps": {
+"start": "Stand holding one dumbbell with both hands at arm's length above your head.",
+"setup": "Choose one dumbbell you can lift safely overhead and stand in clear space.",
+"feet": "Feet hip-width apart, knees soft, weight even across both feet.",
+"grip": "Cup the top inner plate of the dumbbell with both palms, thumbs and fingers wrapped around the handle, so it hangs vertically.",
+"posture": "Stand tall with ribs down and glutes lightly squeezed so your lower back does not arch.",
+"brace": "Brace your core before each rep and keep it braced as the weight goes behind your head.",
+"initiate": "Bend your elbows to lower the dumbbell behind your head, keeping your upper arms close to your ears.",
+"concentric": "Straighten your elbows to press the dumbbell back up until your arms are straight overhead.",
+"breathing": "Breathe in as you lower the dumbbell, breathe out as you press it up.",
+"eccentric": "Lower slowly behind your head until your forearms pass parallel to the floor or you feel a strong stretch in the triceps.",
+"rom": "From arms straight overhead to a deep stretch behind the head, as far as your shoulders allow without the elbows flaring or the back arching.",
+"tempo": "3-0-1-1: three seconds down, one second up, a one-second squeeze at the top.",
+"finish": "Finish each rep with the arms straight and the dumbbell directly above your head.",
+"exit": "Bring the dumbbell down in front of your face with bent elbows to your chest, then lower it to your thigh and set it down."
+},
+"cues": [
+"Elbows point forward",
+"Upper arms by your ears",
+"Ribs down",
+"Slow stretch behind the head",
+"Only the elbows move"
+],
+"mistakes": [
+{
+"m": "Elbows flaring wide to the sides.",
+"fix": "Keep the elbows pointing forward and close to the head; use a lighter dumbbell."
+},
+{
+"m": "Arching the lower back as the weight goes behind the head.",
+"fix": "Squeeze your glutes and keep your ribs down, or use the seated version."
+},
+{
+"m": "Upper arms moving forward and back so it becomes a pullover.",
+"fix": "Keep the upper arms still and move only at the elbows."
+},
+{
+"m": "Cutting the range short at the bottom.",
+"fix": "Lower until you feel a real stretch in the back of the arm."
+}
+],
+"safety": [
+"Hold the dumbbell securely with both hands at all times; never let it slip behind your head.",
+"Stop if you feel sharp elbow or shoulder pain.",
+"Use the seated version if standing makes your lower back arch."
+],
+"checks": [
+"Check the dumbbell plates or heads are secure before lifting it overhead.",
+"Make sure nobody is standing behind you."
+],
+"reduceLoad": "Reduce the load if your elbows flare, your back arches, or you cannot lower behind your head with control.",
+"regressions": [
+"overhead-dumbbell-extension",
+"overhead-cable-extension"
+],
+"progressions": [
+"ez-bar-lying-triceps-extension",
+"skull-crusher"
+],
+"alternatives": [
+"overhead-dumbbell-extension",
+"overhead-cable-extension",
+"rope-triceps-pushdown"
+],
+"programming": {
+"muscle": {
+"sets": "3",
+"reps": "10-15",
+"rest": "60-90 s",
+"rir": "1-2"
+},
+"strength": null,
+"endurance": {
+"sets": "2-3",
+"reps": "15-20",
+"rest": "45-60 s",
+"rir": "2-3"
+},
+"rehab": "Not a first-choice rehabilitation exercise; check with a physiotherapist before loading the elbow overhead after an injury.",
+"frequency": "1-2 times per week, 48 h between hard triceps sessions.",
+"initialLoad": "Choose a dumbbell you can lower and press 15 times with your elbows pointing forward and two reps to spare.",
+"judgeLoad": "The last reps should be slow but strict, with no back arch or elbow flare.",
+"progression": "Double progression in the 10-15 rep range.",
+"increase": "Move up to the next dumbbell (usually 2 kg) when all sets reach 15 reps.",
+"maintain": "Stay at the same dumbbell while reps are climbing, and drop back if your elbows ache the next day."
+},
+"groups": [
+"triceps"
+],
+"premium": true
+},
+{
+"id": "dumbbell-sumo-squat",
+"name": "Dumbbell sumo squat",
+"category": "quads",
+"primary": [
+"quads",
+"glutes",
+"adductors"
+],
+"secondary": [
+"hamstrings",
+"abs"
+],
+"musclesText": "Primary: quadriceps, gluteus maximus and the adductors (inner thigh), which work harder in the wide stance. Secondary: hamstrings and core stabilisers.",
+"pattern": "squat",
+"equipment": [
+"dumbbell"
+],
+"difficulty": "beginner",
+"type": "hypertrophy",
+"mechanic": "compound",
+"logging": "weight_reps",
+"increment": 2,
+"aliases": [
+"sumo squat",
+"dumbbell plie squat",
+"plie squat",
+"wide-stance dumbbell squat"
+],
+"goals": [
+"muscle",
+"strength",
+"endurance",
+"fat_loss"
+],
+"steps": {
+"start": "Stand with a wide stance holding one dumbbell vertically by the top plate, hanging between your legs.",
+"setup": "Choose one dumbbell you can hold with straight arms for the whole set, and stand in clear space.",
+"feet": "Feet about one and a half to two times shoulder-width apart, toes turned out 30-45 degrees.",
+"grip": "Hold the top of the dumbbell with both hands, arms long and relaxed so it hangs straight down.",
+"posture": "Chest up, back neutral and torso more upright than in a normal squat.",
+"brace": "Take a breath and brace your core before each rep.",
+"initiate": "Bend your knees and hips at the same time, pushing your knees out over your toes.",
+"concentric": "Stand up by driving through the whole foot, squeezing your glutes and inner thighs at the top.",
+"breathing": "Breathe in on the way down, breathe out as you stand up.",
+"eccentric": "Lower under control with the knees tracking over the toes and the torso staying upright.",
+"rom": "Descend until your thighs are about parallel to the floor, or as low as you can keep the knees out and the back neutral.",
+"tempo": "2-1-1-0: two seconds down, a one-second pause, one second up.",
+"finish": "Finish standing tall with hips and knees straight, the dumbbell still hanging between your legs.",
+"exit": "After the last rep squat down with a neutral back and set the dumbbell on the floor between your feet."
+},
+"cues": [
+"Knees out over the toes",
+"Chest up",
+"Sit straight down",
+"Drive through the whole foot",
+"Squeeze at the top"
+],
+"mistakes": [
+{
+"m": "Knees caving inwards.",
+"fix": "Push the knees out in line with the toes; reduce the stance width if you cannot."
+},
+{
+"m": "Leaning forward so the dumbbell swings.",
+"fix": "Keep the chest up and sit straight down between your feet."
+},
+{
+"m": "Heels lifting.",
+"fix": "Turn the toes out a little more and keep weight across the whole foot."
+},
+{
+"m": "Stance so wide that depth disappears.",
+"fix": "Bring the feet in until you can reach parallel comfortably."
+}
+],
+"safety": [
+"Stop if you feel sharp knee, hip or groin pain.",
+"Build stance width gradually if your inner thighs are tight.",
+"Keep the dumbbell close so it cannot swing into your legs."
+],
+"checks": [
+"Check the dumbbell plates or heads are secure.",
+"Use a non-slip floor and stable shoes."
+],
+"reduceLoad": "Reduce the load or the depth if your knees cave in, your heels lift or your back rounds.",
+"regressions": [
+"bodyweight-squat",
+"Bodyweight sumo squat"
+],
+"progressions": [
+"goblet-squat",
+"sumo-deadlift"
+],
+"alternatives": [
+"goblet-squat",
+"bodyweight-squat",
+"leg-press"
+],
+"programming": {
+"muscle": {
+"sets": "3-4",
+"reps": "10-15",
+"rest": "60-90 s",
+"rir": "1-2"
+},
+"strength": null,
+"endurance": {
+"sets": "2-3",
+"reps": "15-20",
+"rest": "45-60 s",
+"rir": "2-3"
+},
+"rehab": "A light, shallow sumo squat can help rebuild hip and knee confidence; check with a physiotherapist first.",
+"frequency": "1-3 times per week, 48 h between hard leg sessions.",
+"initialLoad": "Choose a dumbbell you can squat 15 times to parallel with your knees out and two reps to spare.",
+"judgeLoad": "The last reps should be slow but upright, with the knees tracking the toes.",
+"progression": "Double progression in the 10-15 rep range; grip often limits the load before the legs do.",
+"increase": "Move to the next dumbbell when all sets reach 15 reps with full depth.",
+"maintain": "Stay at the same dumbbell while reps are climbing, and drop back if your knees start to cave."
+},
+"groups": [
+"quadriceps",
+"glutes"
+],
+"premium": true
+},
+{
+"id": "superman",
+"name": "Superman",
+"category": "back",
+"primary": [
+"lower_back",
+"glutes"
+],
+"secondary": [
+"upper_back",
+"hamstrings",
+"rear_delts"
+],
+"musclesText": "Primary: erector spinae and gluteus maximus. Secondary: upper-back muscles, hamstrings and posterior deltoids.",
+"pattern": "hip extension",
+"equipment": [
+"bodyweight",
+"mat"
+],
+"difficulty": "beginner",
+"type": "core",
+"mechanic": "compound",
+"logging": "reps",
+"increment": 0,
+"aliases": [
+"superman hold",
+"prone back extension",
+"floor superman",
+"superman raise"
+],
+"goals": [
+"endurance",
+"rehab",
+"mobility"
+],
+"steps": {
+"start": "Lie face down on a mat with your arms stretched out in front of you and legs straight behind you.",
+"setup": "Use a mat on a flat floor. No other equipment is needed.",
+"feet": "Legs straight and about hip-width apart, toes pointing behind you.",
+"grip": "Arms straight in front of you, palms facing down or towards each other.",
+"posture": "Forehead resting just above the mat, neck long and in line with your spine.",
+"brace": "Lightly tighten your abs and squeeze your glutes before you lift.",
+"initiate": "Lift your arms, chest and legs a few centimetres off the mat at the same time, leading with the glutes and upper back.",
+"concentric": "Raise until your thighs and upper chest just clear the mat, keeping your gaze down.",
+"breathing": "Breathe out as you lift, breathe steadily during the hold, breathe in as you lower.",
+"eccentric": "Lower your arms and legs slowly back to the mat.",
+"rom": "A small lift: thighs and chest just off the mat. Height comes from the hips and upper back, not from cranking the lower back or neck.",
+"tempo": "1-2-2-0: one second up, a two-second hold, two seconds down.",
+"finish": "Finish each rep fully relaxed on the mat before lifting again.",
+"exit": "After the last rep, rest face down for a breath, then push back into a kneeling position to get up."
+},
+"cues": [
+"Squeeze your glutes",
+"Reach long, not high",
+"Eyes on the floor",
+"Lift and pause",
+"Lower slowly"
+],
+"mistakes": [
+{
+"m": "Lifting as high as possible by bending the lower back hard.",
+"fix": "Make the lift smaller and think about reaching long."
+},
+{
+"m": "Looking up and straining the neck.",
+"fix": "Keep your gaze on the mat a little in front of you."
+},
+{
+"m": "Bending the knees to raise the feet.",
+"fix": "Keep the legs straight and lift from the glutes."
+},
+{
+"m": "Swinging up and dropping down.",
+"fix": "Pause at the top and lower over two seconds."
+}
+],
+"safety": [
+"Stop if you feel sharp or radiating lower-back pain.",
+"Keep the movement small if your back is sensitive.",
+"If lifting arms and legs together is too much, lift only the legs or only the arms."
+],
+"checks": [
+"Use a mat on a flat, non-slip floor.",
+"Have clear space in front of and behind you."
+],
+"reduceLoad": "Lift only the arms or only the legs, make the lift smaller, or shorten the hold if your back complains.",
+"regressions": [
+"bird-dog",
+"glute-bridge"
+],
+"progressions": [
+"back-extension",
+"reverse-hyperextension"
+],
+"alternatives": [
+"bird-dog",
+"back-extension",
+"glute-bridge"
+],
+"programming": {
+"muscle": null,
+"strength": null,
+"endurance": {
+"sets": "2-3",
+"reps": "8-12 with a 2-3 s hold",
+"rest": "45-60 s",
+"rir": "2-3"
+},
+"rehab": "A small-range superman or the bird dog is commonly used to build back-extensor endurance after back pain; follow a physiotherapist's guidance.",
+"frequency": "2-4 times per week; it is low fatigue.",
+"initialLoad": "Bodyweight only; start with 8 reps and a 2-second hold.",
+"judgeLoad": "Each rep should feel controlled with no pinching in the lower back.",
+"progression": "Add reps up to 12, then lengthen the hold to 5 seconds, then move to the back extension.",
+"increase": "Progress once you can do 3 sets of 12 with a 5-second hold and no back discomfort the next day.",
+"maintain": "Keep the same reps if your back feels stiff the next morning, and reduce the range if it aches."
+},
+"groups": [
+"back",
+"glutes",
+"bodyweight"
+],
+"premium": false
+},
+{
+"id": "jumping-jack",
+"name": "Jumping jacks",
+"category": "cardio",
+"primary": [
+"cardio",
+"calves"
+],
+"secondary": [
+"side_delts",
+"glutes",
+"adductors"
+],
+"musclesText": "Primary: cardiovascular system and calves. Secondary: lateral deltoids, gluteus medius and the hip abductors and adductors.",
+"pattern": "locomotion",
+"equipment": [
+"bodyweight"
+],
+"difficulty": "beginner",
+"type": "conditioning",
+"mechanic": "compound",
+"logging": "time",
+"increment": 0,
+"aliases": [
+"jumping jack",
+"star jumps",
+"side straddle hop"
+],
+"goals": [
+"fat_loss",
+"endurance"
+],
+"steps": {
+"start": "Stand tall with your feet together and your arms by your sides.",
+"setup": "No equipment needed. Choose a flat, non-slip floor and wear supportive shoes.",
+"feet": "Feet together, landing softly on the balls of the feet each time.",
+"grip": "Hands relaxed and open; arms stay almost straight throughout.",
+"posture": "Chest up, shoulders relaxed and eyes forward.",
+"brace": "Keep your core lightly braced so your trunk stays steady as you jump.",
+"initiate": "Jump your feet out to slightly wider than shoulder-width while you swing your arms out and up overhead.",
+"concentric": "Land softly with knees slightly bent, hands meeting or nearly meeting above your head.",
+"breathing": "Breathe in a steady rhythm, roughly one breath every two jumps.",
+"eccentric": "Jump your feet back together as you bring your arms back down to your sides.",
+"rom": "Feet from together to slightly wider than shoulder-width; arms from your sides to overhead.",
+"tempo": "Steady and rhythmic, about one jack per second to start.",
+"finish": "Each rep ends standing tall with feet together and arms at your sides.",
+"exit": "At the end of the interval, slow to a march on the spot for a few breaths before stopping."
+},
+"cues": [
+"Land softly",
+"Knees slightly bent",
+"Arms long",
+"Steady rhythm",
+"Stay tall"
+],
+"mistakes": [
+{
+"m": "Landing heavily on stiff legs.",
+"fix": "Land on the balls of the feet with soft knees."
+},
+{
+"m": "Knees caving in as the feet land wide.",
+"fix": "Keep the knees in line with the toes; jump a little narrower."
+},
+{
+"m": "Arms only reaching shoulder height.",
+"fix": "Reach all the way overhead, or slow down until you can."
+},
+{
+"m": "Going too fast and losing rhythm.",
+"fix": "Slow down to a pace you can hold for the whole interval."
+}
+],
+"safety": [
+"Use the low-impact version (step one foot out at a time) if jumping hurts your knees, ankles or pelvic floor.",
+"Stop if you feel chest pain, dizziness or unusual breathlessness.",
+"Avoid hard, slippery floors."
+],
+"checks": [
+"Make sure the floor is flat and not slippery.",
+"Wear supportive shoes.",
+"Have clear space around you for your arms."
+],
+"reduceLoad": "Step side to side instead of jumping, slow the pace, or shorten the interval.",
+"regressions": [
+"low-impact-intervals",
+"Step jacks (one foot out at a time)"
+],
+"progressions": [
+"skipping-rope",
+"running-intervals"
+],
+"alternatives": [
+"high-knees",
+"skipping-rope",
+"low-impact-intervals"
+],
+"programming": {
+"muscle": null,
+"strength": null,
+"endurance": {
+"sets": "4-8 rounds",
+"reps": "30-45 s",
+"rest": "15-30 s",
+"rir": "RPE 6-8 out of 10"
+},
+"rehab": null,
+"frequency": "2-4 times per week, often as a warm-up or in circuits.",
+"initialLoad": "Start with 4 rounds of 20-30 seconds at an easy pace.",
+"judgeLoad": "You should be breathing hard but able to keep a steady rhythm and soft landings to the end of each round.",
+"progression": "Add 5-10 seconds per round or one extra round each week, then reduce rest.",
+"increase": "Increase when every round is completed with soft landings and no joint soreness the next day.",
+"maintain": "Keep the volume the same if your calves or shins feel sore the next morning, and switch to step jacks if jumping hurts."
+},
+"groups": [
+"cardio",
+"bodyweight",
+"full_body"
+],
+"premium": false
+},
+{
+"id": "high-knees",
+"name": "High knees",
+"category": "cardio",
+"primary": [
+"cardio",
+"hip_flexors"
+],
+"secondary": [
+"quads",
+"calves",
+"abs"
+],
+"musclesText": "Primary: cardiovascular system and hip flexors. Secondary: quadriceps, calves and core stabilisers.",
+"pattern": "locomotion",
+"equipment": [
+"bodyweight"
+],
+"difficulty": "beginner",
+"type": "conditioning",
+"mechanic": "compound",
+"logging": "time",
+"increment": 0,
+"aliases": [
+"high knee",
+"high knee run",
+"running on the spot with high knees"
+],
+"goals": [
+"fat_loss",
+"endurance"
+],
+"steps": {
+"start": "Stand tall with your feet hip-width apart and your arms bent at about 90 degrees.",
+"setup": "No equipment needed. Choose a flat, non-slip floor and wear supportive shoes.",
+"feet": "Feet hip-width apart, staying on the balls of the feet.",
+"grip": "Hands relaxed, arms bent and swinging in opposition to the legs as when running.",
+"posture": "Stand tall with a slight forward lean from the ankles; do not lean back.",
+"brace": "Keep your core braced so your trunk stays steady while the legs drive.",
+"initiate": "Drive one knee up towards hip height while the opposite arm swings forward.",
+"concentric": "Bring the knee up to about hip height, then quickly switch legs in a running rhythm.",
+"breathing": "Breathe in a steady rhythm; do not hold your breath.",
+"eccentric": "Place each foot down softly under your hip as the other knee comes up.",
+"rom": "Knees up to about hip height on each step; reduce the height if you cannot keep good posture.",
+"tempo": "Quick and rhythmic; start at a jog pace and build to a fast pace you can hold.",
+"finish": "Each rep ends when both knees have lifted once.",
+"exit": "At the end of the interval, slow to a march on the spot for a few breaths before stopping."
+},
+"cues": [
+"Knees to hip height",
+"Stay tall",
+"Quick light feet",
+"Drive the arms",
+"Land under your hips"
+],
+"mistakes": [
+{
+"m": "Leaning back to get the knees higher.",
+"fix": "Stay tall with a slight forward lean and accept a lower knee height."
+},
+{
+"m": "Landing flat-footed and heavily.",
+"fix": "Stay on the balls of your feet and land softly."
+},
+{
+"m": "Arms hanging or crossing the body.",
+"fix": "Swing the arms forward and back in opposition to the legs."
+},
+{
+"m": "Knees only rising a few centimetres.",
+"fix": "Slow the pace until the knees reach hip height, then speed up."
+}
+],
+"safety": [
+"March with high knees instead of running if impact hurts your knees, ankles or pelvic floor.",
+"Stop if you feel chest pain, dizziness or unusual breathlessness.",
+"Avoid slippery floors."
+],
+"checks": [
+"Make sure the floor is flat and not slippery.",
+"Wear supportive shoes.",
+"Have clear space around you."
+],
+"reduceLoad": "March with high knees instead of running, lower the knee height, or shorten the interval.",
+"regressions": [
+"low-impact-intervals",
+"High-knee march"
+],
+"progressions": [
+"running-intervals",
+"mountain-climber"
+],
+"alternatives": [
+"jumping-jack",
+"mountain-climber",
+"skipping-rope"
+],
+"programming": {
+"muscle": null,
+"strength": null,
+"endurance": {
+"sets": "4-8 rounds",
+"reps": "20-40 s",
+"rest": "20-40 s",
+"rir": "RPE 7-8 out of 10"
+},
+"rehab": null,
+"frequency": "2-3 times per week, often in circuits or as a finisher.",
+"initialLoad": "Start with 4 rounds of 20 seconds at a jog pace with 40 seconds rest.",
+"judgeLoad": "Your knees should still reach close to hip height and your posture stay tall at the end of every round.",
+"progression": "Add 5 seconds per round or one extra round each week, then reduce rest.",
+"increase": "Increase when every round keeps hip-height knees and soft landings to the end.",
+"maintain": "Keep the volume the same if your hip flexors or shins feel sore the next day, and switch to marching if impact hurts."
+},
+"groups": [
+"cardio",
+"bodyweight",
+"full_body"
 ],
 "premium": false
 }

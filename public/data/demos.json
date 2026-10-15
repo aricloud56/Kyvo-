@@ -1192,6 +1192,90 @@
         ],
         "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Wall Sit."
       }
+    },
+    "crunch": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/crunch.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Crunch."
+      }
+    },
+    "standing-dumbbell-shoulder-press": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/dumbbell_shoulder_press.json",
+        "views": [
+          "Front",
+          "Side",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Dumbbell Shoulder Press."
+      }
+    },
+    "standing-overhead-dumbbell-extension": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/overhead_tricep_extension.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Overhead Tricep Extension."
+      }
+    },
+    "dumbbell-sumo-squat": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/sumo_squat.json",
+        "views": [
+          "Front",
+          "Side",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Sumo Squat."
+      }
+    },
+    "superman": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/superman.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Superman."
+      }
+    },
+    "jumping-jack": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/jumping_jack.json",
+        "views": [
+          "Front",
+          "Side",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: Jumping Jack."
+      }
+    },
+    "high-knees": {
+      "model3d": {
+        "glb": "models/body.glb",
+        "clip": "models/og3d/high_knees.json",
+        "views": [
+          "Side",
+          "Front",
+          "Rear"
+        ],
+        "credit": "3D body and motion: OpenGym3D exercise pack (MIT) using the MakeHuman anatomical male (CC0). Equipment is not shown. Rendered live with three.js (MIT). Pack exercise: High Knees."
+      }
     }
   }
 }

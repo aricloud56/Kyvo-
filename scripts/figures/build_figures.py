@@ -183,6 +183,12 @@ def rower():
     return fig(A, B, equip=[{'t': 'bar', 'at': 'w'}, {'t': 'cable', 'at': 'w', 'to': [170, 160]}], scene=[{'l': [20, 182, 180, 182]}, {'r': [160, 150, 20, 34]}])
 
 
+# Standing versions of the seated library poses, plus the two cardio drills (side view; the jumping jack's leg spread is sideways, so only the arms show it).
+DB = [{'t': 'db', 'at': 'w'}]
+AUTHORED['standing-dumbbell-shoulder-press'] = fig(pose(180, 25, 175, 0, 0, H2=0, S2=0), pose(180, 176, 178, 0, 0, H2=0, S2=0), equip=DB)
+AUTHORED['standing-overhead-dumbbell-extension'] = fig(pose(180, 172, -20, 0, 0, H2=0, S2=0), pose(180, 172, 176, 0, 0, H2=0, S2=0), equip=DB)
+AUTHORED['jumping-jack'] = fig(pose(180, 0, 0, 0, 0, H2=0, S2=0), pose(180, 172, 176, 4, -4, H2=-4, S2=4, anchor=('a', (100, 180))))
+AUTHORED['high-knees'] = walk(kind='march')
 AUTHORED['stationary-cycling'] = bike(False)
 AUTHORED['outdoor-cycling'] = bike(True)
 AUTHORED['rowing-machine'] = rower()
@@ -212,6 +218,7 @@ MAP = {
     'barbell-glute-bridge': ('Glute bridge', False, {'equip': [{'t': 'plate', 'at': 'p'}]}), 'single-leg-glute-bridge': ('Glute bridge', True),
     'cable-pull-through': ('Romanian deadlift', True, {'equip': [{'t': 'bar', 'at': 'w'}, {'t': 'cable', 'at': 'w', 'to': [6, 184]}]}),
     'glute-ham-raise': ('nordic-hamstring-curl', True), 'reverse-crunch': ('Bent-knee hip raise', False),
+    'dumbbell-sumo-squat': ('Sumo squat', False),
     'machine-crunch': ('Seated ab crunch machine', False), 'hanging-knee-raise': ('Hanging leg raise', False), 'captains-chair-knee-raise': ('Hanging leg raise', True),
     'bicycle-crunch': ('Cross-body crunch', True), 'weighted-decline-crunch': ('Decline sit-up', False, {'equip': [{'t': 'plate', 'at': 's', 'r': 11}]}),
 }

@@ -23,7 +23,7 @@ KYVO is a mobile-first web app whose main screen is the **Daily Plan**. Each day
 Onboarding (goal, body stats, experience, equipment, training days, diet, allergies, exclusions) creates the profile, targets, a weekly program and the first Daily Plan straight away.
 
 Around the Daily Plan:
-- **Training:** an exercise library (170 exercises), a planner and a live workout logger with progressive overload.
+- **Training:** an exercise library (177 exercises), a planner and a live workout logger with progressive overload.
 - **Nutrition:** a food diary, 39 recipes and meal swaps.
 - **Progress:** analytics from logged data and private progress photos.
 - **Billing:** Free and Premium tiers with Stripe.
@@ -54,7 +54,7 @@ A self-contained interactive **preview** (in-memory sample data, same engine) is
 | Onboarding | Profile, targets (estimated or manual), weekly program, first Daily Plan | Tested (scenario A) |
 | Daily Plan | Workout or rest day, meals for each slot, targets, checklist (auto-ticks on logging), end-of-day summary | Tested (A, D, E) |
 | Daily Plan | Regenerate from today after profile changes, keeping past plans and history | Tested |
-| Exercises | 170 exercises with steps, cues, mistakes, safety, programming, alternatives; search and filters; favourites; media with fallback | Tested (count, content); UI implemented |
+| Exercises | 177 exercises with steps, cues, mistakes, safety, programming, alternatives; search and filters; favourites; media with fallback | Tested (count, content); UI implemented |
 | Workouts | Templates (8), custom workouts, live logger with rest timer, pain flag, review, history, personal records | Tested (B; unit tests for progression and records) |
 | Progression | Increase only when all planned work was met; hold after failed work; never increase after pain; reduce after three failures | Tested (unit) |
 | Nutrition | Food search (93 foods), custom foods, servings and grams, edit and delete entries, copy yesterday, saved meals, water | Tested (C); other parts implemented |
@@ -68,7 +68,7 @@ A self-contained interactive **preview** (in-memory sample data, same engine) is
 
 ## 4. Exercise count
 
-**170 published exercises** (61 available on Free, 109 Premium). Each has instructions, cues, common mistakes, safety notes and alternatives. The integration test asserts exactly 170 with unique ids and names.
+**177 published exercises** (65 available on Free, 112 Premium). Each has instructions, cues, common mistakes, safety notes and alternatives. The integration test asserts exactly 177 with unique ids and names.
 
 Media: 90 exercises have a demonstration.
 - 87 are YouTube videos from the Renaissance Periodization channel. Each was matched by exact title and channel on 14 October 2026; the embed ids are stored, not invented. Re-check them before launch, because videos can be removed.
@@ -77,7 +77,7 @@ Media: 90 exercises have a demonstration.
 - The admin dashboard lists exercises without media.
 
 Illustrations (added after the first preview):
-- Every one of the 170 exercises has an animated start-to-end movement illustration with the primary muscles highlighted, plus a front and back muscle map. 142 are drawn for that exercise; 28 use a close stand-in figure from a similar movement (marked `approx` in `public/data/figures.json`). They are drawn by `scripts/figures/build_figures.py` from the Rep & Plate pose library.
+- Every one of the 177 exercises has an animated start-to-end movement illustration with the primary muscles highlighted, plus a front and back muscle map. 149 are drawn for that exercise; 28 use a close stand-in figure from a similar movement (marked `approx` in `public/data/figures.json`). They are drawn by `scripts/figures/build_figures.py` from the Rep & Plate pose library.
 - 12 exercises and 10 recipes have real photos from Wikimedia Commons. Each shows its author, licence and source link in the app (`public/data/photos.json`). Recipe photos are labelled as a serving suggestion of a similar dish.
 - A unit test checks that every exercise has a figure and every credited photo file exists.
 
@@ -185,7 +185,7 @@ Bugs found by the tests and fixed:
 - Lists cap at 200 rows; there is no pagination for very long histories.
 - Rate limiting is in memory, so it only works per process; use a shared limiter before running more than one instance.
 - Food values are approximate generic values (section 6).
-- 80 of 170 exercises have no video, only written instructions. The YouTube links should be re-checked before launch.
+- 87 of 177 exercises have no video, only written instructions. The YouTube links should be re-checked before launch.
 - ESLint runs without typescript-eslint (unavailable here); type safety relies on strict `tsc`.
 - In the preview only: data lives in memory and resets on reload, the history is labelled sample data, YouTube demos open as links, and sign-in, photo upload and admin are switched off.
 
@@ -246,7 +246,7 @@ Full list: `docs/LEGAL-REVIEW.md`.
 | 7 | Calories and macros come from actual data | Tested | Unit tests on targets and recipe nutrition; scenario C totals |
 | 8 | Users can log and swap meals | Tested | Scenarios C and D |
 | 9 | Workout and nutrition changes persist | Tested | Scenario B (refresh), C, D |
-| 10 | At least 150 exercises | Tested | 170, asserted in integration test |
+| 10 | At least 150 exercises | Tested | 177, asserted in integration test |
 | 11 | Instructions and media fallbacks work | Implemented | Every exercise has steps; 80 without video show the fallback (checked in the preview) |
 | 12 | Users can complete and review workouts | Tested | Scenario B |
 | 13 | Checklists persist | Tested | Integration auto-checklist test; scenario A |

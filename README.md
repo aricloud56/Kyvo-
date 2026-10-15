@@ -38,7 +38,7 @@ DATABASE_ADMIN_URL=postgres://postgres:PASSWORD@127.0.0.1:5432/kyvo_dev npm run 
 # 4. Let kyvo_app log in (pick your own password; it goes in DATABASE_URL).
 psql postgres://postgres:PASSWORD@127.0.0.1:5432/kyvo_dev -c "alter role kyvo_app login password 'kyvo_app_dev'"
 
-# 5. Load content: 170 exercises, exercise media, 93 foods, 39 recipes.
+# 5. Load content: 177 exercises, exercise media, 93 foods, 39 recipes.
 DATABASE_ADMIN_URL=postgres://postgres:PASSWORD@127.0.0.1:5432/kyvo_dev npm run db:seed
 
 # 6. Run.

@@ -1,5 +1,5 @@
 {
-  "_note": "KYVO exercise id -> OpenGym3D pack exercise, checked by hand: same body movement and stance (the pack draws no equipment). views: camera order, the first is the default. Every pack exercise is converted, but only these are shown. No KYVO match: bicep_curl (both arms at once), crunch, dumbbell_shoulder_press (standing), high_knees, jumping_jack, overhead_tricep_extension (standing), sumo_squat, superman. Rejected after rendering frame by frame, because they would teach the wrong movement: bent_over_row (one arm pulls, torso nearly upright), front_raise (one arm, raised out to the side), glute_bridge (shoulders float above the floor, arms reach through it), push_up (the chest barely lowers).",
+  "_note": "KYVO exercise id -> OpenGym3D pack exercise, checked by hand: same body movement and stance (the pack draws no equipment). views: camera order, the first is the default. Every pack exercise is converted, but only these are shown. crunch, dumbbell_shoulder_press, high_knees, jumping_jack, overhead_tricep_extension, sumo_squat and superman had no KYVO exercise, so KYVO exercises were written for them (standing shoulder press, standing overhead extension, dumbbell sumo squat and the rest). Rejected after rendering frame by frame, because they would teach the wrong movement: bent_over_row (one arm pulls, torso nearly upright), front_raise (one arm, raised out to the side), glute_bridge (shoulders float above the floor, arms reach through it), push_up (the chest barely lowers), bicep_curl (the arms alternate and the resting arm swings out to the side; KYVO already has curl exercises).",
   "standing-calf-raise": {
     "pack": "calf_raise",
     "views": [
@@ -98,6 +98,62 @@
   },
   "wall-sit": {
     "pack": "wall_sit",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  },
+  "crunch": {
+    "pack": "crunch",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  },
+  "standing-dumbbell-shoulder-press": {
+    "pack": "dumbbell_shoulder_press",
+    "views": [
+      "Front",
+      "Side",
+      "Rear"
+    ]
+  },
+  "standing-overhead-dumbbell-extension": {
+    "pack": "overhead_tricep_extension",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  },
+  "dumbbell-sumo-squat": {
+    "pack": "sumo_squat",
+    "views": [
+      "Front",
+      "Side",
+      "Rear"
+    ]
+  },
+  "superman": {
+    "pack": "superman",
+    "views": [
+      "Side",
+      "Front",
+      "Rear"
+    ]
+  },
+  "jumping-jack": {
+    "pack": "jumping_jack",
+    "views": [
+      "Front",
+      "Side",
+      "Rear"
+    ]
+  },
+  "high-knees": {
+    "pack": "high_knees",
     "views": [
       "Side",
       "Front",

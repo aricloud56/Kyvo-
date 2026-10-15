@@ -18,11 +18,11 @@ The viewer reads its media only from data files, so assets can be swapped withou
 2. `public/data/media-pack.json`: created by the pack importer from a purchased library.
 3. The KYVO movement illustration (`public/data/figures.json`) and photos (`public/data/photos.json`).
 
-**Free demos in use now:** 52 exercises have looping clips made from the free Everkinetic drawings (CC BY-SA 4.0, credited on each clip). Each clip cross-fades the start and end drawings. They are built by `scripts/media/build-everkinetic.mjs`, which only uses exact name matches plus the hand-checked `scripts/media/everkinetic-map.json`. The CC BY-SA licence requires the credit line, and adapted clips must stay under CC BY-SA. The other 118 exercises use the KYVO movement illustration. Everkinetic has no drawing for lat pulldown, chin-up or the shoulder-press machine.
+**Free demos in use now:** 52 exercises have looping clips made from the free Everkinetic drawings (CC BY-SA 4.0, credited on each clip). Each clip cross-fades the start and end drawings. They are built by `scripts/media/build-everkinetic.mjs`, which only uses exact name matches plus the hand-checked `scripts/media/everkinetic-map.json`. The CC BY-SA licence requires the credit line, and adapted clips must stay under CC BY-SA. The other 125 exercises use the KYVO movement illustration. Everkinetic has no drawing for lat pulldown, chin-up or the shoulder-press machine.
 
 ## Live 3D demos
 
-Fourteen exercises have a real-time 3D demo, rendered in the browser with three.js. It is the first source on their page ("3D"), with Rear, Side and Front camera views (each exercise sets the order, the first is the default), play/pause, replay and 0.5× speed. Main muscles are `#E8552B`, assisting muscles `#F2A65A`, skin light grey, with dark-grey shorts. Highlighting is illustrative, not measured muscle activity. If WebGL is unavailable or a file fails to load, the viewer shows the movement illustration and a message, and hides the 3D controls.
+Twenty-one exercises have a real-time 3D demo, rendered in the browser with three.js. It is the first source on their page ("3D"), with Rear, Side and Front camera views (each exercise sets the order, the first is the default), play/pause, replay and 0.5× speed. Main muscles are `#E8552B`, assisting muscles `#F2A65A`, skin light grey, with dark-grey shorts. Highlighting is illustrative, not measured muscle activity. If WebGL is unavailable or a file fails to load, the viewer shows the movement illustration and a message, and hides the 3D controls.
 
 | Part | File | Source and licence |
 |---|---|---|
@@ -32,7 +32,7 @@ Fourteen exercises have a real-time 3D demo, rendered in the browser with three.
 | Lat pulldown machine, lighting, colours | `src/client/visuals/viewer3d.ts` | KYVO code |
 | 3D engine | `public/vendor/three/` | three.js r170 (MIT), self-hosted so the CSP stays `script-src 'self'` |
 
-### Imported from OpenGym3D (13 exercises)
+### Imported from OpenGym3D (20 exercises)
 
 All 24 pack exercises use the same body, so the importer keeps one body and writes a small file per exercise (about 50–110 KB) with the animation tracks and the per-vertex muscle paint. All 24 are converted; only the hand-checked pairs in `scripts/media/opengym3d-map.json` are shown:
 
@@ -50,12 +50,20 @@ All 24 pack exercises use the same body, so the importer keeps one body and writ
 | Dumbbell lateral raise | lateral_raise | Front |
 | Hammer curl | hammer_curl | Front |
 | Standing barbell overhead press | overhead_press | Front |
+| Standing dumbbell shoulder press* | dumbbell_shoulder_press | Front |
+| Standing overhead dumbbell extension* | overhead_tricep_extension | Side |
+| Dumbbell sumo squat* | sumo_squat | Front |
+| Crunch* | crunch | Side |
+| Superman* | superman | Side |
+| Jumping jacks* | jumping_jack | Front |
+| High knees* | high_knees | Side |
+
+\* Added to KYVO as new exercises (October 2026) because the pack had these movements and KYVO did not. Each has full instructions, cues, mistakes, safety notes, programming and a KYVO movement illustration. Shoulder press, overhead extension and sumo squat are Premium; the other four are Free.
 
 Limits: the pack draws **no equipment** (no bar, dumbbells, wall or machine), and the caption says so. The muscle paint comes from the pack, so it can differ slightly from the KYVO muscle list in the legend.
 
 Not shown:
-- No matching KYVO exercise: bicep curl (both arms at once), crunch, standing dumbbell shoulder press, high knees, jumping jack, standing overhead triceps extension, sumo squat, superman.
-- Rejected after rendering each motion frame by frame, because they would teach the wrong movement: bent-over row (only one arm pulls, torso nearly upright), front raise (one arm, raised out to the side), glute bridge (the shoulders float above the floor and the arms reach through it), push-up (the chest barely lowers).
+- Rejected after rendering each motion frame by frame, because they would teach the wrong movement: bent-over row (only one arm pulls, torso nearly upright), front raise (one arm, raised out to the side), glute bridge (the shoulders float above the floor and the arms reach through it), push-up (the chest barely lowers), bicep curl (the arms alternate and the resting arm swings out to the side; KYVO already has curl exercises).
 
 To re-import (for example from a newer pack): unzip `dist/opengym3d-exercise-pack-v1.zip` from the OpenGym3D repository and run `node scripts/media/import-opengym3d.mjs --pack <folder>/pack`. To show another pack motion on a KYVO exercise, add it to the map and re-run; check it frame by frame first.
 
