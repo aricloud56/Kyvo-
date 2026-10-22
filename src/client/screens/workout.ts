@@ -44,16 +44,16 @@ export async function liveWorkoutScreen(view: HTMLElement) {
   const setsFor = (exId: string) => s.sets.filter((x: any) => x.exerciseId === exId);
 
   view.innerHTML = html`
-  <div class="topbar"><div><p class="eyebrow" style="margin:0">WORKOUT IN PROGRESS</p><h1 style="margin:0">${s.name}</h1><p class="small muted num" style="margin:0" id="elapsed"></p></div>
+  <div class="topbar kyvo-live-header"><div><p class="eyebrow" style="margin:0">WORKOUT IN PROGRESS</p><h1 style="margin:0">${s.name}</h1><p class="small muted num" style="margin:0" id="elapsed"></p></div>
     <button class="btn btn-primary" data-action="finish">Finish</button></div>
-  <div id="rest" class="timer" role="timer" aria-live="off" hidden><span>Rest <span class="t">0:00</span></span><span class="row"><button class="btn btn-sm" data-action="rest-add">+15 s</button><button class="btn btn-sm" data-action="rest-skip">Skip</button></span></div>
+  <div id="rest" class="timer kyvo-live-rest" role="timer" aria-live="off" hidden><span>Rest <span class="t">0:00</span></span><span class="row"><button class="btn btn-sm" data-action="rest-add">+15 s</button><button class="btn btn-sm" data-action="rest-skip">Skip</button></span></div>
   ${s.planned.length ? '' : html`<p class="empty">No exercises yet. Add one to start logging.</p>`}
   ${s.planned.map((x: any) => {
     const logged = setsFor(x.exerciseId);
     const rows = Math.max(x.sets, logged.length ? Math.max(...logged.map((l: any) => l.setIndex)) + 1 : 0);
     const prev = s.previous[x.exerciseId] as any[] | undefined;
     const isW = x.mode === 'weight_reps';
-    return html`<section class="card" style="margin-top:14px" data-ex="${x.exerciseId}" data-mode="${x.mode}" data-rest="${x.restSec}">
+    return html`<section class="card kyvo-live-exercise" style="margin-top:14px" data-ex="${x.exerciseId}" data-mode="${x.mode}" data-rest="${x.restSec}">
       <div class="card-head"><h2 style="font-size:18px"><a href="#/exercise/${x.exerciseId}" style="color:var(--text)">${x.name}</a></h2><button class="btn btn-ghost btn-sm" data-action="replace" data-ex="${x.exerciseId}">${icon('swap', 16)} Replace</button></div>
       <p class="small muted num" style="margin-top:-6px">${prescriptionText(x)} · ${restText(x.restSec)}${isW && x.weightKg ? ` · suggested ${wOut(x.weightKg)} ${wUnit()}` : ''}</p>
       ${prev?.length ? html`<p class="xs muted">Last time: ${prev.map((p) => (isW ? `${wOut(p.weightKg)}×${p.reps ?? 0}` : x.mode === 'time' ? `${p.durationSec ?? 0}s` : `${p.reps ?? 0}`)).join(', ')}</p>` : ''}
@@ -69,7 +69,7 @@ export async function liveWorkoutScreen(view: HTMLElement) {
           ${isW ? html`<input type="number" inputmode="decimal" step="0.5" min="0" aria-label="Set ${i + 1} weight in ${wUnit()}" data-f="w" value="${w == null ? '' : wOut(w)}">`
             : x.mode === 'distance_time' ? html`<input type="number" inputmode="numeric" min="0" aria-label="Set ${i + 1} distance in metres" data-f="d" value="${l?.distanceM ?? ''}">` : html`<span></span>`}
           <input type="number" inputmode="numeric" min="0" aria-label="Set ${i + 1} ${valueLabel(x.mode).toLowerCase()}" data-f="v" value="${v ?? ''}" placeholder="${x.repMax}">
-          <button class="done" data-action="done" aria-pressed="${String(done)}" aria-label="Set ${i + 1} ${done ? 'completed, tap to undo' : 'mark complete'}">${done ? '✓' : ''}</button></div>`;
+          <button class="done kyvo-set-complete" data-action="done" aria-pressed="${String(done)}" aria-label="Set ${i + 1} ${done ? 'completed, tap to undo' : 'mark complete'}">${done ? '✓' : ''}</button></div>`;
       })}
       <button class="btn btn-ghost btn-sm" data-action="add-set" data-ex="${x.exerciseId}" data-rows="${rows}">+ Add set</button>
     </section>`;
