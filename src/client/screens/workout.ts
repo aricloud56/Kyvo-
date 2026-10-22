@@ -4,6 +4,7 @@ import { go } from '../app.js';
 import { $, $$, confirmSheet, html, numOrNull, onActions, sheet, toast } from '../dom.js';
 import { prescriptionText, restText, shortDate, wIn, wOut, wUnit } from '../format.js';
 import { icon } from '../ui.js';
+import { exerciseTile, loadVisuals } from '../visuals/assets.js';
 
 let timer: { end: number; handle: number } | null = null;
 
@@ -35,7 +36,7 @@ function tickRest() {
 const valueLabel = (mode: string) => (mode === 'time' ? 'Seconds' : mode === 'distance_time' ? 'Minutes' : 'Reps');
 
 export async function liveWorkoutScreen(view: HTMLElement) {
-  const s = await api.get<any>('/api/sessions/active');
+  const [s] = await Promise.all([api.get<any>('/api/sessions/active'), loadVisuals()]);
   if (!s) {
     toast('No workout in progress.');
     return go('#/today');
@@ -55,6 +56,7 @@ export async function liveWorkoutScreen(view: HTMLElement) {
     const isW = x.mode === 'weight_reps';
     return html`<section class="card kyvo-live-exercise" style="margin-top:14px" data-ex="${x.exerciseId}" data-mode="${x.mode}" data-rest="${x.restSec}">
       <div class="card-head"><h2 style="font-size:18px"><a href="#/exercise/${x.exerciseId}" style="color:var(--text)">${x.name}</a></h2><button class="btn btn-ghost btn-sm" data-action="replace" data-ex="${x.exerciseId}">${icon('swap', 16)} Replace</button></div>
+      <div class="kyvo-live-media"><a class="kyvo-live-media-link" href="#/exercise/${x.exerciseId}" aria-label="View ${x.name} demonstration">${html`${exerciseTile(x.exerciseId, x.name, [], { photo: true, animate: true })}`}</a><div class="kyvo-live-media-info"><span class="tag accent">MOVEMENT GUIDE</span><span class="small muted">Tap to view demonstration, muscles and technique</span></div></div>
       <p class="small muted num" style="margin-top:-6px">${prescriptionText(x)} · ${restText(x.restSec)}${isW && x.weightKg ? ` · suggested ${wOut(x.weightKg)} ${wUnit()}` : ''}</p>
       ${prev?.length ? html`<p class="xs muted">Last time: ${prev.map((p) => (isW ? `${wOut(p.weightKg)}×${p.reps ?? 0}` : x.mode === 'time' ? `${p.durationSec ?? 0}s` : `${p.reps ?? 0}`)).join(', ')}</p>` : ''}
       <div class="set-head" aria-hidden="true"><span>Set</span><span>${isW ? wUnit() : x.mode === 'distance_time' ? 'Distance (m)' : ''}</span><span>${valueLabel(x.mode)}</span><span>Done</span></div>
