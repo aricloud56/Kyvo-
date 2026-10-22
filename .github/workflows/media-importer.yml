@@ -1,0 +1,26 @@
+name: Media importer tests
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/media/import-pack.mjs'
+      - 'tests/import-pack.test.mjs'
+      - '.github/workflows/media-importer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  import-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run media importer regression tests
+        run: node --test tests/import-pack.test.mjs
