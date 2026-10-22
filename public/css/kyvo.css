@@ -468,3 +468,14 @@ svg.fig .cable { stroke: #8B9185; stroke-width: 2; stroke-dasharray: 4 3; }
 .kyvo-live-exercise :is(button,a,input):focus-visible,.kyvo-today-hero a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){.kyvo-live-exercise .set-row{transition:none}}
 @media (max-width:390px){.kyvo-live-exercise{padding:13px}.kyvo-today-hero{padding:18px 15px}.kyvo-live-header{padding:14px}}
+
+/* KYVO Evolve phase 2: real licensed/demo assets when available; SVG fallback. */
+.kyvo-live-media{display:grid;grid-template-columns:minmax(0,148px) minmax(0,1fr);gap:14px;align-items:center;background:#141714;border:1px solid #30372c;border-radius:15px;padding:9px;margin:10px 0 17px}
+.kyvo-live-media-link{display:block;min-width:0;border-radius:11px;overflow:hidden;background:#eef0eb;outline-offset:3px}
+.kyvo-live-media-link:focus-visible{outline:3px solid var(--accent)}
+.kyvo-live-media .fig-tile{width:100%;aspect-ratio:4/3;border-radius:9px;min-height:0;margin:0;overflow:hidden}
+.kyvo-live-media .fig-tile img,.kyvo-live-media .fig-tile svg{width:100%;height:100%;object-fit:contain}
+.kyvo-live-media-info{display:flex;flex-direction:column;align-items:flex-start;gap:10px;line-height:1.4}
+.kyvo-live-media-info .tag{font-size:10px;font-weight:800;letter-spacing:.07em}
+@media(max-width:360px){.kyvo-live-media{grid-template-columns:minmax(0,116px) minmax(0,1fr);gap:9px;padding:7px}.kyvo-live-media-info{gap:6px}}
+@media(prefers-reduced-motion:reduce){.kyvo-live-media svg *{animation:none!important}}
