@@ -1,0 +1,43 @@
+name: KYVO mobile preview build
+
+on:
+  pull_request:
+    paths:
+      - 'src/client/**'
+      - 'src/core/**'
+      - 'public/**'
+      - 'data/**'
+      - 'scripts/build-preview.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/kyvo-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Configure Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned development tools
+        run: npm ci
+      - name: Type-check client and server
+        run: npm run typecheck
+      - name: Build sample-data web preview
+        run: npm run preview
+      - name: Upload downloadable preview bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: kyvo-mobile-preview
+          path: dist/preview/
+          if-no-files-found: error
+          retention-days: 7
