@@ -27,9 +27,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
       - name: Install pinned development tools
-        run: npm ci
+        run: npm install --no-package-lock --ignore-scripts
       - name: Type-check client and server
         run: npm run typecheck
       - name: Build sample-data web preview
