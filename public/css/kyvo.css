@@ -439,3 +439,32 @@ svg.fig .cable { stroke: #8B9185; stroke-width: 2; stroke-dasharray: 4 3; }
 .vw-3d { position: absolute; inset: 0; }
 .vw-3d[hidden] { display: none; }
 .vw-canvas { width: 100%; height: 100%; display: block; }
+
+
+/* KYVO Evolve: premium Today and live workout treatment.
+   Scoped to the new screen classes; no workflow or data changes. */
+.kyvo-today-hero{position:relative;padding:22px 20px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,#20251c 0%,#171717 48%,#111 100%);margin-bottom:18px;overflow:hidden}
+.kyvo-today-hero::after{content:"";position:absolute;right:-80px;top:-100px;width:230px;height:230px;background:radial-gradient(circle,rgba(184,243,107,.12),transparent 68%);pointer-events:none}
+.kyvo-today-hero h1{font-size:clamp(29px,7vw,38px);line-height:1.08;letter-spacing:-.045em;margin:16px 0 10px;font-weight:800}
+.kyvo-today-hero .goal-pill{margin-top:20px}
+.kyvo-today-hero .tag.accent{border-radius:999px;padding:7px 12px}
+.kyvo-today-progress{border-radius:20px;background:linear-gradient(160deg,var(--surface),#191c18);box-shadow:0 12px 40px rgba(0,0,0,.14)}
+.kyvo-today-progress .card-head h2{font-weight:800;letter-spacing:-.02em}
+.kyvo-today-progress .mini-stats{border-top:1px solid var(--border);padding-top:15px;margin-top:17px}
+.kyvo-live-header{background:linear-gradient(120deg,#20251b,#171717);border:1px solid var(--border);border-radius:18px;padding:17px;margin-bottom:14px}
+.kyvo-live-header .eyebrow{color:var(--accent);font-weight:800;letter-spacing:.09em}
+.kyvo-live-header h1{font-size:clamp(24px,6vw,31px);font-weight:800;letter-spacing:-.035em}
+.kyvo-live-exercise{border-radius:20px;background:linear-gradient(160deg,#1e1e1e,#181818);border:1px solid #363636;padding:18px}
+.kyvo-live-exercise .card-head{margin-bottom:12px}
+.kyvo-live-exercise .card-head h2{font-size:21px!important;letter-spacing:-.03em;line-height:1.2}
+.kyvo-live-exercise .set-head{color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:.06em}
+.kyvo-live-exercise .set-row{border-radius:12px;transition:background-color .16s ease}
+.kyvo-live-exercise .set-row:focus-within{background:rgba(184,243,107,.06)}
+.kyvo-live-exercise .set-row input{min-height:48px;font-variant-numeric:tabular-nums;font-weight:700}
+.kyvo-live-exercise .kyvo-set-complete{min-width:44px;min-height:44px;border-radius:12px}
+.kyvo-live-exercise .kyvo-set-complete[aria-pressed="true"]{background:var(--accent);color:#111}
+.kyvo-live-rest{position:sticky;top:8px;z-index:8;border:1px solid var(--accent);border-radius:16px;box-shadow:0 9px 30px rgba(0,0,0,.3)}
+.kyvo-live-rest .t{font-variant-numeric:tabular-nums;font-weight:800}
+.kyvo-live-exercise :is(button,a,input):focus-visible,.kyvo-today-hero a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.kyvo-live-exercise .set-row{transition:none}}
+@media (max-width:390px){.kyvo-live-exercise{padding:13px}.kyvo-today-hero{padding:18px 15px}.kyvo-live-header{padding:14px}}
