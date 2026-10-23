@@ -9,7 +9,7 @@ const root = resolve('dist/preview');
 const types = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.svg':'image/svg+xml', '.webm':'video/webm', '.png':'image/png', '.jpg':'image/jpeg', '.woff2':'font/woff2' };
 const server = createServer(async (req,res) => {
   try {
-    const path = resolve(root, decodeURIComponent((req.url || '/').split('?')[0].split('#')[0]).replace(/^\\/+/, '') || 'index.html');
+    const path = resolve(root, decodeURIComponent((req.url || '/').split('?')[0].split('#')[0]).replace(/^[/]+/, '') || 'index.html');
     if (path !== root && !path.startsWith(root + sep)) { res.writeHead(403).end(); return; }
     if (!(await stat(path)).isFile()) { res.writeHead(404).end(); return; }
     res.setHeader('Content-Type',types[extname(path)] || 'application/octet-stream');
