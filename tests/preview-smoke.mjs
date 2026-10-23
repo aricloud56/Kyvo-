@@ -1,5 +1,6 @@
 // End-to-end smoke test for the real KYVO demo SPA. No API, DB or secrets.
 import assert from 'node:assert/strict';
+import process from 'node:process';
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
