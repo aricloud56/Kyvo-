@@ -41,6 +41,10 @@ jobs:
           test -s dist/preview/css/kyvo.css
           test -s dist/preview/data/exercises.json
           ! grep -R -l 'sk_live_' dist/preview --include='*.html' --include='*.js'
+      - name: Install Chromium for browser smoke tests
+        run: npx playwright install --with-deps chromium
+      - name: Test real mobile demo navigation
+        run: node tests/preview-smoke.mjs
       - name: Upload complete sample-data preview
         uses: actions/upload-artifact@v4
         with:
