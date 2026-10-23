@@ -33,6 +33,21 @@ try {
     assert(await page.locator('#view').innerText(),'Empty '+title+' screen');
     assert(!await page.getByText('Something went wrong',{exact:true}).count(),title+' screen crashed');
   }
+  // Real workout journey using preview API: start, log a set, finish, verify summary.
+  await page.goto(base+'#/train',{waitUntil:'networkidle'});
+  await page.locator('#view [data-action="start"]').first().click();
+  await page.locator('.kyvo-live-exercise').first().waitFor({timeout:15000});
+  const first = page.locator('.kyvo-live-exercise').first();
+  const weight = first.locator('.set-row').first().locator('[data-f="w"]');
+  if (await weight.count()) await weight.fill('40');
+  await first.locator('.set-row').first().locator('[data-f="v"]').fill('8');
+  await first.locator('.set-row').first().locator('[data-action="done"]').click();
+  assert.equal(await first.locator('.set-row').first().locator('[data-action="done"]').getAttribute('aria-pressed'),'true');
+  await page.locator('[data-action="finish"]').first().click();
+  await page.locator('#fin button[type="submit"]').click();
+  await page.waitForURL(/#\\/session\\//,{timeout:15000});
+  await page.locator('#view h1').first().waitFor({timeout:15000});
+  assert(!await page.getByText('Something went wrong',{exact:true}).count(),'Workout completion failed');
   assert.deepEqual(errors,[], 'Browser uncaught errors: '+errors.join('; '));
   process.stdout.write('KYVO preview smoke: mobile load, five routes, no page errors OK\n');
 } finally { await browser.close(); await new Promise(resolve=>server.close(resolve)); }
