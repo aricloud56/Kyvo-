@@ -33,5 +33,5 @@ try {
     assert(!await page.getByText('Something went wrong',{exact:true}).count(),title+' screen crashed');
   }
   assert.deepEqual(errors,[], 'Browser uncaught errors: '+errors.join('; '));
-  console.log('KYVO preview smoke: mobile load, five routes, no page errors OK');
+  process.stdout.write('KYVO preview smoke: mobile load, five routes, no page errors OK\n');
 } finally { await browser.close(); await new Promise(resolve=>server.close(resolve)); }
