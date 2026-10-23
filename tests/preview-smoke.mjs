@@ -45,7 +45,7 @@ try {
   assert.equal(await first.locator('.set-row').first().locator('[data-action="done"]').getAttribute('aria-pressed'),'true');
   await page.locator('[data-action="finish"]').first().click();
   await page.locator('#fin button[type="submit"]').click();
-  await page.waitForURL(/#\\/session\\//,{timeout:15000});
+  await page.waitForURL(url => url.hash.startsWith('#/session/'),{timeout:15000});
   await page.locator('#view h1').first().waitFor({timeout:15000});
   assert(!await page.getByText('Something went wrong',{exact:true}).count(),'Workout completion failed');
   assert.deepEqual(errors,[], 'Browser uncaught errors: '+errors.join('; '));
