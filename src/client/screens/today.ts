@@ -34,7 +34,7 @@ export async function todayScreen(view: HTMLElement, params: string[]) {
   const message = d.summary ? d.summary.message : p.isRest ? 'Rest day today. Recovery is part of the plan.' : d.isPast ? 'Here is how this day was planned.' : 'Your plan is ready. Let’s make today count.';
 
   view.innerHTML = html`
-  <header class="greet">
+  <header class="greet kyvo-today-hero">
     <div class="row between"><p class="muted small" style="margin:0">${longDate(date)}${d.isToday ? '' : d.isPast ? ' · past day' : ' · upcoming'}</p>
       <nav class="row" aria-label="Change day"><a class="btn btn-ghost btn-sm" href="#/day/${addDays(date, -1)}" aria-label="Previous day">‹</a>${d.isToday ? '' : html`<a class="btn btn-ghost btn-sm" href="#/today">Today</a>`}<a class="btn btn-ghost btn-sm" href="#/day/${addDays(date, 1)}" aria-label="Next day">›</a></nav></div>
     <h1>${d.isToday ? `${greeting()}${name}` : `Plan for ${longDate(date).split(',')[0]}`}</h1>
@@ -55,7 +55,7 @@ export async function todayScreen(view: HTMLElement, params: string[]) {
     ${d.summary.records ? html`<p style="margin:12px 0 0">🏆 ${d.summary.records} personal record${d.summary.records > 1 ? 's' : ''} set.</p>` : ''}
   </section>` : ''}
 
-  <section class="card" aria-labelledby="prog-h" style="margin-top:16px">
+  <section class="card kyvo-today-progress" aria-labelledby="prog-h" style="margin-top:16px">
     <div class="card-head"><h2 id="prog-h">Today’s progress</h2><a class="small" href="#/nutrition/${date}">Food diary</a></div>
     <div class="progress-row">
       ${ring(d.eaten.kcal, t.kcal, Math.round(d.eaten.kcal).toLocaleString('en-AU'), `of ${t.kcal.toLocaleString('en-AU')} kcal`, 'Calories eaten')}

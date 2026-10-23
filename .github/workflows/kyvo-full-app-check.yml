@@ -1,0 +1,54 @@
+name: KYVO complete app validation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - kyvo/premium-today-live-ui-2026-10-22
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out KYVO
+        uses: actions/checkout@v4
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install development dependencies
+        run: npm install --no-package-lock --ignore-scripts
+      - name: Type-check client and server
+        run: npm run typecheck
+      - name: Lint and check unused code
+        run: npm run lint
+      - name: Build entire application
+        run: npm run build
+      - name: Run unit tests
+        run: npm run test:unit
+      - name: Build browser demo
+        run: npm run preview
+      - name: Verify preview entry and generated assets
+        run: |
+          test -s dist/preview/index.html
+          test -s dist/preview/js/client/demo/main.js
+          test -s dist/preview/css/kyvo.css
+          test -s dist/preview/data/exercises.json
+          ! grep -R -l 'sk_live_' dist/preview --include='*.html' --include='*.js'
+      - name: Install Chromium for browser smoke tests
+        run: npx playwright install chromium --only-shell
+      - name: Test real mobile demo navigation
+        run: node tests/preview-smoke.mjs
+      - name: Upload complete sample-data preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: kyvo-validated-app-preview
+          path: dist/preview/
+          if-no-files-found: error
+          retention-days: 7

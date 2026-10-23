@@ -17,18 +17,29 @@ copy('public/data', 'data');
 copy('public/vendor', 'vendor');
 copy('public/models', 'models');
 for (const f of ['exercises.json', 'exercise_media.json', 'foods.json', 'foods_extra.json', 'recipes.json']) copy(`data/${f}`, `data/${f}`);
-// The Artifact host wraps this in its own document skeleton; a standalone copy is written too.
-const body = `<title>KYVO Preview</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+// Standalone document for hosting at a subpath (for example GitHub Pages).
+// All links remain relative so this preview never depends on production routing.
+const document = `<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#111111">
+<title>KYVO — Sample Data Preview</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="stylesheet" href="css/kyvo.css">
 <style>:root{color-scheme:dark}html,body{background:#111111;color:#ffffff}</style>
+</head>
+<body class="app">
 <a class="skip" href="#view">Skip to content</a>
 <div id="app" aria-live="polite"><p class="boot">Loading KYVO preview…</p></div>
 <script type="module" src="js/client/demo/main.js"></script>
-`;
-fs.writeFileSync(path.join(out, 'index.html'), body);
-fs.writeFileSync(path.join(out, 'standalone.html'), `<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body class="app">${body}</body></html>`);
+</body>
+</html>`;
+fs.writeFileSync(path.join(out, 'index.html'), document);
+fs.writeFileSync(path.join(out, 'standalone.html'), document);
+fs.writeFileSync(path.join(out, '.nojekyll'), '');
 const files = [];
 (function walk(d) {
   for (const e of fs.readdirSync(d, { withFileTypes: true })) {
